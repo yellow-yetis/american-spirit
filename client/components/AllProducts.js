@@ -15,11 +15,11 @@ export class AllProducts extends React.Component{
         <div>
           <ul>
             {
-              this.props.products.map(product => {
+             /*  this.props.products.map(product => {
                 return (
                   <li key={product.id}>Product</li>
                 )
-              })
+              }) */
             }
           </ul>
         </div>
