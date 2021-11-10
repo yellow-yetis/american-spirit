@@ -19,3 +19,23 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+.cartImage {
+  width: 120px;
+  height: 120px;
+  border: 1px solid black;
+}
+
+.all-carts-list {
+  margin-left: 20px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.right {
+  display: flex;
+  justify-content: end;
+}
