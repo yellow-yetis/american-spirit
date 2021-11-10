@@ -13,13 +13,17 @@ export class AllProducts extends React.Component{
       <div>
         <h1>All Products</h1>
         <div>
-          <ul>
+          <ul style={{listStyle: 'none'}}>
             {
-             /*  this.props.products.map(product => {
+             this.props.products.map(product => {
                 return (
-                  <li key={product.id}>Product</li>
+                  <li key={product.id}>
+                    <div>
+                      <h2><Link to={`/products/${product.id}`}>{product.name}</Link> - {product.category} - $ {product.price}</h2>
+                    </div>
+                  </li>
                 )
-              }) */
+              })
             }
           </ul>
         </div>
@@ -30,7 +34,7 @@ export class AllProducts extends React.Component{
 
 const mapState = (state) => {
   return {
-    projects: state.products
+    products: state.products
   }
 }
 
