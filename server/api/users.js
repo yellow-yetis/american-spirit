@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {
-  models: { User, Cart, cartLiquor },
+  models: { User, Cart, cartLiquor, Liquor },
 } = require('../db');
 
 module.exports = router;
@@ -22,13 +22,51 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id/cart', async (req, res, next) => {
   try {
-    const cartProducts = Cart.findAll({
-      where: {
-        userId: req.params.id,
+    // maybe we should spit this up some
+    const usersCart = await Cart.findOne({
+      attributes: {
+        where: {
+          userId: req.params.id,
+        },
       },
-      include: cartLiquor,
     });
+
+    const cartProducts = await cartLiquor.findAll({
+      where: {
+        cartId: usersCart.id,
+      },
+      // include: Liquor,
+    });
+    // console.log('This is what I am looking for: ', cartProducts);
+    // cartProducts will give us an array that looks similar to this:
+    //   [
+    //     {
+    //         "cartQuantity": 2,
+    //         "cartPrice": 5,
+    //         "createdAt": "2021-11-10T04:17:23.653Z",
+    //         "updatedAt": "2021-11-10T04:17:23.653Z",
+    //         "cartId": 1,
+    //         "liquorId": 1
+    //     },
+    //     {
+    //         "cartQuantity": 5,
+    //         "cartPrice": 10.95,
+    //         "createdAt": "2021-11-10T05:38:32.677Z",
+    //         "updatedAt": "2021-11-10T05:38:32.677Z",
+    //         "cartId": 1,
+    //         "liquorId": 2
+    //     }
+    // ]
+    // **** Then we can isolate the liquorId's and dispatch to get products(). ***
     res.json(cartProducts);
+
+    // const cartProducts = Cart.findAll({
+    //   where: {
+    //     userId: req.params.id,
+    //   },
+    //   include: cartLiquor,
+    // });
+    // res.json(cartProducts);
   } catch (err) {
     next(err);
   }
