@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 import { fetchSingleProduct } from '../store/singleProduct';
 
 class SingleProduct extends React.Component {
+
   componentDidMount(){
     this.props.loadSingleProduct(this.props.match.params.productId);
   }
 
   render(){
     const name = this.props.product.name || '';
-    const type = this.props.product.type || '';
+    const type = this.props.product.category || '';
     const description = this.props.product.description || '';
     const price = this.props.product.price || '';
     const ABV = this.props.product.ABV || '';
