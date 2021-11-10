@@ -8,11 +8,11 @@ const Sequelize = require('sequelize')
 //associations could go here!
 
 const cartLiquor = db.define('cartLiquor', {
-  cartQuantity: {
+  liquorQuantity: {
     type: Sequelize.INTEGER,
     defaultValue: 0
   },
-  cartPrice: {
+  liquorPrice: {
     type: Sequelize.FLOAT
   }
 })
