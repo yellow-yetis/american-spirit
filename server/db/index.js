@@ -13,7 +13,8 @@ const cartLiquor = db.define('cartLiquor', {
     defaultValue: 0
   },
   liquorPrice: {
-    type: Sequelize.FLOAT
+    type: Sequelize.FLOAT,
+    defaultValue: 0
   }
 })
 
