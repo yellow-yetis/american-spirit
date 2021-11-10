@@ -35,7 +35,6 @@ router.get('/:id/cart', async (req, res, next) => {
       where: {
         cartId: usersCart.id,
       },
-      // include: Liquor,
     });
     // console.log('This is what I am looking for: ', cartProducts);
     // cartProducts will give us an array that looks similar to this:

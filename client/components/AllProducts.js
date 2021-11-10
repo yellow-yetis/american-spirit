@@ -14,19 +14,11 @@ export class AllProducts extends React.Component {
         <h1>All Products</h1>
         <div>
           <ul>
-<<<<<<< HEAD
-            {this.props.products.map(product => {
-              return <li key={product.id}>Product</li>;
-            })}
-=======
-            {
-             /*  this.props.products.map(product => {
+            {/*  this.props.products.map(product => {
                 return (
                   <li key={product.id}>Product</li>
                 )
-              }) */
-            }
->>>>>>> main
+              }) */}
           </ul>
         </div>
       </div>
