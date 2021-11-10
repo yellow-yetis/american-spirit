@@ -15,22 +15,9 @@ const User = db.define('user', {
   password: {
     type: Sequelize.STRING,
   },
-  userType: {
-    type: Sequelize.ENUM('ADMIN', 'MEMBER'),
-    defaultValue: 'MEMBER',
-    allowNull: false,
-  },
   isAdmin: {
-    type: Sequelize.VIRTUAL,
-    get() {
-      this.userType === 'ADMIN';
-    },
-  },
-  isMember: {
-    type: Sequelize.VIRTUAL,
-    get() {
-      this.userType === 'MEMBER';
-    },
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
   },
 });
 
