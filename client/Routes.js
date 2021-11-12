@@ -36,20 +36,12 @@ class Routes extends Component {
           </Switch>
         ) : (
           <Switch>
-<<<<<<< HEAD
             <Route path='/' exact component={ Login } />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route exact path="/products" component={AllProducts} />
             <Route exact path="/products/:productId" component={SingleProduct} />
             <Route exact path="/cart" component={Cart} />
-=======
-            <Route path='/' exact component={Login} />
-            <Route path='/login' component={Login} />
-            <Route path='/signup' component={Signup} />
-            <Route exact path='/products' component={AllProducts} />
-            <Route exact path='/cart' component={Cart} />
->>>>>>> main
           </Switch>
         )}
       </div>
