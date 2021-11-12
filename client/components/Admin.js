@@ -33,7 +33,6 @@ export class AllUsers extends React.Component {
 }
 
 const mapState = (state) => {
-  console.log('this is passed down state ', state);
   return {
     users: state.users,
   };
