@@ -39,7 +39,7 @@ class SingleProduct extends React.Component {
   handleAddToCart(e, product, quantity){
     if(this.state.error === ''){
       let key = 'product'+product.id.toString();
-
+      localStorage.removeItem('TEST');
       let itemAddedToCart = {
         ...product,
         liquorQuantity: quantity,
