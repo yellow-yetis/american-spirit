@@ -30,25 +30,18 @@ class SingleProduct extends React.Component {
       })
     } else {
       this.setState({
-        quantityToBuy: e.target.value,
+        quantityToBuy: parseInt(e.target.value),
         error: ''
       })
     }
   }
 
-  handleAddToCart(e, id, price, quantity){
-      console.log("EVENT: ", e)
-      console.log("ID: ", id);
-      console.log("PRICE: ", price);
-      console.log("QUANTITY: ", quantity);
+  handleAddToCart(e, product, quantity){
+      let key = 'product'+product.id.toString();
 
-      let key = 'product'+id.toString();
       let itemAddedToCart = {
-        liquorQuantity: quantity,
-        liquorPrice: quantity * price,
-        liquorId: id
-      };
-      console.log("ADDED TO CART: ", itemAddedToCart)
+        ...product, liquorQuantity: quantity, liquorTotalPrice: quantity * product.price
+      }
       localStorage.setItem(key, JSON.stringify(itemAddedToCart));
   }
 
@@ -59,8 +52,7 @@ class SingleProduct extends React.Component {
     const description = this.props.product.description || '';
     const price = this.props.product.price || '';
     const ABV = this.props.product.ABV || '';
-    const productId = this.props.product.id || '';
-
+    console.log(this.props.product);
    return (
      <div>
        <h1>{name}</h1>
@@ -78,7 +70,7 @@ class SingleProduct extends React.Component {
       }
       </div>
       <div>
-        <button onClick={(e) => this.handleAddToCart(e, productId, price, this.state.quantityToBuy)}>Add To Cart</button>
+        <button onClick={(e) => this.handleAddToCart(e, this.props.product, this.state.quantityToBuy)}>Add To Cart</button>
       </div>
      </div>
    )
