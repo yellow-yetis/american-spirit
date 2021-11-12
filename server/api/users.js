@@ -2,14 +2,11 @@ const router = require('express').Router();
 const {
   models: { User, Cart, cartLiquor, Liquor },
 } = require('../db');
-const { requireToken } = require('./gatekeepingmiddleware');
+const { requireToken, isAdmin } = require('./gatekeepingmiddleware');
 module.exports = router;
 
-router.get('/', requireToken, async (req, res, next) => {
+router.get('/', requireToken, isAdmin, async (req, res, next) => {
   try {
-    if (!req.user.isAdmin) {
-      return res.status(403).send('Access Denied');
-    }
     const users = await User.findAll({
       // explicitly select only the id and username fields - even though
       // users' passwords are encrypted, it won't help if we just
