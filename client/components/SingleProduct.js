@@ -11,14 +11,13 @@ class SingleProduct extends React.Component {
       error: ''
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleAddToCart = this.handleAddToCart.bind(this);
   }
 
   componentDidMount(){
     this.props.loadSingleProduct(this.props.match.params.productId);
   }
 
-  //When user clicks ATC, should submit produce id, current quantity, total price for quantity (i.e. quantity x this.props.product.price) and cartId (from sessionStorage?)
-  //When submitting as well if this.state.error !== '' then it should not go through, should display "please edit cart" msg or something
   handleChange(e){
     if(e.target.value <= 0){
       this.setState({
@@ -31,9 +30,23 @@ class SingleProduct extends React.Component {
       })
     } else {
       this.setState({
-        quantityToBuy: e.target.value,
+        quantityToBuy: parseInt(e.target.value),
         error: ''
       })
+    }
+  }
+
+  handleAddToCart(e, product, quantity){
+    if(this.state.error === ''){
+      let key = 'product'+product.id.toString();
+
+      let itemAddedToCart = {
+        ...product,
+        liquorQuantity: quantity,
+        liquorTotalPrice: quantity * product.price,
+        error: ''
+      }
+      localStorage.setItem(key, JSON.stringify(itemAddedToCart));
     }
   }
 
@@ -44,20 +57,24 @@ class SingleProduct extends React.Component {
     const description = this.props.product.description || '';
     const price = this.props.product.price || '';
     const ABV = this.props.product.ABV || '';
-
    return (
      <div>
        <h1>{name}</h1>
        <h2>{type}</h2>
        <p>{description}</p>
-       <h2>{price}</h2>
+       <h2>Price: {price}</h2>
        <h2>{ABV}</h2>
-      <label>Select Quantity:</label>
-      <input type="number" min="1" defaultValue="1" onChange={this.handleChange}></input>
+      <div>
+        <label>Select Quantity:</label>
+        <input type="number" min="1" defaultValue="1" onChange={this.handleChange}></input>
+      </div>
       <div>
       {
         this.state.error ? <h4 style={{ color: 'red' }}>{this.state.error}</h4> : <h4></h4>
       }
+      </div>
+      <div>
+        <button onClick={(e) => this.handleAddToCart(e, this.props.product, this.state.quantityToBuy)}>Add To Cart</button>
       </div>
      </div>
    )
