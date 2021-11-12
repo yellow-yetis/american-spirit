@@ -2,12 +2,11 @@ const router = require('express').Router();
 const {
   models: { User, Cart, cartLiquor, Liquor },
 } = require('../db');
-
+const { requireToken } = require('./gatekeepingmiddleware');
 module.exports = router;
 
-router.get('/', async (req, res, next) => {
+router.get('/', requireToken, async (req, res, next) => {
   try {
-    console.log('This is what I want ', req.user);
     if (!req.user.isAdmin) {
       return res.status(403).send('Access Denied');
     }
