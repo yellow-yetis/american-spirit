@@ -17,7 +17,7 @@ export class Cart extends Component {
     //If not, pull it out of local storage
     let productArr = [];
     for(let i = 0; i < localStorage.length; i++){
-      if(localStorage.key(i) !== 'token'){
+      if(localStorage.key(i).includes('product')){
         productArr.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
       }
     }
@@ -82,7 +82,11 @@ export class Cart extends Component {
            })
           }
         </ul>
-        <div className="right">Subtotal({this.state.productArr.length} of Items): $100</div>
+        <div className="right">Subtotal({this.state.productArr.length} of Items):$ {
+        this.state.productArr !== [] ? this.state.productArr.reduce(function(prev, curr){
+          return prev + curr.liquorTotalPrice
+        }, 0) : <h1>'$0'</h1>
+      }</div>
       </div>
     );
   }
