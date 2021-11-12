@@ -51,52 +51,52 @@ class CreateProduct extends React.Component {
           />
           <label>Category: </label>
           <input
-            placeholder='Product Name'
-            name='name'
+            placeholder='Product Category'
+            name='category'
             onChange={this.handleChange}
-            value={this.state.name}
+            value={this.state.category}
           />
           <label>Region: </label>
           <input
-            placeholder='Product Name'
-            name='name'
+            placeholder='Product Region'
+            name='region'
             onChange={this.handleChange}
-            value={this.state.name}
+            value={this.state.region}
           />
           <label>Description: </label>
           <input
-            placeholder='Product Name'
-            name='name'
+            placeholder='Product Description'
+            name='description'
             onChange={this.handleChange}
-            value={this.state.name}
+            value={this.state.description}
           />
-          <label>Name: </label>
+          <label>Price: $</label>
           <input
-            placeholder='Product Name'
-            name='name'
+            placeholder='200'
+            name='price'
             onChange={this.handleChange}
-            value={this.state.name}
+            value={this.state.price}
           />
-          <label>Name: </label>
+          <label>ABV: </label>
           <input
-            placeholder='Product Name'
-            name='name'
+            placeholder='Product ABV'
+            name='ABV'
             onChange={this.handleChange}
-            value={this.state.name}
+            value={this.state.ABV}
           />
-          <label>Name: </label>
+          <label>Image: </label>
           <input
-            placeholder='Product Name'
-            name='name'
+            placeholder='www.imageurl.com'
+            name='imageUrl'
             onChange={this.handleChange}
-            value={this.state.name}
+            value={this.state.imageUrl}
           />
-          <label>Name: </label>
+          <label>Stock: </label>
           <input
-            placeholder='Product Name'
-            name='name'
+            placeholder='Product Quantity'
+            name='stock'
             onChange={this.handleChange}
-            value={this.state.name}
+            value={this.state.stock}
           />
         </form>
       </div>
