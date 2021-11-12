@@ -37,12 +37,17 @@ class SingleProduct extends React.Component {
   }
 
   handleAddToCart(e, product, quantity){
+    if(this.state.error === ''){
       let key = 'product'+product.id.toString();
 
       let itemAddedToCart = {
-        ...product, liquorQuantity: quantity, liquorTotalPrice: quantity * product.price
+        ...product,
+        liquorQuantity: quantity,
+        liquorTotalPrice: quantity * product.price,
+        error: ''
       }
       localStorage.setItem(key, JSON.stringify(itemAddedToCart));
+    }
   }
 
 
@@ -52,7 +57,6 @@ class SingleProduct extends React.Component {
     const description = this.props.product.description || '';
     const price = this.props.product.price || '';
     const ABV = this.props.product.ABV || '';
-    console.log(this.props.product);
    return (
      <div>
        <h1>{name}</h1>

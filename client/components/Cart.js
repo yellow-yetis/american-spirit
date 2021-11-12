@@ -7,7 +7,6 @@ export class Cart extends Component {
     super();
     this.state = {
       productArr: [],
-      error: ''
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -39,46 +38,31 @@ export class Cart extends Component {
   handleChange(e, productId){
     const updatedQuantity = e.target.value;
     const updateArr = this.state.productArr.filter(x => x.id === productId);
-    const filteredProductState = this.state.productArr.filter(x => x.id !== productId);
     const productToUpdate = updateArr[0];
 
     if(updatedQuantity <= 0){
-      this.setState({
-        error:  'Only product quantities of 1 or greater are allowed'
-      })
+      productToUpdate.error = 'Only product quantities of 1 or greater are allowed'
     } else if (updatedQuantity > productToUpdate.stock){
-      this.setState({
-        error: 'We do not have that many products in stock, please lower quantity'
-      })
+      productToUpdate.error = 'We do not have that many products in stock, please lowerquantity'
     } else {
+      productToUpdate.error = '';
       productToUpdate.liquorQuantity = parseInt(updatedQuantity);
       productToUpdate.liquorTotalPrice = parseInt(updatedQuantity * productToUpdate.price);
-      this.setState({
-        productArr: [...filteredProductState, productToUpdate]
-      })
     }
 
-
-
-/*     if(e.target.value <= 0){
-      this.setState({
-        quantityToBuy: 1,
-        error: 'Only product quantities of 1 or greater are allowed'
-      })
-    } else if (e.target.value > 10){
-      this.setState({
-        error: 'We do not have that many products in stock, please lower quantity'
-      })
-    } else {
-      this.setState({
-        quantityToBuy: parseInt(e.target.value),
-        error: ''
-      })
-    } */
+    const updatedStateArray = this.state.productArr.map((x) => {
+      if(x.id === productToUpdate.id){
+        return {...productToUpdate}
+      } else {
+        return x
+      }
+    })
+    this.setState({
+      productArr: updatedStateArray
+    })
   }
 
   render() {
-    console.log(this.state.productArr);
     return (
       <div>
         <h1 className="center">Shopping Cart</h1>
@@ -92,6 +76,7 @@ export class Cart extends Component {
                 <div>Total Price: $ {product.liquorTotalPrice}</div>
                 <div>Total Quantity: <input type="number" min="1" defaultValue={product.liquorQuantity} onChange={(e) => this.handleChange(e, product.id)} /></div>
                 <button onClick={() => this.removeItem(product.id)}>Remove From Cart</button>
+                <h4 style={{color: 'red'}}>{product.error}</h4>
               </li>
              )
            })
