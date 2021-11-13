@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {
-  models: { Liquor },
+  models: { Liquor, cartLiquor, Cart },
 } = require('../db');
 
 //get all the liquors
@@ -23,5 +23,24 @@ router.get('/:productId', async (req, res, next) => {
     next(error);
   }
 });
+
+//Update cartLiquors when logged in user ATC
+router.put('/:productId', async (req, res, next) => {
+  try {
+    console.log("COMING THROUGH PUT ROUTE: ", req.body)
+    const userCart = await Cart.findOne({
+      where: {
+        userId: req.body.userId
+      }
+    })
+    const userCartId = userCart.dataValues.id
+
+
+
+
+  } catch (error) {
+    next(error);
+  }
+})
 
 module.exports = router;
