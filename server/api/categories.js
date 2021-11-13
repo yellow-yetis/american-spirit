@@ -3,6 +3,7 @@ const {
   models: { Liquor },
 } = require('../db');
 
+// api/categories/:categories (Vodka, Whiskey, Gin etc.)
 router.get('/:category', async (req, res, next) => {
   try {
     const categories = await Liquor.findAll({

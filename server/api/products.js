@@ -24,16 +24,4 @@ router.get('/:productId', async (req, res, next) => {
   }
 });
 
-router.get('/:category', async (req, res, next) => {
-  try {
-    const vodka = await Liquor.findAll({
-      where: {
-        category: req.params.category,
-      },
-    });
-    res.send(vodka);
-  } catch (error) {
-    next(error);
-  }
-});
 module.exports = router;
