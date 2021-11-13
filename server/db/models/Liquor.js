@@ -10,7 +10,6 @@ const Liquor = db.define('liquor', {
     type: Sequelize.ENUM('Vodka', 'Gin', 'Tequila', 'Mezcal', 'Rum', 'Whiskey'),
     allowNull: false,
   },
-
   region: {
     type: Sequelize.STRING,
     allowNull: false,
