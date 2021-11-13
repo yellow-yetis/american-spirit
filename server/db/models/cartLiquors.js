@@ -6,14 +6,9 @@ const cartLiquor = db.define('cartLiquor', {
     type: Sequelize.INTEGER,
     defaultValue: 0,
   },
-  liquorPrice: {
+  liquorTotalPrice: {
     type: Sequelize.FLOAT,
     defaultValue: 0,
-  },
-  image: {
-    type: Sequelize.STRING,
-    defaultValue:
-      'https://packagingoptionsdirect.com/750-ml-clear-glass-oval-liquor-bottle-215-mm-bar-top-neck-finish',
   },
 });
 

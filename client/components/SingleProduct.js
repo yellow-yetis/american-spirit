@@ -48,6 +48,12 @@ class SingleProduct extends React.Component {
       }
       localStorage.setItem(key, JSON.stringify(itemAddedToCart));
     }
+
+    if(this.props.isLoggedIn){
+      //PUT request to cartLiquors
+      //Need to update redux + backend
+      //User.getCart();
+    }
   }
 
 
@@ -57,6 +63,7 @@ class SingleProduct extends React.Component {
     const description = this.props.product.description || '';
     const price = this.props.product.price || '';
     const ABV = this.props.product.ABV || '';
+
    return (
      <div>
        <h1>{name}</h1>
@@ -83,7 +90,9 @@ class SingleProduct extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    product: state.product
+    product: state.product,
+    isLoggedIn: !!state.auth.id,
+    userId: state.auth.id
   }
 }
 

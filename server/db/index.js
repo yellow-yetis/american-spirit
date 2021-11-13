@@ -9,7 +9,6 @@ const cartLiquor = require('./models/cartLiquors');
 //associations could go here!
 
 
-
 Cart.belongsTo(User);
 User.hasOne(Cart);
 
