@@ -1,35 +1,35 @@
-const Sequelize = require('sequelize')
-const db = require('../db')
+const Sequelize = require('sequelize');
+const db = require('../db');
 
 const Liquor = db.define('liquor', {
   name: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
   },
   category: {
-    type: Sequelize.STRING,
-    allowNull: false
+    type: Sequelize.ENUM('Vodka', 'Gin', 'Tequila', 'Mezcal', 'Rum', 'Whiskey'),
+    allowNull: false,
   },
 
   region: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
   },
 
   description: {
     type: Sequelize.TEXT,
-    allowNull: false
+    allowNull: false,
   },
   imageUrl: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
   },
   price: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: false,
   },
   ABV: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: false,
   },
 
   stock: {
@@ -37,9 +37,9 @@ const Liquor = db.define('liquor', {
     allowNull: false,
     defaultValue: 0,
     validate: {
-      min: 0
-    }
+      min: 0,
+    },
   },
-})
+});
 
-module.exports = Liquor
+module.exports = Liquor;
