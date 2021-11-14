@@ -35,6 +35,12 @@ export class Cart extends Component {
     localStorage.removeItem('product'+liquorId)
   }
 
+  sumFinder(itemToSum){
+    return this.state.productArr.reduce(function(prev, curr){
+      return prev + curr[itemToSum]
+    }, 0)
+  }
+
   handleChange(e, productId){
     const updatedQuantity = e.target.value;
     const updateArr = this.state.productArr.filter(x => x.id === productId);
@@ -82,10 +88,10 @@ export class Cart extends Component {
            })
           }
         </ul>
-        <div className="right">Subtotal({this.state.productArr.length} of Items):$ {
-        this.state.productArr !== [] ? this.state.productArr.reduce(function(prev, curr){
-          return prev + curr.liquorTotalPrice
-        }, 0) : <h1>'$0'</h1>
+        <div className="right">Total Items {
+          this.state.productArr !== [] ? this.sumFinder('liquorQuantity') : <h1>0 Items</h1>
+        } Total Cost {'$'}{
+          this.state.productArr !== [] ? this.sumFinder('liquorTotalPrice') : <h1>'$0'</h1>
       }</div>
       </div>
     );
