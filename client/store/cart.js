@@ -3,10 +3,10 @@ import axios from 'axios';
 const SET_PRODUCTS = 'SET_PRODUCTS';
 const ADD_TO_CART = 'ADD_TO_CART';
 
-export const setProducts = products => {
+export const setProducts = productsInCart => {
   return {
     type: SET_PRODUCTS,
-    products,
+    productsInCart,
   };
 };
 
@@ -45,22 +45,11 @@ export const fetchCartProducts = (id) => {
     }
   }
 }
-/*
-export const fetchCartProducts = id => {
-  return async dispatch => {
-    try {
-      const { data } = await axios.get(`/api/users/${id}/cart`);
-      dispatch(setProducts(data));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}; */
 
 export default (state = [], action) => {
   switch (action.type) {
     case SET_PRODUCTS:
-      return action.products;
+      return action.productsInCart;
     case ADD_TO_CART:
       return [...state, action.product]
     default:

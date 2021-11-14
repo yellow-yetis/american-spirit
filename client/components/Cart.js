@@ -15,6 +15,8 @@ export class Cart extends Component {
     //This will need to be refactored once we account for signed in users.
     //If a user is signed in, axios.get to the db to pull in the product info (eager loading between cartLiquors and Liqour)
     //If not, pull it out of local storage
+
+    this.props.fetchCartProducts(this.props.userId);
     let productArr = [];
     for(let i = 0; i < localStorage.length; i++){
       if(localStorage.key(i).includes('product')){
@@ -98,15 +100,16 @@ export class Cart extends Component {
   }
 }
 
-const mapState = state => {
+const mapState = (state) => {
   return {
-    carts: state.products,
+    isLoggedIn: !!state.auth.id,
+    userId: state.auth.id
   };
 };
 
-const mapDispatch = dispatch => {
+const mapDispatch = (dispatch) => {
   return {
-    fetchCartProducts: id => dispatch(fetchCartProducts(id)),
+    fetchCartProducts: (id) => dispatch(fetchCartProducts(id)),
   };
 };
 export default connect(mapState, mapDispatch)(Cart);
