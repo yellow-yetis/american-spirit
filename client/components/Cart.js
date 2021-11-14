@@ -102,11 +102,13 @@ export class Cart extends Component {
             );
           })}
         </ul>
-        <div className="right">
+
+        <div className="center">
           Total Items{' '}
           {this.state.productArr !== [] ? this.sumFinder('liquorQuantity') : <h1>0 Items</h1>} Total
           Cost {'$'}
           {this.state.productArr !== [] ? this.sumFinder('liquorTotalPrice') : <h1>'$0'</h1>}
+          <Checkout />
         </div>
       </div>
     );

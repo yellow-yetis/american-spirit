@@ -4,64 +4,46 @@ export class CheckForm extends Component {
   render() {
     return (
       <div>
-        <h4>Payment Details</h4>
-        {/* <form onSubmit={this.handleSubmit}>
+        <h4 className="center">Payment Details</h4>
+        <form onSubmit={this.handleSubmit}>
           <div>
-            <label htmlFor="name">Robot Name:</label>
+            <label htmlFor="number">Card Number</label>
+            <input
+              type="text"
+              name="number"
+              // value={number}
+              placeholder="Number"
+              // onChange={this.handleChange}
+            />
+            <label htmlFor="cvv">CVV</label>
+            <input
+              type="text"
+              name="cvv"
+              // value={cvv}
+              placeholder="CVV"
+              // onChange={this.handleChange}
+            />
+
+            <label htmlFor="name">Name</label>
             <input
               type="text"
               name="name"
               // value={name}
-              placeholder="Enter name"
+              placeholder="Name"
               // onChange={this.handleChange}
             />
-            <input />
 
-            <label htmlFor="fuelType">Fuel Type:</label>
+            <label htmlFor="valid">Valid Thru</label>
             <input
-              type="text"
-              name="fuelType"
-              // value={fuelType}
-              placeholder="Enter fuel type"
+              type="date"
+              name="valid"
+              // value={valid}
+              placeholder="Valid Thru"
               // onChange={this.handleChange}
             />
 
-            <label htmlFor="fuelLevel">Fuel Level:</label>
-            <input
-              type="text"
-              name="fuelLevel"
-              // value={fuelLevel}
-              placeholder="Enter fuel level"
-              // onChange={this.handleChange}
-            />
-
-            <label htmlFor="imageUrl">Image Url:</label>
-            <input
-              type="text"
-              name="imageUrl"
-              // value={imageUrl}
-              placeholder="Enter image url"
-              // onChange={this.handleChange}
-            />
-
-            <button type="submit">Submit</button>
+            <button type="submit">Pay</button>
           </div>
-        </form> */}
-
-        <form className="table">
-          <div className="table-cell">
-            <label htmlFor="number">Card Number</label>
-            <input type="text" id="number" placeholder="Card Number" />
-          </div>
-          <div className="table-cell">
-            <label htmlFor="address">CVV</label>
-            <input type="text" id="address" placeholder="CVV" />
-          </div>
-          <label htmlFor="address">Address</label>
-          <input type="text" id="address" />
-          <label htmlFor="valid">Valid Thru</label>
-          <input type="text" id="valid" />
-          <button type="submit">Pay</button>
         </form>
       </div>
     );
