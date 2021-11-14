@@ -44,7 +44,7 @@ router.put('/:productId', async (req, res, next) => {
       cartId: userCartId,
     }});
 
-    await Cart.update()
+    //await Cart.update()
     res.send(userCart);
   } catch (error) {
     next(error);

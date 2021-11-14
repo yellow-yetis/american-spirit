@@ -5,7 +5,6 @@ const {
 
 router.get('/', async (req, res, next) => {
   try {
-    console.log (req.headers.userid);
     const userCart = await Cart.findOne({
       where: {
         userId: req.headers.userid
