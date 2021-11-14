@@ -82,7 +82,11 @@ export class Cart extends Component {
            })
           }
         </ul>
-        <div className="right">Subtotal({this.state.productArr.length} of Items):$ {
+        <div className="right">Subtotal {
+          this.state.productArr !== [] ? this.state.productArr.reduce(function(prev, curr){
+          return prev + curr.liquorQuantity
+        }, 0) : <h1>0 Items</h1>
+        } Items :$ {
         this.state.productArr !== [] ? this.state.productArr.reduce(function(prev, curr){
           return prev + curr.liquorTotalPrice
         }, 0) : <h1>'$0'</h1>
