@@ -30,6 +30,21 @@ export const addToCart = (productId, userId, itemAddedToCart) => {
     }
   }
 }
+
+export const fetchCartProducts = (id) => {
+  return async dispatch => {
+    try {
+      const { data } = await axios.get(`/api/cart`, {
+        headers: {
+          userId: id
+        }
+      });
+      dispatch(setProducts(data));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
 /*
 export const fetchCartProducts = id => {
   return async dispatch => {
