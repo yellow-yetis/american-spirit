@@ -27,7 +27,6 @@ router.get('/:productId', async (req, res, next) => {
 //Update cartLiquors when logged in user ATC
 router.put('/:productId', async (req, res, next) => {
   try {
-    console.log("COMING THROUGH PUT ROUTE: ", req.body)
     const userCart = await Cart.findOne({
       where: {
         userId: req.body.userId
@@ -35,9 +34,12 @@ router.put('/:productId', async (req, res, next) => {
     })
     const userCartId = userCart.dataValues.id
 
-
-
-
+    await userCart.addLiquors(req.body.itemAddedToCart.id, { through: {
+      liquorQuantity: req.body.itemAddedToCart.liquorQuantity,
+      liquorTotalPrice: req.body.itemAddedToCart.liquorTotalPrice,
+      cartId: userCartId,
+    }});
+    res.send(userCart);
   } catch (error) {
     next(error);
   }
