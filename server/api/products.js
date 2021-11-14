@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {
-  models: { Liquor },
+  models: { Liquor, cartLiquor, Cart },
 } = require('../db');
 const { requireToken, isAdmin } = require('./gatekeepingmiddleware');
 
@@ -25,39 +25,25 @@ router.get('/:productId', async (req, res, next) => {
   }
 });
 
-//POST create new product
-router.post('/', requireToken, isAdmin, async (req, res, next) => {
+//Update cartLiquors when logged in user ATC
+router.put('/:productId', async (req, res, next) => {
   try {
-    const { name, category, region, description, price, ABV, imageUrl, stock } =
-      req.body;
-    res.json(await Liquor.create(req.body));
-  } catch (error) {
-    console.error(error);
-    next(error);
-  }
-});
+    const userCart = await Cart.findOne({
+      where: {
+        userId: req.body.userId,
+      },
+    });
+    const userCartId = userCart.dataValues.id;
 
-// PUT /api/products/:productId *update existing product*
-router.put('/:productId', requireToken, isAdmin, async (req, res, next) => {
-  try {
-    const product = await Liquor.findByPk(req.params.productId);
-    const { name, category, region, description, price, ABV, imageUrl, stock } =
-      req.body;
-    res.json(await product.update(req.body));
+    await userCart.addLiquors(req.body.itemAddedToCart.id, {
+      through: {
+        liquorQuantity: req.body.itemAddedToCart.liquorQuantity,
+        liquorTotalPrice: req.body.itemAddedToCart.liquorTotalPrice,
+        cartId: userCartId,
+      },
+    });
+    res.send(userCart);
   } catch (error) {
-    console.error(error);
-    next(error);
-  }
-});
-
-// DELETE /api/products/:productId *remove existing product*
-router.delete('/:productId', requireToken, isAdmin, async (req, res, next) => {
-  try {
-    const product = await Liquor.findByPk(req.params.productId);
-    await product.destroy();
-    res.json(product);
-  } catch (error) {
-    console.error(error);
     next(error);
   }
 });
