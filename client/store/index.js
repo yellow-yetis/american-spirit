@@ -6,13 +6,11 @@ import auth from './auth';
 import allProducts from './products';
 import singleProduct from './singleProduct';
 import allUsers from './admin';
-import vodka from './vodka';
 
 const reducer = combineReducers({
   auth,
   product: singleProduct,
   products: allProducts,
-  vodka: vodka,
   users: allUsers,
 });
 
