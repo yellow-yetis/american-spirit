@@ -56,7 +56,7 @@ Sync and seed your database by running `npm run seed`. Running `npm run start:de
 
   1.  `heroku create` or `heroku create your-app-name` if you have a
       name in mind.
-  2.  `heroku config:set JWT=<your secret here!>` to set a secret for JWT signing
+  2.  `heroku config:set JWT=shh` to set a secret for JWT signing
 
 Database Setup
 
