@@ -26,7 +26,9 @@ export class UpdateProducts extends React.Component {
                       X
                     </button>
                     <h2>
-                      <Link to={`/products/${product.id}`}>{product.name}</Link>{' '}
+                      <Link to={`/admin/products/${product.id}`}>
+                        {product.name}
+                      </Link>{' '}
                       - {product.category} - $ {product.price}
                     </h2>
                   </div>

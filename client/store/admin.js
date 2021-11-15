@@ -108,9 +108,6 @@ export default (state = initialState, action) => {
     case SET_PRODUCTS:
       return { ...state, products: [...action.products] };
     case DELETE_PRODUCT:
-      // const updatedProducts = state.products.filter(
-      //   (product) => product.id !== action.product.id
-      // );
       return {
         ...state,
         products: [
