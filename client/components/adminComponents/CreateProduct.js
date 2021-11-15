@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { createProduct } from '../../store/admin';
 
 class CreateProduct extends React.Component {
   constructor() {
@@ -24,7 +25,7 @@ class CreateProduct extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.CreateProduct({ ...this.state });
+    this.props.createProduct({ ...this.state });
     this.setState({
       name: '',
       category: '',
@@ -50,12 +51,19 @@ class CreateProduct extends React.Component {
             value={this.state.name}
           />
           <label>Category: </label>
-          <input
-            placeholder='Product Category'
+          <select
             name='category'
             onChange={this.handleChange}
             value={this.state.category}
-          />
+          >
+            <option value=''>--Select a Category--</option>
+            <option value='Gin'>Gin</option>
+            <option value='Mezcal'>Mezcal</option>
+            <option value='Rum'>Rum</option>
+            <option value='Tequila'>Tequila</option>
+            <option value='Vodka'>Vodka</option>
+            <option value='Whiskey'>Whiskey</option>
+          </select>
           <label>Region: </label>
           <input
             placeholder='Product Region'
@@ -98,10 +106,15 @@ class CreateProduct extends React.Component {
             onChange={this.handleChange}
             value={this.state.stock}
           />
+          <button type='submit'>Add New Product</button>
         </form>
       </div>
     );
   }
 }
 
-export default connect(null, null)(CreateProduct);
+const mapDispatch = (dispatch) => ({
+  createProduct: (product) => dispatch(createProduct(product)),
+});
+
+export default connect(null, mapDispatch)(CreateProduct);

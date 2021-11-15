@@ -33,8 +33,9 @@ export class AllUsers extends React.Component {
 }
 
 const mapState = (state) => {
+  console.log(state);
   return {
-    users: state.users,
+    users: state.admin.users,
   };
 };
 
