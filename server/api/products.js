@@ -44,7 +44,27 @@ router.put('/:productId', async (req, res, next) => {
       cartId: userCartId,
     }});
 
-    //await Cart.update()
+    const liquorSum = await cartLiquor.sum('liquorQuantity', {
+      where: {
+        cartId: userCartId
+      }
+    })
+
+    const priceSum = await cartLiquor.sum('liquorTotalPrice', {
+      where: {
+        cartId: userCartId
+      }
+    })
+
+    //Update cart table with cartLiquors totals
+    Cart.update({
+      totalQuantity: liquorSum,//total quantity sum
+      totalPrice: priceSum//total price sum
+    }, {
+      where: {
+        id: userCartId
+      }
+    })
     res.send(userCart);
   } catch (error) {
     next(error);
