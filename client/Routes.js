@@ -4,10 +4,12 @@ import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Login, Signup } from './components/AuthForm';
 import Home from './components/Home';
 import AllProducts from './components/AllProducts';
-import { me } from './store';
 import SingleProduct from './components/SingleProduct';
 import Cart from './components/Cart';
 import Admin from './components/Admin';
+
+import { me } from './store';
+
 
 /**
  * COMPONENT
@@ -19,7 +21,6 @@ class Routes extends Component {
 
   render() {
     const { isLoggedIn } = this.props;
-
     return (
       <div>
         {isLoggedIn ? (

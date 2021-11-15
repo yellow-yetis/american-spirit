@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchSingleProduct } from '../store/singleProduct';
+import { addToCart } from '../store/cart';
 
 class SingleProduct extends React.Component {
   constructor(){
@@ -37,16 +38,20 @@ class SingleProduct extends React.Component {
   }
 
   handleAddToCart(e, product, quantity){
-    if(this.state.error === ''){
-      let key = 'product'+product.id.toString();
-
+    let key = 'product'+product.id.toString();
       let itemAddedToCart = {
         ...product,
         liquorQuantity: quantity,
         liquorTotalPrice: quantity * product.price,
         error: ''
       }
+
+    if(this.state.error === ''){
       localStorage.setItem(key, JSON.stringify(itemAddedToCart));
+    }
+
+    if(this.props.isLoggedIn && this.state.error === ''){
+      this.props.addToCart(product.id, this.props.userId, itemAddedToCart)
     }
   }
 
@@ -57,6 +62,7 @@ class SingleProduct extends React.Component {
     const description = this.props.product.description || '';
     const price = this.props.product.price || '';
     const ABV = this.props.product.ABV || '';
+
    return (
      <div>
        <h1>{name}</h1>
@@ -83,13 +89,16 @@ class SingleProduct extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    product: state.product
+    product: state.product,
+    isLoggedIn: !!state.auth.id,
+    userId: state.auth.id
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadSingleProduct: (id) => dispatch(fetchSingleProduct(id))
+    loadSingleProduct: (id) => dispatch(fetchSingleProduct(id)),
+    addToCart: (productId, userId, itemAddedToCart) => dispatch(addToCart(productId, userId, itemAddedToCart))
   }
 }
 
