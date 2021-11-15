@@ -18,6 +18,15 @@ router.get('/users', requireToken, isAdmin, async (req, res, next) => {
   }
 });
 
+router.get('/products', async (req, res, next) => {
+  try {
+    const products = await Liquor.findAll();
+    res.json(products);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.post('/products', requireToken, isAdmin, async (req, res, next) => {
   try {
     const { name, category, region, description, price, ABV, imageUrl, stock } =
@@ -63,6 +72,7 @@ router.delete(
   isAdmin,
   async (req, res, next) => {
     try {
+      console.log('I made it to the delete api');
       const product = await Liquor.findByPk(req.params.productId);
       await product.destroy();
       res.json(product);

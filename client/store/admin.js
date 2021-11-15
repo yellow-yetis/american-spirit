@@ -10,26 +10,25 @@ const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 const DELETE_PRODUCT = 'DELETE_PRODUCT';
 
 // action creators
-export const setUsers = (users) => {
-  return {
-    type: SET_USERS,
-    users,
-  };
-};
+export const setUsers = (users) => ({
+  type: SET_USERS,
+  users,
+});
 
-export const _createProduct = (product) => {
-  return {
-    type: CREATE_PRODUCT,
-    product,
-  };
-};
+export const _createProduct = (product) => ({
+  type: CREATE_PRODUCT,
+  product,
+});
 
-export const setProducts = (products) => {
-  return {
-    type: SET_PRODUCTS,
-    products,
-  };
-};
+export const setProducts = (products) => ({
+  type: SET_PRODUCTS,
+  products,
+});
+
+export const _deleteProduct = (product) => ({
+  type: DELETE_PRODUCT,
+  product,
+});
 
 // Thunks
 export const createProduct = (product) => async (dispatch) => {
@@ -46,6 +45,26 @@ export const createProduct = (product) => async (dispatch) => {
         }
       );
       dispatch(_createProduct(createdProduct));
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const deleteProduct = (id) => async (dispatch) => {
+  try {
+    const token = window.localStorage.getItem(TOKEN);
+    if (token) {
+      console.log("I'm in the thunk!!!");
+      const { data: deletedProduct } = await axios.delete(
+        `/api/admin/products/${id}`,
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      dispatch(_deleteProduct(deletedProduct));
     }
   } catch (error) {
     console.error(error);
@@ -86,6 +105,20 @@ export default (state = initialState, action) => {
       return { ...state, users: [...action.users] };
     case CREATE_PRODUCT:
       return { ...state, products: [...state.products, action.product] };
+    case SET_PRODUCTS:
+      return { ...state, products: [...action.products] };
+    case DELETE_PRODUCT:
+      // const updatedProducts = state.products.filter(
+      //   (product) => product.id !== action.product.id
+      // );
+      return {
+        ...state,
+        products: [
+          ...state.products.filter(
+            (product) => product.id !== action.product.id
+          ),
+        ],
+      };
     default:
       return state;
   }

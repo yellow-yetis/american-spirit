@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CreateProduct from './adminComponents/CreateProduct';
+import UpdateProducts from './adminComponents/UpdateProducts';
 
 export class Admin extends React.Component {
   render() {
@@ -10,6 +11,7 @@ export class Admin extends React.Component {
       <div>
         <Link to='/users'>View All Users</Link>
         <CreateProduct />
+        <UpdateProducts />
       </div>
     );
   }
