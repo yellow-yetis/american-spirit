@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {
-  models: { Liquor },
+  models: { Liquor, cartLiquor, Cart },
 } = require('../db');
 
 //get all the liquors
@@ -23,5 +23,26 @@ router.get('/:productId', async (req, res, next) => {
     next(error);
   }
 });
+
+//Update cartLiquors when logged in user ATC
+router.put('/:productId', async (req, res, next) => {
+  try {
+    const userCart = await Cart.findOne({
+      where: {
+        userId: req.body.userId
+      }
+    })
+    const userCartId = userCart.dataValues.id
+
+    await userCart.addLiquors(req.body.itemAddedToCart.id, { through: {
+      liquorQuantity: req.body.itemAddedToCart.liquorQuantity,
+      liquorTotalPrice: req.body.itemAddedToCart.liquorTotalPrice,
+      cartId: userCartId,
+    }});
+    res.send(userCart);
+  } catch (error) {
+    next(error);
+  }
+})
 
 module.exports = router;

@@ -30,12 +30,93 @@ form div {
   margin-left: 20px;
 }
 
+.all-liquors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 25px;
+}
+
 .center {
   display: flex;
   justify-content: center;
 }
 
-.right {
-  display: flex;
-  justify-content: end;
+/*Checkout JS File */
+body.active-modal {
+  overflow-y: hidden;
+}
+
+.btn-modal {
+  background-color: #59a9c2;
+  margin-left: 30px;
+  margin-bottom: 40px;
+  white-space: nowrap;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 7px 15px;
+  font-size: 10px;
+  color: white;
+}
+
+.btn-modal:hover {
+  background-color: #65878f;
+}
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(41, 41, 41, 0.8);
+}
+.modal-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 600px;
+  min-width: 300px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+}
+
+.table {
+  display: table;
+}
+
+.table-cell {
+  display: table-cell;
+}
+
+form button {
+  padding: 1em 2em;
+  background-color: #59a9c2;
+  color: white;
+  border: none;
+  font-size: 10px;
+  transition: all 1s ease;
+  outline: none;
+  margin-left: 30px;
+}
+
+form button:hover {
+  background-color: #65878f;
 }

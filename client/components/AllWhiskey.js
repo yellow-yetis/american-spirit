@@ -1,29 +1,32 @@
 import React from 'react';
-import { fetchProducts } from '../store/products';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchProducts } from '../store/products';
 
-export class AllProducts extends React.Component {
+export class Whiskey extends React.Component {
   componentDidMount() {
     this.props.loadProducts();
   }
 
   render() {
+    const filteredWhiskeyArray = this.props.products.filter(product => {
+      return product.category === 'Whiskey';
+    });
+
     return (
       <div>
-        <h1>All Products</h1>
+        <h1>Whiskey</h1>
         <div>
           <ul style={{ listStyle: 'none' }}>
-            {this.props.products.map(product => {
+            {filteredWhiskeyArray.map(whiskey => {
               return (
-                <li key={product.id}>
+                <li key={whiskey.id}>
                   <div>
                     <h2>
-                      <Link to={`/products/${product.id}`}>
-                        <img className="cartImage" src={product.imageUrl} />
-                        {product.name}
+                      <Link to={`/products/${whiskey.id}`}>
+                        {whiskey.name} <img className="cartImage" src={whiskey.imageUrl} />
                       </Link>{' '}
-                      - {product.category} - $ {product.price}
+                      - {whiskey.category} - $ {whiskey.price}
                     </h2>
                   </div>
                 </li>
@@ -48,4 +51,4 @@ const mapDispatch = dispatch => {
   };
 };
 
-export default connect(mapState, mapDispatch)(AllProducts);
+export default connect(mapState, mapDispatch)(Whiskey);

@@ -12,6 +12,12 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           {/* The navbar will show these links after you log in */}
           <Link to='/home'>Home</Link>
           <Link to='/products'>All Products</Link>
+          <Link to='/categories/Vodka'>Vodka</Link>
+          <Link to='/categories/Gin'>Gin</Link>
+          <Link to='/categories/Tequila'>Tequila</Link>
+          <Link to='/categories/Mezcal'>Mezcal</Link>
+          <Link to='/categories/Rum'>Rum</Link>
+          <Link to='/categories/Whiskey'>Whiskey</Link>
           <a href='#' onClick={handleClick}>
             Logout
           </a>
@@ -22,6 +28,12 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
         <div>
           {/* The navbar will show these links before you log in */}
           <Link to='/products'>All Products</Link>
+          <Link to='/categories/Vodka'>Vodka</Link>
+          <Link to='/categories/Gin'>Gin</Link>
+          <Link to='/categories/Tequila'>Tequila</Link>
+          <Link to='/categories/Mezcal'>Mezcal</Link>
+          <Link to='/categories/Rum'>Rum</Link>
+          <Link to='/categories/Whiskey'>Whiskey</Link>
           <Link to='/login'>Login</Link>
           <Link to='/signup'>Sign Up</Link>
           <Link to='/cart'>Cart</Link>
