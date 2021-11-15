@@ -3,45 +3,43 @@ const {
   models: { Liquor, cartLiquor, Cart },
 } = require('../db');
 
-//get all the liquors
 router.get('/', async (req, res, next) => {
   try {
-    const products = await Liquor.findAll();
-    res.json(products);
+    const userCart = await Cart.findOne({
+      where: {
+        userId: req.headers.userid
+      }
+    });
+    const userCartId = userCart.dataValues.id;
+
+    const productsInCart = await userCart.getLiquors({cartId: userCartId})
+
+    res.json(productsInCart);
   } catch (error) {
     next(error);
   }
-});
+})
 
-//get a single liquor based on id
-router.get('/:productId', async (req, res, next) => {
-  try {
-    const liquor = await Liquor.findByPk(req.params.productId);
-    res.send(liquor);
-  } catch (error) {
-    next(error);
-  }
-});
-
-//Update cartLiquors when logged in user ATC
-router.put('/:productId', async (req, res, next) => {
-  const liquorId = req.body.itemAddedToCart.id
-  const liquorQuantity = req.body.itemAddedToCart.liquorQuantity;
-  const liquorTotalPrice = req.body.itemAddedToCart.liquorTotalPrice;
-
+//Potentially same as ATC
+router.put('/', async (req, res, next) => {
+  const liquorId = req.body.updatedProduct.id;
+  const liquorQuantity = req.body.updatedProduct.cartLiquor.liquorQuantity;
+  const liquorTotalPrice = req.body.updatedProduct.cartLiquor.liquorTotalPrice;
   try {
     const userCart = await Cart.findOne({
       where: {
         userId: req.body.userId
       }
-    })
+    });
     const userCartId = userCart.dataValues.id
 
-    await userCart.addLiquors(liquorId, { through: {
-      liquorQuantity: liquorQuantity,
-      liquorTotalPrice: liquorTotalPrice,
-      cartId: userCartId,
-    }});
+    await userCart.addLiquors(liquorId, {
+      through: {
+        liquorQuantity: liquorQuantity,
+        liquorTotalPrice: liquorTotalPrice,
+        cartId: userCartId
+      },
+    });
 
     const liquorSum = await cartLiquor.sum('liquorQuantity', {
       where: {
@@ -64,9 +62,23 @@ router.put('/:productId', async (req, res, next) => {
         id: userCartId
       }
     })
+
     const liquors = await userCart.getLiquors()
 
     res.send(liquors);
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.get('/totals', async (req, res, next) => {
+  try {
+    const userCart = await Cart.findOne({
+      where: {
+        userId: req.headers.userid
+      }
+    });
+    res.send(userCart);
   } catch (error) {
     next(error);
   }
