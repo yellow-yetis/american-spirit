@@ -64,7 +64,9 @@ router.put('/:productId', async (req, res, next) => {
         id: userCartId
       }
     })
-    res.send(userCart);
+    const liquors = await userCart.getLiquors()
+
+    res.send(liquors);
   } catch (error) {
     next(error);
   }

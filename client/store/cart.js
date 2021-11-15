@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const SET_CART_PRODUCTS = 'SET_CART_PRODUCTS';
 const ADD_TO_CART = 'ADD_TO_CART';
+const UPDATE_CART = 'UPDATE_CART';
 
 
 export const setCartProducts = (productsInCart) => {
@@ -26,6 +27,13 @@ export const fetchCartProducts = (id) => {
   }
 }
 
+export const _updateCart = product => {
+  return {
+    type: UPDATE_CART,
+    product
+  }
+}
+
 export const _addToCart = product => {
   return {
     type: ADD_TO_CART,
@@ -47,12 +55,26 @@ export const addToCart = (productId, userId, itemAddedToCart) => {
   }
 }
 
+export const updateCart = (userId, updatedProduct) => {
+  return async (dispatch) => {
+    const { data: updated } = await axios.put('/api/cart', {
+      updatedProduct: updatedProduct,
+      userId: userId
+    });
+    dispatch(_updateCart(updated));
+  }
+}
+
 export default (state = [], action) => {
   switch (action.type) {
     case SET_CART_PRODUCTS:
       return action.productsInCart
     case ADD_TO_CART:
-      return [...state, action.product]
+      return action.product
+    case UPDATE_CART: {
+      const newState = state.map((x) => (x.id === action.product.id ? action.product : x))
+      return newState
+    }
     default:
       return state;
   }
