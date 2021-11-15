@@ -3,6 +3,7 @@ import axios from 'axios';
 const SET_CART_PRODUCTS = 'SET_CART_PRODUCTS';
 const ADD_TO_CART = 'ADD_TO_CART';
 
+
 export const setCartProducts = (productsInCart) => {
   return {
     type: SET_CART_PRODUCTS,

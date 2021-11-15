@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchSingleProduct } from '../store/singleProduct';
 import { addToCart } from '../store/cart';
 
-class SingleProduct extends React.Component {
+class SingleProduct extends Component {
   constructor(){
     super();
     this.state = {
@@ -62,7 +62,6 @@ class SingleProduct extends React.Component {
     const description = this.props.product.description || '';
     const price = this.props.product.price || '';
     const ABV = this.props.product.ABV || '';
-    console.log("SINGLE PRODUCT USER ID: ", this.props.userId);
    return (
      <div>
        <h1>{name}</h1>

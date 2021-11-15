@@ -16,7 +16,6 @@ router.get('/', async (req, res, next) => {
 //get a single liquor based on id
 router.get('/:productId', async (req, res, next) => {
   try {
-    console.log(req.params.liquorId);
     const liquor = await Liquor.findByPk(req.params.productId);
     res.send(liquor);
   } catch (error) {

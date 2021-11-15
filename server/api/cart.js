@@ -20,4 +20,17 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.get('/totals', async (req, res, next) => {
+  try {
+    const userCart = await Cart.findOne({
+      where: {
+        userId: req.headers.userid
+      }
+    });
+    res.send(userCart);
+  } catch (error) {
+    next(error);
+  }
+})
+
 module.exports = router;
