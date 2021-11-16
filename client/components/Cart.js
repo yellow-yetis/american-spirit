@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-  fetchCartProducts,
-  updateCart,
-  removeProductFromCart,
-} from '../store/cart';
+import { fetchCartProducts, updateCart, removeProductFromCart } from '../store/cart';
 import { fetchCartTotals } from '../store/cartTotals';
 import { Link } from 'react-router-dom';
 import Checkout from './Checkout';
@@ -19,6 +15,7 @@ export class Cart extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.showModal = this.showModal.bind(this);
     this.removeItem = this.removeItem.bind(this);
+
   }
 
   showModal(event) {
@@ -29,20 +26,14 @@ export class Cart extends Component {
 
   componentDidMount() {
     this.props.fetchCartProducts(this.props.userId);
-    this.props.fetchCartTotals(this.props.userId);
   }
 
-<<<<<<< HEAD
   async handleChange(e, product){
-=======
-  handleChange(e, product) {
->>>>>>> main
     let itemUpdatedInCart = {
       ...product,
       cartLiquor: {
         liquorQuantity: e.target.value,
         liquorTotalPrice: e.target.value * product.price,
-<<<<<<< HEAD
       }
     }
     await this.props.updateCart(this.props.userId, itemUpdatedInCart);
@@ -52,28 +43,15 @@ export class Cart extends Component {
   async removeItem(userId, productId){
     await this.props.removeProductFromCart(userId, productId);
     await this.props.fetchCartProducts(userId);
-=======
-      },
-    };
-    this.props.updateCart(this.props.userId, itemUpdatedInCart);
-    this.props.fetchCartTotals(this.props.userId);
   }
 
-  removeItem(userId, productId) {
-    this.props.removeProductFromCart(userId, productId);
-    this.props.fetchCartProducts(userId);
-    this.props.fetchCartTotals(userId);
->>>>>>> main
-  }
-
-  sumFinder(itemToSum) {
-    return this.props.productsInCart.reduce(function (prev, curr) {
-      return prev + curr.cartLiquor[itemToSum];
+  sumFinder(itemToSum){
+    return this.props.productsInCart.reduce(function(prev, curr){
+      return prev + curr.cartLiquor[itemToSum]
     }, 0);
   }
 
   render() {
-<<<<<<< HEAD
 
       return (
         <div>
@@ -97,56 +75,8 @@ export class Cart extends Component {
           <div className="right">Total Items {
             this.props.productsInCart ? this.sumFinder('liquorQuantity') : <div>0 Items</div>
           } Total Cost {'$'}{
-            this.props.productsInCart  ? this.sumFinder('liquorTotalPrice') : <div>'$0'</div>
+            this.props.productsInCart ? this.sumFinder('liquorTotalPrice') : <div>'$0'</div>
       }</div>
-=======
-    return (
-      <div>
-        <h1 className='center'>Shopping Cart</h1>
-        <ul style={{ listStyle: 'none' }}>
-          {this.props.productsInCart.map((product) => {
-            return (
-              <li key={product.id}>
-                <h4>{product.name}</h4>
-                <img className='cartImage' src={product.imageUrl} />
-                <div>
-                  Total Price: {'$'}
-                  {product.cartLiquor.liquorTotalPrice}
-                </div>
-                <div>
-                  Total Quantity:{' '}
-                  <input
-                    type='number'
-                    min='1'
-                    defaultValue={product.cartLiquor.liquorQuantity}
-                    onChange={(e) => this.handleChange(e, product)}
-                  />
-                </div>
-                <button
-                  onClick={() => this.removeItem(this.props.userId, product.id)}
-                >
-                  Remove From Cart
-                </button>
-                <h4 style={{ color: 'red' }}>{product.error}</h4>
-              </li>
-            );
-          })}
-        </ul>
-        <div className='right'>
-          Total Items{' '}
-          {this.props.totals.totalQuantity ? (
-            this.sumFinder('liquorQuantity')
-          ) : (
-            <div>0 Items</div>
-          )}{' '}
-          Total Cost {'$'}
-          {this.props.totals.totalPrice ? (
-            this.sumFinder('liquorTotalPrice')
-          ) : (
-            <div>'$0'</div>
-          )}
-        </div>
->>>>>>> main
       </div>
     );
   }
@@ -157,7 +87,6 @@ const mapState = (state) => {
     productsInCart: state.cartProducts,
     isLoggedIn: !!state.auth.id,
     userId: state.auth.id,
-    totals: state.cartTotals,
   };
 };
 
@@ -166,8 +95,7 @@ const mapDispatch = (dispatch) => {
     fetchCartProducts: (id) => dispatch(fetchCartProducts(id)),
     fetchCartTotals: (id) => dispatch(fetchCartTotals(id)),
     updateCart: (userId, product) => dispatch(updateCart(userId, product)),
-    removeProductFromCart: (userId, productId) =>
-      dispatch(removeProductFromCart(userId, productId)),
+    removeProductFromCart: (userId, productId) => dispatch(removeProductFromCart(userId, productId))
   };
 };
 
