@@ -3,8 +3,13 @@ module.exports = router;
 
 router.use('/users', require('./users'));
 router.use('/products', require('./products'));
+<<<<<<< Updated upstream
 
 router.use('/cart', require('./cart'));
+=======
+router.use('/categories', require('./categories'));
+router.use('/order', require('/orders'));
+>>>>>>> Stashed changes
 
 router.use((req, res, next) => {
   const error = new Error('Not Found');

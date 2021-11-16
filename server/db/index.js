@@ -6,8 +6,8 @@ const Liquor = require('./models/Liquor');
 const Cart = require('./models/Cart');
 const Sequelize = require('sequelize');
 const cartLiquor = require('./models/cartLiquors');
+const Order = require('./models/Order');
 //associations could go here!
-
 
 Cart.belongsTo(User);
 User.hasOne(Cart);
@@ -22,5 +22,6 @@ module.exports = {
     Cart,
     Liquor,
     cartLiquor,
+    Order,
   },
 };
