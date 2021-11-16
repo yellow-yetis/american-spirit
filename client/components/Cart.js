@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import cartLiquor from '../../server/db/models/cartLiquors';
 import { fetchCartProducts, updateCart, removeProductFromCart } from '../store/cart';
 import { fetchCartTotals } from '../store/cartTotals';
 import { Link } from 'react-router-dom';
@@ -42,6 +41,54 @@ export class Cart extends Component {
     this.props.fetchCartTotals(this.props.userId);
   }
 
+  removeItem(userId, productId){
+    this.props.removeProductFromCart(userId, productId);
+    this.props.fetchCartProducts(userId);
+    this.props.fetchCartTotals(userId);
+  }
+
+  sumFinder(itemToSum){
+    return this.props.productsInCart.reduce(function(prev, curr){
+      return prev + curr.cartLiquor[itemToSum]
+    }, 0);
+  }
+
+  render() {
+      return (
+        <div>
+          <h1 className="center">Shopping Cart</h1>
+          <ul style={{listStyle: 'none'}}>
+            {
+             this.props.productsInCart.map(product => {
+               return (
+                <li key={product.id}>
+                  <h4>{product.name}</h4>
+                  <img className="cartImage" src={product.imageUrl} />
+                  <div>Total Price: {'$'}{product.cartLiquor.liquorTotalPrice}</div>
+                  <div>Total Quantity: <input type="number" min="1" defaultValue={product.cartLiquor.liquorQuantity} onChange={(e) => this.handleChange(e, product)} /></div>
+                  <button onClick={() => this.removeItem(this.props.userId, product.id)}>Remove From Cart</button>
+                  <h4 style={{color: 'red'}}>{product.error}</h4>
+                </li>
+               )
+             })
+            }
+          </ul>
+          <div className="right">Total Items {
+            this.props.totals.totalQuantity ? this.sumFinder('liquorQuantity') : <div>0 Items</div>
+          } Total Cost {'$'}{
+            this.props.totals.totalPrice ? this.sumFinder('liquorTotalPrice') : <div>'$0'</div>
+      }</div>
+      </div>
+    );
+  }
+}
+
+const mapState = (state) => {
+  return {
+    productsInCart: state.cartProducts,
+    isLoggedIn: !!state.auth.id,
+    userId: state.auth.id,
+    totals: state.cartTotals
   };
 };
 
