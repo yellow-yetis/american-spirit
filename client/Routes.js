@@ -8,9 +8,11 @@ import SingleProduct from './components/SingleProduct';
 import Cart from './components/Cart';
 import AllUsers from './components/adminComponents/AllUsers';
 import Admin from './components/Admin';
+import GuestCart from './components/GuestCart';
+import AllVodka from './components/AllVodka';
 
 import { me } from './store';
-
+import AdminProduct from './components/adminComponents/AdminProduct';
 
 /**
  * COMPONENT
@@ -28,6 +30,7 @@ class Routes extends Component {
           <Switch>
             <Route path='/home' component={Home} />
             <Route exact path='/products' component={AllProducts} />
+            <Route exact path='/categories/:Vodka' component={AllVodka} />
             <Route
               exact
               path='/products/:productId'
@@ -36,15 +39,25 @@ class Routes extends Component {
             <Route exact path='/cart' component={Cart} />
             <Route exact path='/users' component={AllUsers} />
             <Route exact path='/admin' component={Admin} />
+            <Route
+              exact
+              path='/admin/products/:productId'
+              component={AdminProduct}
+            />
           </Switch>
         ) : (
           <Switch>
-            <Route path='/' exact component={ Login } />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
-            <Route exact path="/products" component={AllProducts} />
-            <Route exact path="/products/:productId" component={SingleProduct} />
-            <Route exact path="/cart" component={Cart} />
+            <Route path='/' exact component={Login} />
+            <Route path='/login' component={Login} />
+            <Route path='/signup' component={Signup} />
+            <Route exact path='/products' component={AllProducts} />
+            <Route exact path='/categories/:Vodka' component={AllVodka} />
+            <Route
+              exact
+              path='/products/:productId'
+              component={SingleProduct}
+            />
+            <Route exact path='/cart' component={GuestCart} />
           </Switch>
         )}
       </div>

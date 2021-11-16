@@ -8,6 +8,7 @@ const SET_PRODUCTS = 'SET_PRODUCTS';
 const CREATE_PRODUCT = 'CREATE_PRODUCT';
 const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 const DELETE_PRODUCT = 'DELETE_PRODUCT';
+const SET_SINGLE_PRODUCT = 'SET_SINGLE_PRODUCT';
 
 // action creators
 export const setUsers = (users) => ({
@@ -25,12 +26,54 @@ export const setProducts = (products) => ({
   products,
 });
 
+export const _updateProduct = (product) => ({
+  type: UPDATE_PRODUCT,
+  product,
+});
+
 export const _deleteProduct = (product) => ({
   type: DELETE_PRODUCT,
   product,
 });
 
+const setSingleProduct = (product) => {
+  return {
+    type: SET_SINGLE_PRODUCT,
+    product,
+  };
+};
+
 // Thunks
+export const fetchSingleProduct = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`/api/admin/products/${id}`);
+      dispatch(setSingleProduct(data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+export const updateProduct = (product) => async (dispatch) => {
+  try {
+    const token = window.localStorage.getItem(TOKEN);
+    if (token) {
+      const { data: updatedProduct } = await axios.put(
+        `/api/admin/products/${product.id}`,
+        product,
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      dispatch(_createProduct(updatedProduct));
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const createProduct = (product) => async (dispatch) => {
   try {
     const token = window.localStorage.getItem(TOKEN);
@@ -55,7 +98,6 @@ export const deleteProduct = (id) => async (dispatch) => {
   try {
     const token = window.localStorage.getItem(TOKEN);
     if (token) {
-      console.log("I'm in the thunk!!!");
       const { data: deletedProduct } = await axios.delete(
         `/api/admin/products/${id}`,
         {
@@ -98,6 +140,7 @@ export const fetchProducts = () => {
 let initialState = {
   users: [],
   products: [],
+  product: {},
 };
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -116,6 +159,10 @@ export default (state = initialState, action) => {
           ),
         ],
       };
+    case SET_SINGLE_PRODUCT:
+      return { ...state, product: action.product };
+    case UPDATE_PRODUCT:
+      return { ...state, product: action.product };
     default:
       return state;
   }

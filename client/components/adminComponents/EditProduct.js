@@ -1,0 +1,126 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { updateProduct } from '../../store/admin';
+
+class EditProduct extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: '',
+      category: '',
+      region: '',
+      description: '',
+      price: '',
+      ABV: '',
+      imageUrl: '',
+      stock: '',
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    // some if logic here to deal with empty strings in state
+    this.props.updateProduct({ id: this.props.product.id, ...this.state });
+    this.setState({
+      name: '',
+      category: '',
+      region: '',
+      description: '',
+      price: '',
+      ABV: '',
+      imageUrl: '',
+      stock: '',
+    });
+  }
+
+  render() {
+    console.log('these are my props ', this.props);
+    console.log('this is my state ', this.state);
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label>Brand Name: </label>
+          <input
+            placeholder='Brand'
+            name='name'
+            onChange={this.handleChange}
+            value={this.state.name}
+          />
+          <label>Category: </label>
+          <select
+            name='category'
+            onChange={this.handleChange}
+            value={this.state.category}
+          >
+            <option value=''>--Select a Category--</option>
+            <option value='Gin'>Gin</option>
+            <option value='Mezcal'>Mezcal</option>
+            <option value='Rum'>Rum</option>
+            <option value='Tequila'>Tequila</option>
+            <option value='Vodka'>Vodka</option>
+            <option value='Whiskey'>Whiskey</option>
+          </select>
+          <label>Region: </label>
+          <input
+            placeholder='Product Region'
+            name='region'
+            onChange={this.handleChange}
+            value={this.state.region}
+          />
+          <label>Description: </label>
+          <input
+            placeholder='Product Description'
+            name='description'
+            onChange={this.handleChange}
+            value={this.state.description}
+          />
+          <label>Price: $</label>
+          <input
+            placeholder='200'
+            name='price'
+            onChange={this.handleChange}
+            value={this.state.price}
+          />
+          <label>ABV: </label>
+          <input
+            placeholder='Product ABV'
+            name='ABV'
+            onChange={this.handleChange}
+            value={this.state.ABV}
+          />
+          <label>Image: </label>
+          <input
+            placeholder='www.imageurl.com'
+            name='imageUrl'
+            onChange={this.handleChange}
+            value={this.state.imageUrl}
+          />
+          <label>Stock: </label>
+          <input
+            placeholder='Product Quantity'
+            name='stock'
+            onChange={this.handleChange}
+            value={this.state.stock}
+          />
+          <button type='submit'>Edit Product</button>
+        </form>
+      </div>
+    );
+  }
+}
+
+const mapDispatch = (dispatch) => {
+  return {
+    updateProduct: (update) => dispatch(updateProduct(update)),
+  };
+};
+
+export default connect(null, mapDispatch)(EditProduct);

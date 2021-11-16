@@ -1,14 +1,38 @@
 import axios from 'axios';
 
-const SET_PRODUCTS = 'SET_PRODUCTS';
+const SET_CART_PRODUCTS = 'SET_CART_PRODUCTS';
 const ADD_TO_CART = 'ADD_TO_CART';
+const UPDATE_CART = 'UPDATE_CART';
 
-export const setProducts = products => {
+
+export const setCartProducts = (productsInCart) => {
   return {
-    type: SET_PRODUCTS,
-    products,
+    type: SET_CART_PRODUCTS,
+    productsInCart: productsInCart || null,
   };
 };
+
+export const fetchCartProducts = (id) => {
+  return async dispatch => {
+    try {
+      const { data } = await axios.get(`/api/cart`, {
+        headers: {
+          userId: id
+        }
+      });
+      dispatch(setCartProducts(data));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+export const _updateCart = product => {
+  return {
+    type: UPDATE_CART,
+    product
+  }
+}
 
 export const _addToCart = product => {
   return {
@@ -30,24 +54,27 @@ export const addToCart = (productId, userId, itemAddedToCart) => {
     }
   }
 }
-/*
-export const fetchCartProducts = id => {
-  return async dispatch => {
-    try {
-      const { data } = await axios.get(`/api/users/${id}/cart`);
-      dispatch(setProducts(data));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}; */
+
+export const updateCart = (userId, updatedProduct) => {
+  return async (dispatch) => {
+    const { data: updated } = await axios.put('/api/cart', {
+      updatedProduct: updatedProduct,
+      userId: userId
+    });
+    dispatch(_updateCart(updated));
+  }
+}
 
 export default (state = [], action) => {
   switch (action.type) {
-    case SET_PRODUCTS:
-      return action.products;
+    case SET_CART_PRODUCTS:
+      return action.productsInCart
     case ADD_TO_CART:
-      return [...state, action.product]
+      return action.product
+    case UPDATE_CART: {
+      const newState = state.map((x) => (x.id === action.product.id ? action.product : x))
+      return newState
+    }
     default:
       return state;
   }

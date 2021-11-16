@@ -27,6 +27,15 @@ router.get('/products', async (req, res, next) => {
   }
 });
 
+router.get('/products/:productId', async (req, res, next) => {
+  try {
+    const liquor = await Liquor.findByPk(req.params.productId);
+    res.send(liquor);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.post('/products', requireToken, isAdmin, async (req, res, next) => {
   try {
     const { name, category, region, description, price, ABV, imageUrl, stock } =
