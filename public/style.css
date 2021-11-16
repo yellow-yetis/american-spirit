@@ -39,11 +39,14 @@ form div {
   margin: 25px;
 }
 
+<<<<<<< HEAD
 .center {
   display: flex;
   justify-content: center;
 }
 
+=======
+>>>>>>> main
 /*Checkout JS File */
 body.active-modal {
   overflow-y: hidden;

@@ -13,6 +13,7 @@ import AllTequila from './components/AllTequila';
 import AllMezcal from './components/AllMezcal';
 import AllRum from './components/AllRum';
 import AllWhiskey from './components/AllWhiskey';
+import GuestCart from './components/GuestCart';
 import { me } from './store';
 
 
@@ -56,11 +57,10 @@ class Routes extends Component {
             <Route exact path='/categories/Gin' component={AllGin} />
             <Route exact path='/categories/Tequila' component={AllTequila} />
             <Route exact path='/categories/Mezcal' component={AllMezcal} />
-            <Route exact path='/categories/Mezcal' component={AllMezcal} />
             <Route exact path='/categories/Rum' component={AllRum} />
             <Route exact path='/categories/Whiskey' component={AllWhiskey} />
             <Route exact path="/products/:productId" component={SingleProduct} />
-            <Route exact path="/cart" component={Cart} />
+            <Route exact path="/cart" component={GuestCart} />
           </Switch>
         )}
       </div>

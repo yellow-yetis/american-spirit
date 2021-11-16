@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+<<<<<<< HEAD
 import { fetchCartProducts } from '../store/cart';
+=======
+//import cartLiquor from '../../server/db/models/cartLiquors';
+import { fetchCartProducts, updateCart, removeProductFromCart } from '../store/cart';
+import { fetchCartTotals } from '../store/cartTotals';
+>>>>>>> main
 import { Link } from 'react-router-dom';
 import Checkout from './Checkout';
 
@@ -13,6 +19,7 @@ export class Cart extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.showModal = this.showModal.bind(this);
+<<<<<<< HEAD
   }
 
   showModal(event) {
@@ -62,8 +69,36 @@ export class Cart extends Component {
       productToUpdate.error = '';
       productToUpdate.liquorQuantity = parseInt(updatedQuantity);
       productToUpdate.liquorTotalPrice = parseInt(updatedQuantity * productToUpdate.price);
-    }
+=======
+    this.removeItem = this.removeItem.bind(this);
 
+  }
+
+  showModal(event) {
+    this.setState({
+      show: true,
+    });
+  }
+
+  componentDidMount() {
+    this.props.fetchCartProducts(this.props.userId);
+    this.props.fetchCartTotals(this.props.userId);
+  }
+
+  handleChange(e, product){
+    let itemUpdatedInCart = {
+      ...product,
+      cartLiquor: {
+        liquorQuantity: e.target.value,
+        liquorTotalPrice: e.target.value * product.price,
+      }
+>>>>>>> main
+    }
+    this.props.updateCart(this.props.userId, itemUpdatedInCart);
+    this.props.fetchCartTotals(this.props.userId);
+  }
+
+<<<<<<< HEAD
     const updatedStateArray = this.state.productArr.map(x => {
       if (x.id === productToUpdate.id) {
         return { ...productToUpdate };
@@ -110,20 +145,66 @@ export class Cart extends Component {
           {this.state.productArr !== [] ? this.sumFinder('liquorTotalPrice') : <h1>'$0'</h1>}
           <Checkout />
         </div>
+=======
+  removeItem(userId, productId){
+    this.props.removeProductFromCart(userId, productId);
+    this.props.fetchCartProducts(userId);
+    this.props.fetchCartTotals(userId);
+  }
+
+  sumFinder(itemToSum){
+    return this.props.productsInCart.reduce(function(prev, curr){
+      return prev + curr.cartLiquor[itemToSum]
+    }, 0);
+  }
+
+  render() {
+      return (
+        <div>
+          <h1 className="center">Shopping Cart</h1>
+          <ul style={{listStyle: 'none'}}>
+            {
+             this.props.productsInCart.map(product => {
+               return (
+                <li key={product.id}>
+                  <h4>{product.name}</h4>
+                  <img className="cartImage" src={product.imageUrl} />
+                  <div>Total Price: {'$'}{product.cartLiquor.liquorTotalPrice}</div>
+                  <div>Total Quantity: <input type="number" min="1" defaultValue={product.cartLiquor.liquorQuantity} onChange={(e) => this.handleChange(e, product)} /></div>
+                  <button onClick={() => this.removeItem(this.props.userId, product.id)}>Remove From Cart</button>
+                  <h4 style={{color: 'red'}}>{product.error}</h4>
+                </li>
+               )
+             })
+            }
+          </ul>
+          <div className="right">Total Items {
+            this.props.totals.totalQuantity ? this.sumFinder('liquorQuantity') : <div>0 Items</div>
+          } Total Cost {'$'}{
+            this.props.totals.totalPrice ? this.sumFinder('liquorTotalPrice') : <div>'$0'</div>
+      }</div>
+>>>>>>> main
       </div>
     );
   }
 }
 
-const mapState = state => {
+const mapState = (state) => {
   return {
-    carts: state.products,
+    productsInCart: state.cartProducts,
+    isLoggedIn: !!state.auth.id,
+    userId: state.auth.id,
+    totals: state.cartTotals
   };
 };
 
-const mapDispatch = dispatch => {
+const mapDispatch = (dispatch) => {
   return {
-    fetchCartProducts: id => dispatch(fetchCartProducts(id)),
+    fetchCartProducts: (id) => dispatch(fetchCartProducts(id)),
+    fetchCartTotals: (id) => dispatch(fetchCartTotals(id)),
+    updateCart: (userId, product) => dispatch(updateCart(userId, product)),
+    removeProductFromCart: (userId, productId) => dispatch(removeProductFromCart(userId, productId))
   };
 };
+
 export default connect(mapState, mapDispatch)(Cart);
