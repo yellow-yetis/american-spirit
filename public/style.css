@@ -40,12 +40,15 @@ form div {
 }
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 .center {
   display: flex;
   justify-content: center;
 }
 
 =======
+>>>>>>> main
 >>>>>>> main
 /*Checkout JS File */
 body.active-modal {

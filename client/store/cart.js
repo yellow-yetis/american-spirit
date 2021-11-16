@@ -5,7 +5,6 @@ const ADD_TO_CART = 'ADD_TO_CART';
 const UPDATE_CART = 'UPDATE_CART';
 const REMOVE_PRODUCT_FROM_CART = 'REMOVE_PRODUCT_FROM_CART';
 
-
 export const setCartProducts = (productsInCart) => {
   return {
     type: SET_CART_PRODUCTS,
@@ -14,87 +13,89 @@ export const setCartProducts = (productsInCart) => {
 };
 
 export const fetchCartProducts = (id) => {
-  return async dispatch => {
+  return async (dispatch) => {
     try {
       const { data } = await axios.get(`/api/cart`, {
         headers: {
-          userId: id
-        }
+          userId: id,
+        },
       });
       dispatch(setCartProducts(data));
     } catch (error) {
       console.log(error);
     }
-  }
-}
-
-export const _updateCart = product => {
-  return {
-    type: UPDATE_CART,
-    product
-  }
-}
-
-export const _addToCart = product => {
-  return {
-    type: ADD_TO_CART,
-    product
   };
 };
 
-export const _removeProductFromCart = product => {
+export const _updateCart = (product) => {
+  return {
+    type: UPDATE_CART,
+    product,
+  };
+};
+
+export const _addToCart = (product) => {
+  return {
+    type: ADD_TO_CART,
+    product,
+  };
+};
+
+export const _removeProductFromCart = (product) => {
   return {
     type: REMOVE_PRODUCT_FROM_CART,
-    product
-  }
-}
+    product,
+  };
+};
 
 export const addToCart = (productId, userId, itemAddedToCart) => {
   return async (dispatch) => {
     try {
-      const {data: updated} = await axios.put(`/api/products/${productId}`, {
+      const { data: updated } = await axios.put(`/api/products/${productId}`, {
         userId: userId,
-        itemAddedToCart: itemAddedToCart
-      })
-      dispatch(_addToCart(updated))
+        itemAddedToCart: itemAddedToCart,
+      });
+      dispatch(_addToCart(updated));
     } catch (error) {
       console.log(error);
     }
-  }
-}
+  };
+};
 
 export const updateCart = (userId, updatedProduct) => {
   return async (dispatch) => {
     const { data: updated } = await axios.put('/api/cart', {
       updatedProduct: updatedProduct,
-      userId: userId
+      userId: userId,
     });
     dispatch(_updateCart(updated));
-  }
-}
+  };
+};
 
 export const removeProductFromCart = (userId, productId) => {
   return async (dispatch) => {
     const { data: removed } = await axios.put('/api/cart', {
       productId: productId,
-      userId: userId
+      userId: userId,
     });
     dispatch(_removeProductFromCart(removed));
-  }
-}
+  };
+};
 
 export default (state = [], action) => {
   switch (action.type) {
     case SET_CART_PRODUCTS:
-      return action.productsInCart
+      return action.productsInCart;
     case ADD_TO_CART:
-      return action.product
+      return action.product;
     case UPDATE_CART: {
-      const newState = state.map((x) => (x.id === action.product.id ? action.product : x))
-      return newState
+      const newState = state.map((x) =>
+        x.id === action.product.id ? action.product : x
+      );
+      return newState;
     }
     case REMOVE_PRODUCT_FROM_CART: {
-      const newState = state.filter((x) => (x.id !== action.product.id))
+      const newState = state.filter((x) => x.id !== action.product.id);
       return newState;
     }
     default:
