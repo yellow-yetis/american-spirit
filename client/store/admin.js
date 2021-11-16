@@ -141,6 +141,8 @@ let initialState = {
   products: [],
   product: {},
 };
+
+// I may be able to remove product from state. look at ToDo solution to work it out.
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_USERS:
@@ -161,7 +163,12 @@ export default (state = initialState, action) => {
     case SET_SINGLE_PRODUCT:
       return { ...state, product: action.product };
     case UPDATE_PRODUCT:
-      return { ...state, product: action.product };
+      return {
+        ...state,
+        product: state.products.map((product) =>
+          product.id === action.product.id ? action.product : product
+        ),
+      };
     default:
       return state;
   }

@@ -2,18 +2,17 @@ import React from 'react';
 // import { fetchUsers } from '../../store/admin';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import CreateProduct from './adminComponents/CreateProduct';
-import EditProduct from './adminComponents/EditProduct';
-import AdminProducts from './adminComponents/AdminProducts';
 
 export class Admin extends React.Component {
   render() {
     return (
       <div>
+        <h1>Admin Tools</h1>
         <Link to='/users'>View All Users</Link>
-        <CreateProduct />
-        <AdminProducts />
-        {/* <EditProduct /> */}
+        <div></div>
+        <Link to='/admin/createproduct'>Create New Product</Link>
+        <div></div>
+        <Link to='/admin/products'>Edit Products</Link>
       </div>
     );
   }

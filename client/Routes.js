@@ -10,10 +10,11 @@ import AllUsers from './components/adminComponents/AllUsers';
 import Admin from './components/Admin';
 import GuestCart from './components/GuestCart';
 import AllVodka from './components/AllVodka';
+import EditProduct from './components/adminComponents/EditProduct';
+import CreateProduct from './components/adminComponents/CreateProduct';
 
 import { me } from './store';
-import AdminProduct from './components/adminComponents/AdminProduct';
-import EditProduct from './components/adminComponents/EditProduct';
+import AdminProducts from './components/adminComponents/AdminProducts';
 
 /**
  * COMPONENT
@@ -40,6 +41,12 @@ class Routes extends Component {
             <Route exact path='/cart' component={Cart} />
             <Route exact path='/users' component={AllUsers} />
             <Route exact path='/admin' component={Admin} />
+            <Route
+              exact
+              path='/admin/createproduct'
+              component={CreateProduct}
+            />
+            <Route exact path='/admin/products' component={AdminProducts} />
             <Route
               exact
               path='/admin/products/:productId'
