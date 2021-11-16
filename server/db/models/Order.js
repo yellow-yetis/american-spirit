@@ -3,15 +3,15 @@ const db = require('../db');
 
 const Order = db.define('order', {
   nameOnCard: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   number: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   CVV: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   validThru: {

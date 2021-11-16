@@ -14,6 +14,7 @@ router.get('/', async (req, res, next) => {
 
   router.post('/', async (req, res, next) => {
     try {
+      console.log('test');
       const newOrder = await Order.create(req.body);
       res.json(newOrder);
     } catch (error) {
@@ -21,3 +22,5 @@ router.get('/', async (req, res, next) => {
     }
   });
 });
+
+module.exports = router;

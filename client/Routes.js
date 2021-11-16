@@ -6,7 +6,11 @@ import Home from './components/Home';
 import AllProducts from './components/AllProducts';
 import SingleProduct from './components/SingleProduct';
 import Cart from './components/Cart';
+import AllUsers from './components/adminComponents/AllUsers';
 import Admin from './components/Admin';
+import EditProduct from './components/adminComponents/EditProduct';
+import CreateProduct from './components/adminComponents/CreateProduct';
+
 import AllVodka from './components/AllVodka';
 import AllGin from './components/AllGin';
 import AllTequila from './components/AllTequila';
@@ -15,7 +19,7 @@ import AllRum from './components/AllRum';
 import AllWhiskey from './components/AllWhiskey';
 import GuestCart from './components/GuestCart';
 import { me } from './store';
-
+import AdminProducts from './components/adminComponents/AdminProducts';
 
 /**
  * COMPONENT
@@ -45,22 +49,38 @@ class Routes extends Component {
               component={SingleProduct}
             />
             <Route exact path='/cart' component={Cart} />
-            <Route exact path='/users' component={Admin} />
+            <Route exact path='/users' component={AllUsers} />
+            <Route exact path='/admin' component={Admin} />
+            <Route
+              exact
+              path='/admin/createproduct'
+              component={CreateProduct}
+            />
+            <Route exact path='/admin/products' component={AdminProducts} />
+            <Route
+              exact
+              path='/admin/products/:productId'
+              component={EditProduct}
+            />
           </Switch>
         ) : (
           <Switch>
-            <Route path='/' exact component={ Login } />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
-            <Route exact path="/products" component={AllProducts} />
+            <Route path='/' exact component={Login} />
+            <Route path='/login' component={Login} />
+            <Route path='/signup' component={Signup} />
+            <Route exact path='/products' component={AllProducts} />
             <Route exact path='/categories/Vodka' component={AllVodka} />
             <Route exact path='/categories/Gin' component={AllGin} />
             <Route exact path='/categories/Tequila' component={AllTequila} />
             <Route exact path='/categories/Mezcal' component={AllMezcal} />
             <Route exact path='/categories/Rum' component={AllRum} />
             <Route exact path='/categories/Whiskey' component={AllWhiskey} />
-            <Route exact path="/products/:productId" component={SingleProduct} />
-            <Route exact path="/cart" component={GuestCart} />
+            <Route
+              exact
+              path='/products/:productId'
+              component={SingleProduct}
+            />
+            <Route exact path='/cart' component={GuestCart} />
           </Switch>
         )}
       </div>

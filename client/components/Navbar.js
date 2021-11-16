@@ -22,7 +22,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
             Logout
           </a>
           <Link to='/cart'>Cart</Link>
-          <Link to='/users'>Admin</Link>
+          <Link to='/admin'>Admin</Link>
         </div>
       ) : (
         <div>

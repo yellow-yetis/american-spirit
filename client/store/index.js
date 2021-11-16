@@ -5,17 +5,19 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import auth from './auth';
 import allProducts from './products';
 import singleProduct from './singleProduct';
-import allUsers from './admin';
+import adminTools from './admin';
 import cartProducts from './cart';
 import cartTotals from './cartTotals';
+import orders from './order';
 
 const reducer = combineReducers({
   auth,
   product: singleProduct,
   products: allProducts,
-  users: allUsers,
+  admin: adminTools,
   cartProducts: cartProducts,
-  cartTotals: cartTotals
+  cartTotals: cartTotals,
+  orders: orders,
 });
 
 const middleware = composeWithDevTools(

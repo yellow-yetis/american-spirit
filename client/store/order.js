@@ -28,10 +28,12 @@ export const fetchOrders = () => {
   };
 };
 
-export const createNewOrder = order => {
+export const createNewOrder = (order, history) => {
   return async dispatch => {
     try {
-      const { data: created } = await axios.post('/api/order', order);
+      console.log('this is my order', order);
+      const { data: created } = await axios.post('/api/orders/', order);
+      console.log('this is my data', created);
       dispatch(createOrder(created));
     } catch (error) {
       console.log(error);

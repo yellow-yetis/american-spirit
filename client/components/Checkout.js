@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CheckForm from './CheckForm';
 
-export class Checkout extends Component {
+class Checkout extends Component {
   constructor(props) {
     super(props);
 
@@ -37,7 +37,7 @@ export class Checkout extends Component {
           <div className="modal">
             <div className="overlay" onClick={this.toggleModal}></div>
             <div className="modal-content">
-              <CheckForm />
+              <CheckForm toggleModal={this.toggleModal} />
               <button className="close-modal" onClick={this.toggleModal}>
                 Close
               </button>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
+import { createNewOrder } from '../store/order';
 export class CheckForm extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +21,8 @@ export class CheckForm extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    // this.props.createNewRobot({ ...this.state });
+    this.props.createNewOrder({ ...this.state });
+    this.props.toggleModal();
     this.setState({
       number: '',
       CVV: '',
@@ -51,22 +53,20 @@ export class CheckForm extends Component {
               placeholder="CVV"
               onChange={this.handleChange}
             />
-
-            <label htmlFor="nameOnCard">Name</label>
-            <input
-              type="text"
-              name="nameOnCard"
-              value={nameOnCard}
-              placeholder="Name"
-              onChange={this.handleChange}
-            />
-
             <label htmlFor="validThru">Valid Thru</label>
             <input
               type="date"
               name="validThru"
               value={validThru}
               placeholder="Valid Thru"
+              onChange={this.handleChange}
+            />
+            <label htmlFor="nameOnCard">Name</label>
+            <input
+              type="text"
+              name="nameOnCard"
+              value={nameOnCard}
+              placeholder="Name On Card"
               onChange={this.handleChange}
             />
 
@@ -78,4 +78,10 @@ export class CheckForm extends Component {
   }
 }
 
-export default CheckForm;
+const mapDispatch = dispatch => {
+  return {
+    createNewOrder: (order, history) => dispatch(createNewOrder(order)),
+    //history
+  };
+};
+export default connect(null, mapDispatch)(CheckForm);
