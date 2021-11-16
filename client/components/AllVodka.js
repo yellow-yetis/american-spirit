@@ -9,22 +9,23 @@ export class Vodka extends React.Component {
   }
 
   render() {
-    const filteredVodkaArray = this.props.products.filter(product => {
+    const filteredVodkaArray = this.props.products.filter((product) => {
       return product.category === 'Vodka';
     });
 
     return (
       <div>
-        <h1 className="center">Vodka</h1>
+        <h1 className='center'>Vodka</h1>
         <div>
           <ul style={{ listStyle: 'none' }}>
-            {filteredVodkaArray.map(vodka => {
+            {filteredVodkaArray.map((vodka) => {
               return (
                 <li key={vodka.id}>
                   <div>
                     <h2>
                       <Link to={`/products/${vodka.id}`}>
-                        {vodka.name} <img className="cartImage" src={vodka.imageUrl} />
+                        {vodka.name}{' '}
+                        <img className='cartImage' src={vodka.imageUrl} />
                       </Link>{' '}
                       - {vodka.category} - $ {vodka.price}
                     </h2>
@@ -39,13 +40,13 @@ export class Vodka extends React.Component {
   }
 }
 
-const mapState = state => {
+const mapState = (state) => {
   return {
     products: state.products,
   };
 };
 
-const mapDispatch = dispatch => {
+const mapDispatch = (dispatch) => {
   return {
     loadProducts: () => dispatch(fetchProducts()),
   };

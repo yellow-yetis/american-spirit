@@ -99,7 +99,6 @@ form div {
   transition: all 0.3s ease-out;
 }
 
-
 /*Checkout JS File */
 body.active-modal {
   overflow-y: hidden;

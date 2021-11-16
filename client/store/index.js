@@ -5,7 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import auth from './auth';
 import allProducts from './products';
 import singleProduct from './singleProduct';
-import allUsers from './admin';
+import adminTools from './admin';
 import cartProducts from './cart';
 import cartTotals from './cartTotals';
 
@@ -13,9 +13,9 @@ const reducer = combineReducers({
   auth,
   product: singleProduct,
   products: allProducts,
-  users: allUsers,
+  admin: adminTools,
   cartProducts: cartProducts,
-  cartTotals: cartTotals
+  cartTotals: cartTotals,
 });
 
 const middleware = composeWithDevTools(
