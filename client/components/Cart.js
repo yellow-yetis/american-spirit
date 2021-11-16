@@ -29,7 +29,7 @@ export class Cart extends Component {
     this.props.fetchCartTotals(this.props.userId);
   }
 
-  handleChange(e, product){
+  async handleChange(e, product){
     let itemUpdatedInCart = {
       ...product,
       cartLiquor: {
@@ -37,14 +37,13 @@ export class Cart extends Component {
         liquorTotalPrice: e.target.value * product.price,
       }
     }
-    this.props.updateCart(this.props.userId, itemUpdatedInCart);
-    this.props.fetchCartTotals(this.props.userId);
+    await this.props.updateCart(this.props.userId, itemUpdatedInCart);
+    await this.props.fetchCartProducts(this.props.userId);
   }
 
-  removeItem(userId, productId){
-    this.props.removeProductFromCart(userId, productId);
-    this.props.fetchCartProducts(userId);
-    this.props.fetchCartTotals(userId);
+  async removeItem(userId, productId){
+    await this.props.removeProductFromCart(userId, productId);
+    await this.props.fetchCartProducts(userId);
   }
 
   sumFinder(itemToSum){
@@ -54,6 +53,7 @@ export class Cart extends Component {
   }
 
   render() {
+
       return (
         <div>
           <h1 className="center">Shopping Cart</h1>
@@ -74,9 +74,9 @@ export class Cart extends Component {
             }
           </ul>
           <div className="right">Total Items {
-            this.props.totals.totalQuantity ? this.sumFinder('liquorQuantity') : <div>0 Items</div>
+            this.props.productsInCart ? this.sumFinder('liquorQuantity') : <div>0 Items</div>
           } Total Cost {'$'}{
-            this.props.totals.totalPrice ? this.sumFinder('liquorTotalPrice') : <div>'$0'</div>
+            this.props.productsInCart  ? this.sumFinder('liquorTotalPrice') : <div>'$0'</div>
       }</div>
       </div>
     );
