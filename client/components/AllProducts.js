@@ -11,7 +11,7 @@ export class AllProducts extends React.Component {
   render() {
     return (
       <div>
-        <h1>All Products</h1>
+        <h1>Shop All</h1>
         <div>
           <ul style={{ listStyle: 'none' }}>
             {this.props.products.map(product => {
