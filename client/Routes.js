@@ -7,11 +7,8 @@ import AllProducts from './components/AllProducts';
 import SingleProduct from './components/SingleProduct';
 import Cart from './components/Cart';
 import Admin from './components/Admin';
-<<<<<<< HEAD
 import GuestCart from './components/GuestCart';
-=======
 import AllVodka from './components/AllVodka';
->>>>>>> main
 
 import { me } from './store';
 

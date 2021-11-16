@@ -3,6 +3,7 @@ import axios from 'axios';
 const SET_CART_PRODUCTS = 'SET_CART_PRODUCTS';
 const ADD_TO_CART = 'ADD_TO_CART';
 const UPDATE_CART = 'UPDATE_CART';
+const REMOVE_PRODUCT_FROM_CART = 'REMOVE_PRODUCT_FROM_CART';
 
 
 export const setCartProducts = (productsInCart) => {
@@ -41,6 +42,13 @@ export const _addToCart = product => {
   };
 };
 
+export const _removeProductFromCart = product => {
+  return {
+    type: REMOVE_PRODUCT_FROM_CART,
+    product
+  }
+}
+
 export const addToCart = (productId, userId, itemAddedToCart) => {
   return async (dispatch) => {
     try {
@@ -65,6 +73,16 @@ export const updateCart = (userId, updatedProduct) => {
   }
 }
 
+export const removeProductFromCart = (userId, productId) => {
+  return async (dispatch) => {
+    const { data: removed } = await axios.put('/api/cart', {
+      productId: productId,
+      userId: userId
+    });
+    dispatch(_removeProductFromCart(removed));
+  }
+}
+
 export default (state = [], action) => {
   switch (action.type) {
     case SET_CART_PRODUCTS:
@@ -74,6 +92,10 @@ export default (state = [], action) => {
     case UPDATE_CART: {
       const newState = state.map((x) => (x.id === action.product.id ? action.product : x))
       return newState
+    }
+    case REMOVE_PRODUCT_FROM_CART: {
+      const newState = state.filter((x) => (x.id !== action.product.id))
+      return newState;
     }
     default:
       return state;
