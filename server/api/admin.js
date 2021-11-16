@@ -38,8 +38,17 @@ router.get('/products/:productId', async (req, res, next) => {
 
 router.post('/products', requireToken, isAdmin, async (req, res, next) => {
   try {
-    const { name, category, region, description, price, ABV, imageUrl, stock } =
-      req.body;
+    const {
+      name,
+      category,
+      region,
+      description,
+      price,
+      ABV,
+      imageUrl,
+      stock,
+      size,
+    } = req.body;
     res.json(await Liquor.create(req.body));
   } catch (error) {
     console.error(error);

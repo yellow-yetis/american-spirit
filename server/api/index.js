@@ -8,6 +8,8 @@ router.use('/admin', require('./admin'));
 
 router.use('/cart', require('./cart'));
 
+router.use('/cart', require('./cart'));
+
 router.use((req, res, next) => {
   const error = new Error('Not Found');
   error.status = 404;

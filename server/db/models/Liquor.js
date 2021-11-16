@@ -21,6 +21,10 @@ const Liquor = db.define('liquor', {
   imageUrl: {
     type: Sequelize.STRING,
   },
+  size: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
   price: {
     type: Sequelize.INTEGER,
     allowNull: false,
