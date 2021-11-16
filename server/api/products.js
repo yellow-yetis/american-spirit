@@ -25,51 +25,56 @@ router.get('/:productId', async (req, res, next) => {
 
 //Update cartLiquors when logged in user ATC
 router.put('/:productId', async (req, res, next) => {
-  const liquorId = req.body.itemAddedToCart.id
+  const liquorId = req.body.itemAddedToCart.id;
   const liquorQuantity = req.body.itemAddedToCart.liquorQuantity;
   const liquorTotalPrice = req.body.itemAddedToCart.liquorTotalPrice;
 
   try {
     const userCart = await Cart.findOne({
       where: {
-        userId: req.body.userId
-      }
-    })
-    const userCartId = userCart.dataValues.id
+        userId: req.body.userId,
+      },
+    });
+    const userCartId = userCart.dataValues.id;
 
-    await userCart.addLiquors(liquorId, { through: {
-      liquorQuantity: liquorQuantity,
-      liquorTotalPrice: liquorTotalPrice,
-      cartId: userCartId,
-    }});
+    await userCart.addLiquors(liquorId, {
+      through: {
+        liquorQuantity: liquorQuantity,
+        liquorTotalPrice: liquorTotalPrice,
+        cartId: userCartId,
+      },
+    });
 
     const liquorSum = await cartLiquor.sum('liquorQuantity', {
       where: {
-        cartId: userCartId
-      }
-    })
+        cartId: userCartId,
+      },
+    });
 
     const priceSum = await cartLiquor.sum('liquorTotalPrice', {
       where: {
-        cartId: userCartId
-      }
-    })
+        cartId: userCartId,
+      },
+    });
 
     //Update cart table with cartLiquors totals
-    Cart.update({
-      totalQuantity: liquorSum,//total quantity sum
-      totalPrice: priceSum//total price sum
-    }, {
-      where: {
-        id: userCartId
+    Cart.update(
+      {
+        totalQuantity: liquorSum, //total quantity sum
+        totalPrice: priceSum, //total price sum
+      },
+      {
+        where: {
+          id: userCartId,
+        },
       }
-    })
-    const liquors = await userCart.getLiquors()
+    );
+    const liquors = await userCart.getLiquors();
 
     res.send(liquors);
   } catch (error) {
     next(error);
   }
-})
+});
 
 module.exports = router;
