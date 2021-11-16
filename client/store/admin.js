@@ -130,9 +130,8 @@ export const fetchUsers = () => {
 
 export const fetchProducts = () => {
   return async (dispatch) => {
-    const response = await axios.get('/api/admin/products');
-    const allProducts = response.data;
-    dispatch(setProducts(allProducts));
+    const { data: products } = await axios.get('/api/admin/products');
+    dispatch(setProducts(products));
   };
 };
 

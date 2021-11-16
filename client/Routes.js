@@ -13,6 +13,7 @@ import AllVodka from './components/AllVodka';
 
 import { me } from './store';
 import AdminProduct from './components/adminComponents/AdminProduct';
+import EditProduct from './components/adminComponents/EditProduct';
 
 /**
  * COMPONENT
@@ -42,7 +43,7 @@ class Routes extends Component {
             <Route
               exact
               path='/admin/products/:productId'
-              component={AdminProduct}
+              component={EditProduct}
             />
           </Switch>
         ) : (

@@ -3,12 +3,13 @@ import { fetchProducts, deleteProduct } from '../../store/admin';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-export class UpdateProducts extends React.Component {
+export class AdminProducts extends React.Component {
   componentDidMount() {
     this.props.loadProducts();
   }
 
   render() {
+    console.log('this is my adminProducts state ', this.state);
     return (
       <div>
         <h1>All Products</h1>
@@ -51,8 +52,8 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     loadProducts: () => dispatch(fetchProducts()),
-    deleteProduct: (id) => dispatch(deleteProduct(id)),
+    // deleteProduct: (id) => dispatch(deleteProduct(id)),
   };
 };
 
-export default connect(mapState, mapDispatch)(UpdateProducts);
+export default connect(mapState, mapDispatch)(AdminProducts);

@@ -6,13 +6,15 @@ import EditProduct from './EditProduct';
 
 class AdminProduct extends Component {
   componentDidMount() {
-    console.log('this is my product id ', this.props.match.params.productId);
-    this.props.loadSingleProduct(this.props.match.params.productId);
+    // console.log('this is my product id ', this.props.match.params.productId);
+    const productId = this.props.match.params.productId;
+    this.props.loadSingleProduct(productId);
   }
 
   render() {
-    console.log('these are my props ', this.props);
-    console.log('this is my state ', this.state);
+    // console.log('these are my props ', this.props);
+    // console.log('this is my state ', this.state);
+    const product = this.props.product;
     const name = this.props.product.name || '';
     const type = this.props.product.category || '';
     const description = this.props.product.description || '';
@@ -25,7 +27,7 @@ class AdminProduct extends Component {
         <p>{description}</p>
         <h2>Price: {price}</h2>
         <h2>{ABV}</h2>
-        <EditProduct />
+        <EditProduct product={product} />
       </div>
     );
   }
