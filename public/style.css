@@ -30,11 +30,23 @@ form div {
   margin-left: 20px;
 }
 
+.all-liquors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 25px;
+}
+
+<<<<<<< HEAD
 .center {
   display: flex;
   justify-content: center;
 }
 
+=======
+>>>>>>> main
 /*Checkout JS File */
 body.active-modal {
   overflow-y: hidden;

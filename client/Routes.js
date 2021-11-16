@@ -7,9 +7,13 @@ import AllProducts from './components/AllProducts';
 import SingleProduct from './components/SingleProduct';
 import Cart from './components/Cart';
 import Admin from './components/Admin';
-import GuestCart from './components/GuestCart';
 import AllVodka from './components/AllVodka';
-
+import AllGin from './components/AllGin';
+import AllTequila from './components/AllTequila';
+import AllMezcal from './components/AllMezcal';
+import AllRum from './components/AllRum';
+import AllWhiskey from './components/AllWhiskey';
+import GuestCart from './components/GuestCart';
 import { me } from './store';
 
 
@@ -29,7 +33,12 @@ class Routes extends Component {
           <Switch>
             <Route path='/home' component={Home} />
             <Route exact path='/products' component={AllProducts} />
-            <Route exact path='/categories/:Vodka' component={AllVodka} />
+            <Route exact path='/categories/Vodka' component={AllVodka} />
+            <Route exact path='/categories/Gin' component={AllGin} />
+            <Route exact path='/categories/Tequila' component={AllTequila} />
+            <Route exact path='/categories/Mezcal' component={AllMezcal} />
+            <Route exact path='/categories/Rum' component={AllRum} />
+            <Route exact path='/categories/Whiskey' component={AllWhiskey} />
             <Route
               exact
               path='/products/:productId'
@@ -44,7 +53,12 @@ class Routes extends Component {
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route exact path="/products" component={AllProducts} />
-            <Route exact path='/categories/:Vodka' component={AllVodka} />
+            <Route exact path='/categories/Vodka' component={AllVodka} />
+            <Route exact path='/categories/Gin' component={AllGin} />
+            <Route exact path='/categories/Tequila' component={AllTequila} />
+            <Route exact path='/categories/Mezcal' component={AllMezcal} />
+            <Route exact path='/categories/Rum' component={AllRum} />
+            <Route exact path='/categories/Whiskey' component={AllWhiskey} />
             <Route exact path="/products/:productId" component={SingleProduct} />
             <Route exact path="/cart" component={GuestCart} />
           </Switch>
