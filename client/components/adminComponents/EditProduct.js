@@ -19,6 +19,7 @@ class EditProduct extends Component {
       ABV: '',
       imageUrl: '',
       stock: '',
+      size: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,6 +41,7 @@ class EditProduct extends Component {
         ABV: this.props.product.ABV || '',
         imageUrl: this.props.product.imageUrl || '',
         stock: this.props.product.stock || '',
+        size: this.props.product.size || '',
       });
     }
   }
@@ -120,7 +122,25 @@ class EditProduct extends Component {
             onChange={this.handleChange}
             value={this.state.stock}
           />
+          <label>Size: </label>
+          <select
+            name='size'
+            onChange={this.handleChange}
+            value={this.state.size}
+          >
+            <option value=''>--Select a Size--</option>
+            <option value='750'>750ml</option>
+          </select>
           <button type='submit'>Edit Product</button>
+        </form>
+        <form onSubmit={(event) => event.preventDefault()}>
+          <button
+            onClick={() =>
+              this.props.deleteProduct(this.props.match.params.productId)
+            }
+          >
+            Delete Product
+          </button>
         </form>
       </div>
     );
@@ -131,10 +151,10 @@ const mapState = (state) => ({
   product: state.admin.product,
 });
 
-const mapDispatch = (dispatch) => {
+const mapDispatch = (dispatch, { history }) => {
   return {
-    updateProduct: (product) => dispatch(updateProduct(product)),
-    deleteProduct: (product) => dispatch(deleteProduct(product)),
+    updateProduct: (product) => dispatch(updateProduct(product, history)),
+    deleteProduct: (product) => dispatch(deleteProduct(product, history)),
     fetchSingleProduct: (id) => dispatch(fetchSingleProduct(id)),
   };
 };

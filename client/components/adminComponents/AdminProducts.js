@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchProducts, deleteProduct } from '../../store/admin';
+import { fetchProducts } from '../../store/admin';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -9,7 +9,6 @@ export class AdminProducts extends React.Component {
   }
 
   render() {
-    console.log('this is my adminProducts state ', this.state);
     return (
       <div>
         <h1>All Products</h1>
@@ -19,13 +18,6 @@ export class AdminProducts extends React.Component {
               return (
                 <li key={product.id}>
                   <div>
-                    <button
-                      className='delete'
-                      type='button'
-                      onClick={() => this.props.deleteProduct(product.id)}
-                    >
-                      X
-                    </button>
                     <h2>
                       <Link to={`/admin/products/${product.id}`}>
                         {product.name}
@@ -52,7 +44,6 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     loadProducts: () => dispatch(fetchProducts()),
-    // deleteProduct: (id) => dispatch(deleteProduct(id)),
   };
 };
 

@@ -14,6 +14,7 @@ class CreateProduct extends React.Component {
       ABV: '',
       imageUrl: '',
       stock: '',
+      size: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,6 +36,7 @@ class CreateProduct extends React.Component {
       ABV: '',
       imageUrl: '',
       stock: '',
+      size: '',
     });
   }
 
@@ -43,7 +45,7 @@ class CreateProduct extends React.Component {
       <div>
         <h2>Add New Product</h2>
         <form onSubmit={this.handleSubmit}>
-          <label>Name: </label>
+          <label>Brand Name: </label>
           <input
             placeholder='Product Name'
             name='name'
@@ -72,7 +74,7 @@ class CreateProduct extends React.Component {
             value={this.state.region}
           />
           <label>Description: </label>
-          <input
+          <textarea
             placeholder='Product Description'
             name='description'
             onChange={this.handleChange}
@@ -106,6 +108,15 @@ class CreateProduct extends React.Component {
             onChange={this.handleChange}
             value={this.state.stock}
           />
+          <label>Size: </label>
+          <select
+            name='size'
+            onChange={this.handleChange}
+            value={this.state.size}
+          >
+            <option value=''>--Select a Size--</option>
+            <option value='750'>750ml</option>
+          </select>
           <button type='submit'>Add New Product</button>
         </form>
       </div>
@@ -113,8 +124,8 @@ class CreateProduct extends React.Component {
   }
 }
 
-const mapDispatch = (dispatch) => ({
-  createProduct: (product) => dispatch(createProduct(product)),
+const mapDispatch = (dispatch, { history }) => ({
+  createProduct: (product) => dispatch(createProduct(product, history)),
 });
 
 export default connect(null, mapDispatch)(CreateProduct);
