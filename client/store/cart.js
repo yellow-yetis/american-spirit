@@ -13,12 +13,41 @@ export const setCartProducts = (productsInCart) => {
   };
 };
 
+export const fetchCartProducts = (id) => {
+  return async dispatch => {
+    try {
+      const { data } = await axios.get(`/api/cart`, {
+        headers: {
+          userId: id
+        }
+      });
+      dispatch(setCartProducts(data));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+export const _updateCart = product => {
+  return {
+    type: UPDATE_CART,
+    product
+  }
+}
+
 export const _addToCart = product => {
   return {
     type: ADD_TO_CART,
     product
   };
 };
+
+export const _removeProductFromCart = product => {
+  return {
+    type: REMOVE_PRODUCT_FROM_CART,
+    product
+  }
+}
 
 export const addToCart = (productId, userId, itemAddedToCart) => {
   return async (dispatch) => {
@@ -31,13 +60,6 @@ export const addToCart = (productId, userId, itemAddedToCart) => {
     } catch (error) {
       console.log(error);
     }
-  }
-}
-
-export const _removeProductFromCart = product => {
-  return {
-    type: REMOVE_PRODUCT_FROM_CART,
-    product
   }
 }
 
