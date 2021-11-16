@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import cartLiquor from '../../server/db/models/cartLiquors';
 import { fetchCartProducts, updateCart, removeProductFromCart } from '../store/cart';
 import { fetchCartTotals } from '../store/cartTotals';
 import { Link } from 'react-router-dom';

@@ -60,15 +60,20 @@ class SingleProduct extends Component {
     const name = this.props.product.name || '';
     const type = this.props.product.category || '';
     const description = this.props.product.description || '';
+    const region = this.props.product.region || '';
     const price = this.props.product.price || '';
     const ABV = this.props.product.ABV || '';
+    const Size = this.props.product.size || '';
+
    return (
      <div>
        <h1>{name}</h1>
        <h2>{type}</h2>
        <p>{description}</p>
-       <h2>Price: {price}</h2>
-       <h2>{ABV}</h2>
+       <h2>Made in {region}</h2>
+       <h2>Price: ${price}</h2>
+       <h2>ABV: {ABV}%</h2>
+       <h2>{Size}ml</h2>
       <div>
         <label>Select Quantity:</label>
         <input type="number" min="1" defaultValue="1" onChange={this.handleChange}></input>

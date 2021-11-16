@@ -3,30 +3,30 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchProducts } from '../store/products';
 
-export class Vodka extends React.Component {
+export class Whiskey extends React.Component {
   componentDidMount() {
     this.props.loadProducts();
   }
 
   render() {
-    const filteredVodkaArray = this.props.products.filter(product => {
-      return product.category === 'Vodka';
+    const filteredWhiskeyArray = this.props.products.filter(product => {
+      return product.category === 'Whiskey';
     });
 
     return (
       <div>
-        <h1 className="center">Vodka</h1>
+        <h1>Whiskey</h1>
         <div>
           <ul style={{ listStyle: 'none' }}>
-            {filteredVodkaArray.map(vodka => {
+            {filteredWhiskeyArray.map(whiskey => {
               return (
-                <li key={vodka.id}>
+                <li key={whiskey.id}>
                   <div>
                     <h2>
-                      <Link to={`/products/${vodka.id}`}>
-                        {vodka.name} <img className="cartImage" src={vodka.imageUrl} />
+                      <Link to={`/products/${whiskey.id}`}>
+                        {whiskey.name} <img className="cartImage" src={whiskey.imageUrl} />
                       </Link>{' '}
-                      - {vodka.category} - $ {vodka.price}
+                      - {whiskey.category} - ${whiskey.price}
                     </h2>
                   </div>
                 </li>
@@ -51,4 +51,4 @@ const mapDispatch = dispatch => {
   };
 };
 
-export default connect(mapState, mapDispatch)(Vodka);
+export default connect(mapState, mapDispatch)(Whiskey);

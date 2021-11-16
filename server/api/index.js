@@ -3,7 +3,11 @@ module.exports = router;
 
 router.use('/users', require('./users'));
 router.use('/products', require('./products'));
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+router.use('/categories', require('./categories'));
+>>>>>>> main
 
 router.use('/cart', require('./cart'));
 =======
