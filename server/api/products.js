@@ -25,13 +25,10 @@ router.get('/:productId', async (req, res, next) => {
 
 //Update cartLiquors when logged in user ATC
 router.put('/:productId', async (req, res, next) => {
-<<<<<<< HEAD
-=======
   const liquorId = req.body.itemAddedToCart.id
   const liquorQuantity = req.body.itemAddedToCart.liquorQuantity;
   const liquorTotalPrice = req.body.itemAddedToCart.liquorTotalPrice;
 
->>>>>>> main
   try {
     const userCart = await Cart.findOne({
       where: {
@@ -40,14 +37,6 @@ router.put('/:productId', async (req, res, next) => {
     })
     const userCartId = userCart.dataValues.id
 
-<<<<<<< HEAD
-    await userCart.addLiquors(req.body.itemAddedToCart.id, { through: {
-      liquorQuantity: req.body.itemAddedToCart.liquorQuantity,
-      liquorTotalPrice: req.body.itemAddedToCart.liquorTotalPrice,
-      cartId: userCartId,
-    }});
-    res.send(userCart);
-=======
     await userCart.addLiquors(liquorId, { through: {
       liquorQuantity: liquorQuantity,
       liquorTotalPrice: liquorTotalPrice,
@@ -78,7 +67,6 @@ router.put('/:productId', async (req, res, next) => {
     const liquors = await userCart.getLiquors()
 
     res.send(liquors);
->>>>>>> main
   } catch (error) {
     next(error);
   }
