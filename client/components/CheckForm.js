@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createNewOrder } from '../store/order';
 import { Link, withRouter } from 'react-router-dom';
+import { fetchCartTotals } from '../store/cartTotals';
 export class CheckForm extends Component {
   constructor(props) {
     super(props);
@@ -15,15 +16,20 @@ export class CheckForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+
+  componentDidMount(){
+    this.props.fetchCartTotals();
+  }
+
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
-  handleSubmit(event, userId) {
+  handleSubmit(event) {
     event.preventDefault();
-
-    this.props.createNewOrder({ ...this.state, userId });
+    console.log("TOTALS APPEND TO ORDER: ", this.props.totals);
+    this.props.createNewOrder({ ...this.state});
     this.setState({
       number: '',
       CVV: '',
@@ -39,7 +45,7 @@ export class CheckForm extends Component {
     return (
       <div>
         <h4 className="center">Payment Details</h4>
-        <form onSubmit={event => this.handleSubmit(event, this.props.userId)}>
+        <form onSubmit={event => this.handleSubmit(event)}>
           <div>
             <label htmlFor="number">Card Number</label>
             <input
@@ -83,12 +89,13 @@ export class CheckForm extends Component {
 
 const mapState = state => {
   return {
-    userId: state.auth.id,
+    totals: state.cartTotals,
   };
 };
 const mapDispatch = (dispatch) => {
   return {
     createNewOrder: order => dispatch(createNewOrder(order)),
+    fetchCartTotals: () => dispatch(fetchCartTotals())
   };
 };
 

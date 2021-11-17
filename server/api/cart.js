@@ -21,11 +21,11 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-router.get('/totals', async (req, res, next) => {
+router.get('/totals', requireToken, async (req, res, next) => {
   try {
     const userCart = await Cart.findOne({
       where: {
-        userId: req.headers.userid,
+        userId: req.user.id,
       },
     });
     res.send(userCart);

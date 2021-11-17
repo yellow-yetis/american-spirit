@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { tokenHeader } from './headers';
 
 const SET_CART_TOTALS = 'SET_CART_TOTALS';
 
@@ -9,15 +10,13 @@ export const setCartTotals = (totals) => {
   }
 }
 
-export const fetchCartTotals = (id) => {
+export const fetchCartTotals = () => {
   return async dispatch => {
     try {
-      const { data } = await axios.get('/api/cart/totals', {
-        headers: {
-          userId: id
-        }
-      });
-      dispatch(setCartTotals(data));
+      if(tokenHeader){
+        const { data } = await axios.get('/api/cart/totals', tokenHeader);
+        dispatch(setCartTotals(data));
+      }
     } catch (error) {
       console.log(error);
     }
