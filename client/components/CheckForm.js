@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createNewOrder } from '../store/order';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { fetchCartTotals } from '../store/cartTotals';
 export class CheckForm extends Component {
   constructor(props) {
     super(props);
@@ -11,38 +12,44 @@ export class CheckForm extends Component {
       CVV: '',
       validThru: '',
       nameOnCard: '',
-      redirect: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+
+  componentDidMount(){
+    this.props.fetchCartTotals();
+  }
+
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
-  handleSubmit(event, userId) {
+  handleSubmit(event) {
     event.preventDefault();
-    this.props.createNewOrder({ ...this.state, userId });
-    this.props.toggleModal();
+    console.log("TOTALS APPEND TO ORDER: ", this.props.totals);
+    this.props.createNewOrder({
+      nameOnCard: this.state.nameOnCard,
+      productsInOrder: this.props.totals.totalQuantity,
+      priceOfCart: this.props.totals.totalPrice
+    });
     this.setState({
       number: '',
       CVV: '',
       nameOnCard: '',
       validThru: '',
-      redirect: true
     });
+    this.props.history.push('/orderConfirmation')
+    this.props.toggleModal();
   }
   render() {
     const { number, CVV, nameOnCard, validThru } = this.state;
-    if(this.state.redirect === true){
-      <Redirect to='/orderConfirmation' />
-    }
 
     return (
       <div>
         <h4 className="center">Payment Details</h4>
-        <form onSubmit={event => this.handleSubmit(event, this.props.userId)}>
+        <form onSubmit={event => this.handleSubmit(event)}>
           <div>
             <label htmlFor="number">Card Number</label>
             <input
@@ -86,12 +93,14 @@ export class CheckForm extends Component {
 
 const mapState = state => {
   return {
-    userId: state.auth.id,
+    totals: state.cartTotals,
   };
 };
-const mapDispatch = (dispatch, { history }) => {
+const mapDispatch = (dispatch) => {
   return {
-    createNewOrder: order => dispatch(createNewOrder(order, history)),
+    createNewOrder: order => dispatch(createNewOrder(order)),
+    fetchCartTotals: () => dispatch(fetchCartTotals())
   };
 };
-export default connect(mapState, mapDispatch)(CheckForm);
+
+export default withRouter(connect(mapState, mapDispatch)(CheckForm));

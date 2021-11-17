@@ -6,16 +6,13 @@ const Order = db.define('order', {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  number: {
+  productsInOrder: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: false
   },
-  CVV: {
+  priceOfCart: {
     type: Sequelize.STRING,
-    allowNull: false,
-  },
-  validThru: {
-    type: Sequelize.STRING,
+    allowNull: false
   },
   userId: {
     type: Sequelize.INTEGER,
