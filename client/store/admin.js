@@ -108,8 +108,7 @@ export const deleteProduct = (id, history) => async (dispatch) => {
 export const fetchUsers = () => {
   return async (dispatch) => {
     if (token) {
-      const response = await axios.get('/api/admin/users', tokenHeader);
-      const allUsers = response.data;
+      const { data: allUsers } = await axios.get('/api/users', tokenHeader);
       return dispatch(setUsers(allUsers));
     }
   };
