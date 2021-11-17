@@ -1,12 +1,6 @@
 import axios from 'axios';
+import { tokenHeader } from './headers';
 
-const TOKEN = 'token';
-const token = window.localStorage.getItem(TOKEN);
-const tokenHeader = {
-  headers: {
-    authorization: token,
-  },
-};
 // action types
 const SET_USERS = 'SET_USERS';
 const SET_PRODUCTS = 'SET_PRODUCTS';
@@ -60,7 +54,7 @@ export const fetchSingleProduct = (id) => async (dispatch) => {
 
 export const updateProduct = (product, history) => async (dispatch) => {
   try {
-    if (token) {
+    if (tokenHeader) {
       const { data: updatedProduct } = await axios.put(
         `/api/admin/products/${product.id}`,
         product,
@@ -76,7 +70,7 @@ export const updateProduct = (product, history) => async (dispatch) => {
 
 export const createProduct = (product, history) => async (dispatch) => {
   try {
-    if (token) {
+    if (tokenHeader) {
       const { data: createdProduct } = await axios.post(
         '/api/admin/products',
         product,
@@ -92,7 +86,7 @@ export const createProduct = (product, history) => async (dispatch) => {
 
 export const deleteProduct = (id, history) => async (dispatch) => {
   try {
-    if (token) {
+    if (tokenHeader) {
       const { data: deletedProduct } = await axios.delete(
         `/api/admin/products/${id}`,
         tokenHeader
@@ -107,7 +101,7 @@ export const deleteProduct = (id, history) => async (dispatch) => {
 
 export const fetchUsers = () => {
   return async (dispatch) => {
-    if (token) {
+    if (tokenHeader) {
       const { data: allUsers } = await axios.get('/api/users', tokenHeader);
       return dispatch(setUsers(allUsers));
     }
