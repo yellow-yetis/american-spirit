@@ -17,18 +17,18 @@ export class Whiskey extends React.Component {
       <div>
         <h1>Whiskey</h1>
         <div>
-          <ul style={{ listStyle: 'none' }}>
+          <ul className='products'>
             {filteredWhiskeyArray.map(whiskey => {
               return (
                 <li key={whiskey.id}>
-                  <div>
-                    <h2>
+                  <div className='product'>
                       <Link to={`/products/${whiskey.id}`}>
-                        {whiskey.name} <img className="cartImage" src={whiskey.imageUrl} />
+                      <img src={whiskey.imageUrl} height='350px' />
+                      <h2>{whiskey.name}</h2>
+                      <h2>{whiskey.category}</h2>
+                      <h2>${whiskey.price}</h2>
                       </Link>{' '}
-                      - {whiskey.category} - ${whiskey.price}
-                    </h2>
-                  </div>
+                   </div>
                 </li>
               );
             })}

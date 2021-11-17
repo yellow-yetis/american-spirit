@@ -17,17 +17,17 @@ export class Gin extends React.Component {
       <div>
         <h1>Gin</h1>
         <div>
-          <ul style={{ listStyle: 'none' }}>
+          <ul className='products'>
             {filteredGinArray.map(gin => {
               return (
                 <li key={gin.id}>
-                  <div>
-                    <h2>
+                  <div className='product'>
                       <Link to={`/products/${gin.id}`}>
-                        {gin.name} <img className="cartImage" src={gin.imageUrl} />
+                      <img src={gin.imageUrl} height='350px'/>
+                      <h2>{gin.name}</h2>
+                      <h3>{gin.category}</h3>
+                      <h3>${gin.price}</h3>
                       </Link>{' '}
-                      - {gin.category} - $ {gin.price}
-                    </h2>
                   </div>
                 </li>
               );
