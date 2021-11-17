@@ -9,7 +9,7 @@ export class Cart extends Component {
   constructor() {
     super();
     this.state = {
-      productArr: [],
+      error: '',
       show: false,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -27,21 +27,34 @@ export class Cart extends Component {
     this.props.fetchCartProducts(this.props.userId);
   }
 
-  async handleChange(e, product) {
-    let itemUpdatedInCart = {
-      ...product,
-      cartLiquor: {
-        liquorQuantity: e.target.value,
-        liquorTotalPrice: e.target.value * product.price,
-      },
-    };
-    await this.props.updateCart(this.props.userId, itemUpdatedInCart);
-    await this.props.fetchCartProducts(this.props.userId);
+  async handleChange(e, product){
+    if(e.target.value <= product.stock && e.target.value > 0){
+      let itemUpdatedInCart = {
+        ...product,
+        cartLiquor: {
+          liquorQuantity: e.target.value,
+          liquorTotalPrice: e.target.value * product.price,
+        }
+      }
+      this.setState({
+        error: ''
+      })
+      await this.props.updateCart(this.props.userId, itemUpdatedInCart);
+      await this.props.fetchCartProducts(this.props.userId);
+    } else if (e.target.value <= 0){
+      this.setState({
+        error: 'Only quantities 1 or greater are allowed'
+      })
+    } else if (e.target.value > product.stock){
+      this.setState({
+        error: 'We do not have that many products in stock, please lower quantity'
+      })
+    }
   }
 
   async removeItem(userId, productId) {
     await this.props.removeProductFromCart(userId, productId);
-    await this.props.fetchCartProducts(userId);
+    await this.props.fetchCartProducts(this.props.userId);
   }
 
   sumFinder(itemToSum) {
