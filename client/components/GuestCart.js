@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Checkout from './Checkout';
+import { Link } from 'react-router-dom';
 
 export class GuestCart extends Component {
   constructor() {
@@ -72,8 +73,13 @@ export class GuestCart extends Component {
             return (
               <li key={product.id}>
                 <h4>{product.name}</h4>
-                <img className="cartImage" src={product.imageUrl} />
-                <div>Total Price: $ {product.liquorTotalPrice}</div>
+                <Link to={`/products/${product.id}`}>
+                  <img className="cartImage" src={product.imageUrl} />
+                </Link>
+                <div>
+                    Price Per Bottle: {'$'}{product.price}
+                  </div>
+                <div>Total Price: {'$'}{product.liquorTotalPrice}</div>
                 <div>
                   Total Quantity:{' '}
                   <input
@@ -90,9 +96,9 @@ export class GuestCart extends Component {
           })}
         </ul>
         <div className="right">
-          Total Items{' '}
+          Total Items In Cart {' '}
           {this.state.productArr !== [] ? this.sumFinder('liquorQuantity') : <h1>0 Items</h1>} Total
-          Cost {'$'}
+          Cost of Goods {'$'}
           {this.state.productArr !== [] ? this.sumFinder('liquorTotalPrice') : <h1>'$0'</h1>}
         </div>
         <Checkout />
