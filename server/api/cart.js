@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {
   models: { Liquor, cartLiquor, Cart },
 } = require('../db');
+const { requireToken } = require('./gatekeepingmiddleware')
 
 router.get('/', async (req, res, next) => {
   try {
@@ -20,11 +21,11 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-router.get('/totals', async (req, res, next) => {
+router.get('/totals', requireToken, async (req, res, next) => {
   try {
     const userCart = await Cart.findOne({
       where: {
-        userId: req.headers.userid,
+        userId: req.user.id,
       },
     });
     res.send(userCart);
@@ -136,8 +137,19 @@ router.put('/', async (req, res, next) => {
 });
 
 //Remove product route
-/* router.put('/:productId', async (req, res, next) => {
-
-}) */
+router.delete('/', requireToken, async (req, res, next) => {
+  try {
+    const cartToDestroy = await Cart.findOne({
+      where: {
+        userId: req.user.id
+      }
+    });
+    await cartToDestroy.destroy();
+    await Cart.create({ userId: req.user.id});
+    res.send(cartToDestroy);
+  } catch (error) {
+    next(error);
+  }
+})
 
 module.exports = router;
