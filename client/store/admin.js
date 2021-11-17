@@ -1,7 +1,12 @@
 import axios from 'axios';
 
 const TOKEN = 'token';
-
+const token = window.localStorage.getItem(TOKEN);
+const tokenHeader = {
+  headers: {
+    authorization: token,
+  },
+};
 // action types
 const SET_USERS = 'SET_USERS';
 const SET_PRODUCTS = 'SET_PRODUCTS';
@@ -55,16 +60,11 @@ export const fetchSingleProduct = (id) => async (dispatch) => {
 
 export const updateProduct = (product, history) => async (dispatch) => {
   try {
-    const token = window.localStorage.getItem(TOKEN);
     if (token) {
       const { data: updatedProduct } = await axios.put(
         `/api/admin/products/${product.id}`,
         product,
-        {
-          headers: {
-            authorization: token,
-          },
-        }
+        tokenHeader
       );
       dispatch(_updateProduct(updatedProduct));
       history.push('/admin');
@@ -76,16 +76,11 @@ export const updateProduct = (product, history) => async (dispatch) => {
 
 export const createProduct = (product, history) => async (dispatch) => {
   try {
-    const token = window.localStorage.getItem(TOKEN);
     if (token) {
       const { data: createdProduct } = await axios.post(
         '/api/admin/products',
         product,
-        {
-          headers: {
-            authorization: token,
-          },
-        }
+        tokenHeader
       );
       dispatch(_createProduct(createdProduct));
       history.push(`/admin/products/${createdProduct.id}`);
@@ -97,15 +92,10 @@ export const createProduct = (product, history) => async (dispatch) => {
 
 export const deleteProduct = (id, history) => async (dispatch) => {
   try {
-    const token = window.localStorage.getItem(TOKEN);
     if (token) {
       const { data: deletedProduct } = await axios.delete(
         `/api/admin/products/${id}`,
-        {
-          headers: {
-            authorization: token,
-          },
-        }
+        tokenHeader
       );
       dispatch(_deleteProduct(deletedProduct));
       history.push('/admin/products');
@@ -117,13 +107,8 @@ export const deleteProduct = (id, history) => async (dispatch) => {
 
 export const fetchUsers = () => {
   return async (dispatch) => {
-    const token = window.localStorage.getItem(TOKEN);
     if (token) {
-      const response = await axios.get('/api/admin/users', {
-        headers: {
-          authorization: token,
-        },
-      });
+      const response = await axios.get('/api/admin/users', tokenHeader);
       const allUsers = response.data;
       return dispatch(setUsers(allUsers));
     }
