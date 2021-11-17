@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {
-  models: { User, Liquor },
+  models: { Liquor },
 } = require('../db');
 const { requireToken, isAdmin } = require('./gatekeepingmiddleware');
 
