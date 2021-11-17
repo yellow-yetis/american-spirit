@@ -47,7 +47,7 @@ class SingleProduct extends Component {
       error: '',
     };
 
-    if (this.state.error === '') {
+    if (!this.props.isLoggedIn && this.state.error === '') {
       localStorage.setItem(key, JSON.stringify(itemAddedToCart));
     }
 
