@@ -11,6 +11,7 @@ export class CheckForm extends Component {
       CVV: '',
       validThru: '',
       nameOnCard: '',
+      redirect: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -29,10 +30,15 @@ export class CheckForm extends Component {
       CVV: '',
       nameOnCard: '',
       validThru: '',
+      redirect: true
     });
   }
   render() {
     const { number, CVV, nameOnCard, validThru } = this.state;
+    if(this.state.redirect === true){
+      <Redirect to='/orderConfirmation' />
+    }
+
     return (
       <div>
         <h4 className="center">Payment Details</h4>
@@ -70,9 +76,7 @@ export class CheckForm extends Component {
               placeholder="Name On Card"
               onChange={this.handleChange}
             />
-            <Link to="/orderConfirmation">
-              <button type="submit">Pay</button>
-            </Link>
+            <button type="submit">Pay</button>
           </div>
         </form>
       </div>
