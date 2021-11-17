@@ -89,6 +89,13 @@ export class Cart extends Component {
           } Total Cost {'$'}{
             this.props.productsInCart ? this.sumFinder('liquorTotalPrice') : <div>'$0'</div>
       }</div>
+      <div>
+          {this.state.error ? (
+            <h4 style={{ color: 'red' }}>{this.state.error}</h4>
+          ) : (
+            <h4></h4>
+          )}
+        </div>
       </div>
     );
   }
