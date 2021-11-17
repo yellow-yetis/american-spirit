@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createNewOrder } from '../store/order';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 export class CheckForm extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +11,6 @@ export class CheckForm extends Component {
       CVV: '',
       validThru: '',
       nameOnCard: '',
-      redirect: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -23,21 +22,19 @@ export class CheckForm extends Component {
   }
   handleSubmit(event, userId) {
     event.preventDefault();
+    console.log("PROPS: ", this.props);
     this.props.createNewOrder({ ...this.state, userId });
-    this.props.toggleModal();
     this.setState({
       number: '',
       CVV: '',
       nameOnCard: '',
       validThru: '',
-      redirect: true
     });
+    this.props.history.push('/orderConfirmation')
+    this.props.toggleModal();
   }
   render() {
     const { number, CVV, nameOnCard, validThru } = this.state;
-    if(this.state.redirect === true){
-      <Redirect to='/orderConfirmation' />
-    }
 
     return (
       <div>
@@ -89,9 +86,10 @@ const mapState = state => {
     userId: state.auth.id,
   };
 };
-const mapDispatch = (dispatch, { history }) => {
+const mapDispatch = (dispatch) => {
   return {
-    createNewOrder: order => dispatch(createNewOrder(order, history)),
+    createNewOrder: order => dispatch(createNewOrder(order)),
   };
 };
-export default connect(mapState, mapDispatch)(CheckForm);
+
+export default withRouter(connect(mapState, mapDispatch)(CheckForm));
