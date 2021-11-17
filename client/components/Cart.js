@@ -27,7 +27,6 @@ export class Cart extends Component {
     this.props.fetchCartProducts(this.props.userId);
   }
 
-<<<<<<< HEAD
   async handleChange(e, product){
     if(e.target.value <= product.stock && e.target.value > 0){
       let itemUpdatedInCart = {
@@ -51,7 +50,6 @@ export class Cart extends Component {
         error: 'We do not have that many products in stock, please lower quantity'
       })
     }
-=======
   async handleChange(e, product) {
     let itemUpdatedInCart = {
       ...product,
@@ -61,7 +59,6 @@ export class Cart extends Component {
       },
     };
     await this.props.updateCart(this.props.userId, itemUpdatedInCart);
->>>>>>> main
   }
 
   async removeItem(userId, productId) {
@@ -75,7 +72,7 @@ export class Cart extends Component {
   }
 
   render() {
-<<<<<<< HEAD
+
       return (
         <div>
           <h1 className="center">Shopping Cart</h1>
@@ -107,7 +104,7 @@ export class Cart extends Component {
             <h4></h4>
           )}
         </div>
-=======
+
     return (
       <div>
         <h1 className="center">Shopping Cart</h1>
@@ -145,7 +142,6 @@ export class Cart extends Component {
           {this.props.productsInCart ? this.sumFinder('liquorTotalPrice') : <div>'$0'</div>}
         </div>
         <Checkout />
->>>>>>> main
       </div>
     );
   }
