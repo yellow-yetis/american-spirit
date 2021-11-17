@@ -36,12 +36,10 @@ export class Cart extends Component {
       },
     };
     await this.props.updateCart(this.props.userId, itemUpdatedInCart);
-    await this.props.fetchCartProducts(this.props.userId);
   }
 
   async removeItem(userId, productId) {
     await this.props.removeProductFromCart(userId, productId);
-    await this.props.fetchCartProducts(userId);
   }
 
   sumFinder(itemToSum) {
