@@ -51,6 +51,8 @@ export const _removeProductFromCart = (product) => {
 export const addToCart = (productId, userId, itemAddedToCart) => {
   return async (dispatch) => {
     try {
+      // JOE_CR: This AJAX request should probably have the token on it so you know
+      // who is making the request.
       const { data: updated } = await axios.put(`/api/products/${productId}`, {
         userId: userId,
         itemAddedToCart: itemAddedToCart,

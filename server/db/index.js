@@ -5,6 +5,7 @@ const User = require('./models/User');
 const Liquor = require('./models/Liquor');
 const Cart = require('./models/Cart');
 const Sequelize = require('sequelize');
+// JOE_CR: Be consistent with your casing. All the other models are capitalized!
 const cartLiquor = require('./models/cartLiquors');
 const Order = require('./models/Order');
 //associations could go here!

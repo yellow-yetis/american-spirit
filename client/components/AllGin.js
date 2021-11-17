@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchProducts } from '../store/products';
 
+// JOE_CR: There is definitely no way that you need one "All" component for every
+// liquor category. How can we fix this?
+
 export class Gin extends React.Component {
   componentDidMount() {
     this.props.loadProducts();

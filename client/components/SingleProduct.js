@@ -21,6 +21,7 @@ class SingleProduct extends Component {
 
   handleChange(e) {
     if (e.target.value <= 0) {
+      // JOE_CR: Good validation. Does this also exist on the server?
       this.setState({
         quantityToBuy: 1,
         error: 'Only product quantities of 1 or greater are allowed',
@@ -48,6 +49,7 @@ class SingleProduct extends Component {
     };
 
     if (this.state.error === '') {
+      // JOE_CR: So something is always stored in localStorage, even if someone is logged in?
       localStorage.setItem(key, JSON.stringify(itemAddedToCart));
     }
 

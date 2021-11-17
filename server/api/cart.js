@@ -7,11 +7,15 @@ router.get('/', async (req, res, next) => {
   try {
     const userCart = await Cart.findOne({
       where: {
+        // JOE_CR: Hmmmm, why is userid a header?
         userId: req.headers.userid,
       },
     });
+    // JOE_CR: Accessing dataValues should not be necessary, even though console.logging
+    // a Sequelize instance seems to suggest that you have to do it. You can just do userCart.id.
     const userCartId = userCart.dataValues.id;
 
+    // JOE_CR: Is passing in an object with cartId necessary here?
     const productsInCart = await userCart.getLiquors({ cartId: userCartId });
 
     res.json(productsInCart);
@@ -20,6 +24,7 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+// JOE_CR: Not sure what the diff between this route and the one above is.
 router.get('/totals', async (req, res, next) => {
   try {
     const userCart = await Cart.findOne({

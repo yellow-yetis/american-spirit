@@ -55,6 +55,8 @@ export const fetchSingleProduct = (id) => async (dispatch) => {
 
 export const updateProduct = (product, history) => async (dispatch) => {
   try {
+    // JOE_CR: There is a lot of repeated utility logic of accessing, checking,
+    // and incorporating the token for the request. How can you centralize this?
     const token = window.localStorage.getItem(TOKEN);
     if (token) {
       const { data: updatedProduct } = await axios.put(

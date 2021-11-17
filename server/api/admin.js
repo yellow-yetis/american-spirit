@@ -18,6 +18,7 @@ router.get('/users', requireToken, isAdmin, async (req, res, next) => {
   }
 });
 
+// JOE_CR: Not sure why this route exists when you have a products router already.
 router.get('/products', async (req, res, next) => {
   try {
     const products = await Liquor.findAll();
@@ -38,6 +39,7 @@ router.get('/products/:productId', async (req, res, next) => {
 
 router.post('/products', requireToken, isAdmin, async (req, res, next) => {
   try {
+    // JOE_CR: All of these destructured variables are unused.
     const {
       name,
       category,
