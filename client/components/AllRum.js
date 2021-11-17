@@ -17,17 +17,17 @@ export class Rum extends React.Component {
       <div>
         <h1>Rum</h1>
         <div>
-          <ul style={{ listStyle: 'none' }}>
+          <ul className='products'>
             {filteredRumArray.map(rum => {
               return (
                 <li key={rum.id}>
-                  <div>
-                    <h2>
+                  <div className='product'>
                       <Link to={`/products/${rum.id}`}>
-                        {rum.name} <img className="cartImage" src={rum.imageUrl} />
+                      <img src={rum.imageUrl} height='350px' />
+                      <h2>{rum.name}</h2>
+                      <h3>{rum.category}</h3>
+                      <h3>${rum.price}</h3>
                       </Link>{' '}
-                      - {rum.category} - $ {rum.price}
-                    </h2>
                   </div>
                 </li>
               );

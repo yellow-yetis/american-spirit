@@ -17,18 +17,18 @@ export class Tequila extends React.Component {
       <div>
         <h1>Tequila</h1>
         <div>
-          <ul style={{ listStyle: 'none' }}>
+          <ul className='products'>
             {filteredTequilaArray.map(tequila => {
               return (
                 <li key={tequila.id}>
-                  <div>
-                    <h2>
+                  <div className='product'>
                       <Link to={`/products/${tequila.id}`}>
-                        {tequila.name} <img className="cartImage" src={tequila.imageUrl} />
+                      <img src={tequila.imageUrl} height='350px' />
+                      <h2>{tequila.name}</h2>
+                      <h3>{tequila.category}</h3>
+                      <h3>${tequila.price}</h3>
                       </Link>{' '}
-                      - {tequila.category} - $ {tequila.price}
-                    </h2>
-                  </div>
+                   </div>
                 </li>
               );
             })}

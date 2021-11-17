@@ -41,7 +41,7 @@ async function seed() {
       stock: '10',
     }),
     Liquor.create({
-      name: 'Russian Standard Platinum',
+      name: 'Russian Standard',
       category: 'Vodka',
       region: 'Russia',
       description:
@@ -216,7 +216,7 @@ async function seed() {
       stock: '17',
     }),
     Liquor.create({
-      name: 'Herradura Silver Tequila',
+      name: 'Herradura Silver',
       category: 'Tequila',
       region: 'Mexico',
       description:
@@ -289,7 +289,7 @@ async function seed() {
       region: 'Mexico',
       description:
         'This brand has had an impressive and growing following for its mezcal from day one and for this much flavor at this price it is very easy to see why. You will find textbook notes of lime zest, carmelized agave, winter melon, avocado leaf and smoke that is perfectly suited for all of your sipping and cocktail mixing needs.',
-      imageUrl: 'https://www.astorwines.com/images/items/41908.jpg',
+      imageUrl: 'https://products2.imgix.drizly.com/ci-el-silencio-espadin-black-mezcal-48bd7d8058280edc.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
       size: '750',
       price: '65',
       ABV: '43',
@@ -330,7 +330,7 @@ async function seed() {
       region: 'Barbados',
       description:
         'Brilliant golden amber in color, Eclipse bears a complex aroma whose rich, harmonious floral and fruity notes of apricot and banana, with hints of vanilla and a subtle smokiness imparted by the barrels used for aging.',
-      imageUrl: 'https://www.astorwines.com/images/items/39073.jpg',
+      imageUrl: 'https://products3.imgix.drizly.com/ci-mount-gay-eclipse-rum-aad173712d536e3e.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
       size: '750',
       price: '24',
       ABV: '35',
@@ -366,7 +366,7 @@ async function seed() {
     // Whiskey
 
     Liquor.create({
-      name: 'Johnnie Walker Green Label',
+      name: 'Johnnie Walker',
       category: 'Whiskey',
       region: 'Scotland',
       description:
@@ -379,7 +379,7 @@ async function seed() {
       stock: '6',
     }),
     Liquor.create({
-      name: 'Blanton`s Single Barrel Bourbon',
+      name: 'Blanton`s',
       category: 'Whiskey',
       region: 'United States',
       description:
@@ -418,7 +418,7 @@ async function seed() {
       stock: '15',
     }),
     Liquor.create({
-      name: 'Oban 14 Year Single Malt',
+      name: 'Oban 14 Year',
       category: 'Whiskey',
       region: 'Scotland',
       description:
