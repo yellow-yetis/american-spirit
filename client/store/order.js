@@ -35,6 +35,7 @@ export const createNewOrder = (order, history) => {
       const { data: created } = await axios.post('/api/orders/', order);
       console.log('this is my data', created);
       dispatch(createOrder(created));
+      history.push('/');
     } catch (error) {
       console.log(error);
     }

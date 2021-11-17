@@ -17,6 +17,14 @@ const Order = db.define('order', {
   validThru: {
     type: Sequelize.STRING,
   },
+  userId: {
+    type: Sequelize.INTEGER,
+    allowNull: true,
+  },
+  cartId: {
+    type: Sequelize.INTEGER,
+    allowNull: true,
+  },
 });
 
 module.exports = Order;

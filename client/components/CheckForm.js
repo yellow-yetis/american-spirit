@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createNewOrder } from '../store/order';
+import { Link } from 'react-router-dom';
 export class CheckForm extends Component {
   constructor(props) {
     super(props);
@@ -19,9 +20,9 @@ export class CheckForm extends Component {
       [event.target.name]: event.target.value,
     });
   }
-  handleSubmit(event) {
+  handleSubmit(event, userId) {
     event.preventDefault();
-    this.props.createNewOrder({ ...this.state });
+    this.props.createNewOrder({ ...this.state, userId });
     this.props.toggleModal();
     this.setState({
       number: '',
@@ -35,7 +36,7 @@ export class CheckForm extends Component {
     return (
       <div>
         <h4 className="center">Payment Details</h4>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={event => this.handleSubmit(event, this.props.userId)}>
           <div>
             <label htmlFor="number">Card Number</label>
             <input
@@ -69,8 +70,9 @@ export class CheckForm extends Component {
               placeholder="Name On Card"
               onChange={this.handleChange}
             />
-
-            <button type="submit">Pay</button>
+            <Link to="/orderConfirmation">
+              <button type="submit">Pay</button>
+            </Link>
           </div>
         </form>
       </div>
@@ -78,10 +80,14 @@ export class CheckForm extends Component {
   }
 }
 
-const mapDispatch = dispatch => {
+const mapState = state => {
   return {
-    createNewOrder: (order, history) => dispatch(createNewOrder(order)),
-    //history
+    userId: state.auth.id,
   };
 };
-export default connect(null, mapDispatch)(CheckForm);
+const mapDispatch = (dispatch, { history }) => {
+  return {
+    createNewOrder: order => dispatch(createNewOrder(order, history)),
+  };
+};
+export default connect(mapState, mapDispatch)(CheckForm);

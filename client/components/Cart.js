@@ -17,7 +17,7 @@ export class Cart extends Component {
     this.removeItem = this.removeItem.bind(this);
   }
 
-  showModal(event) {
+  showModal() {
     this.setState({
       show: true,
     });

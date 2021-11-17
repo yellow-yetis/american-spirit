@@ -17,6 +17,7 @@ Liquor.belongsToMany(Cart, { through: cartLiquor });
 
 User.hasMany(Order); // FK of OrderID in user Table
 Order.belongsTo(User); // FK of userId in order Table
+Order.belongsTo(Cart); //CartID in order Table
 
 module.exports = {
   db,
