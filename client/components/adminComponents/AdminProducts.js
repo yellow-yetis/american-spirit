@@ -35,16 +35,12 @@ export class AdminProducts extends React.Component {
   }
 }
 
-const mapState = (state) => {
-  return {
-    products: state.admin.products,
-  };
-};
+const mapState = (state) => ({
+  products: state.admin.products,
+});
 
-const mapDispatch = (dispatch) => {
-  return {
-    loadProducts: () => dispatch(fetchProducts()),
-  };
-};
+const mapDispatch = (dispatch) => ({
+  loadProducts: () => dispatch(fetchProducts()),
+});
 
 export default connect(mapState, mapDispatch)(AdminProducts);
