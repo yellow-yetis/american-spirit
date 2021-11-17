@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {
-  models: { User, Liquor, cartLiquor, Cart },
+  models: { User, Liquor },
 } = require('../db');
 const { requireToken, isAdmin } = require('./gatekeepingmiddleware');
 
@@ -15,24 +15,6 @@ router.get('/users', requireToken, isAdmin, async (req, res, next) => {
     res.json(users);
   } catch (err) {
     next(err);
-  }
-});
-
-router.get('/products', async (req, res, next) => {
-  try {
-    const products = await Liquor.findAll();
-    res.json(products);
-  } catch (error) {
-    next(error);
-  }
-});
-
-router.get('/products/:productId', async (req, res, next) => {
-  try {
-    const liquor = await Liquor.findByPk(req.params.productId);
-    res.send(liquor);
-  } catch (error) {
-    next(error);
   }
 });
 
