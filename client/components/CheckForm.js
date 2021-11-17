@@ -29,7 +29,11 @@ export class CheckForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log("TOTALS APPEND TO ORDER: ", this.props.totals);
-    this.props.createNewOrder({ ...this.state});
+    this.props.createNewOrder({
+      nameOnCard: this.state.nameOnCard,
+      productsInOrder: this.props.totals.totalQuantity,
+      priceOfCart: this.props.totals.totalPrice
+    });
     this.setState({
       number: '',
       CVV: '',
