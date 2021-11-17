@@ -165,8 +165,7 @@ export default (state = initialState, action) => {
       return { ...state, product: action.product };
     case UPDATE_PRODUCT:
       return {
-        ...state,
-        product: state.products.map((product) =>
+        ...state.products.map((product) =>
           product.id === action.product.id ? action.product : product
         ),
       };
