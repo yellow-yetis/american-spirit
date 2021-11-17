@@ -44,14 +44,6 @@ form div {
   margin-left: 20px;
 }
 
-/* .all-liquors {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 25px;
-} */
 /* Navbar */
 .navbar {
   background: rgb(171, 8, 8);
@@ -107,44 +99,6 @@ form div {
 }
 
 /* All Products */
-/* .all-liquors {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin: 25px;
-} */
-
-/* .all-liquors {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  position: relative;
-  top: 15px; */
-/* } */
-/*
-.cards {
-  padding: 4rem;
-  background: #fff;
-}
-
-.cards__container {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  max-width: 1120px;
-  width: 90%;
-  margin: 0 auto;
-}
-
-.cards__items {
-  display: flex;
-  flex: 1;
-  margin: 0 1rem;
-  border-radius: 10px;
-} */
 
 .products {
   display: flex;
