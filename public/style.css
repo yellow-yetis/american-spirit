@@ -7,8 +7,15 @@
 
 body {
   /* font-family: sans-serif; */
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
 }
 
+h1 {
+  text-align: center;
+}
 a {
   text-decoration: none;
 }
@@ -98,6 +105,83 @@ form div {
   border-bottom: 4px solid #fff;
   transition: all 0.3s ease-out;
 }
+
+/* All Products */
+/* .all-liquors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 25px;
+} */
+
+/* .all-liquors {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  top: 15px; */
+/* } */
+/*
+.cards {
+  padding: 4rem;
+  background: #fff;
+}
+
+.cards__container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  max-width: 1120px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.cards__items {
+  display: flex;
+  flex: 1;
+  margin: 0 1rem;
+  border-radius: 10px;
+} */
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.products li {
+  flex: 1 1 1;
+  height: 30rem;
+  padding: 1rem;
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  text-align: center;
+}
+.product img {
+  max-width: 37rem;
+  max-height: 37rem;
+}
+
+.product {
+  transition: all 0.5s ease;
+}
+.product:hover{
+  transform: scale(1.1);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+
 
 /*Checkout JS File */
 body.active-modal {
