@@ -6,6 +6,8 @@ const Liquor = db.define('liquor', {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  // JOE_CR: How often do you think you will update your categories in the future?
+  // What are the drawbacks of keeping the possibilities in an enum vs. a different strategy?
   category: {
     type: Sequelize.ENUM('Vodka', 'Gin', 'Tequila', 'Mezcal', 'Rum', 'Whiskey'),
     allowNull: false,
@@ -29,6 +31,7 @@ const Liquor = db.define('liquor', {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
+  // JOE_CR: 🤤
   ABV: {
     type: Sequelize.INTEGER,
     allowNull: false,

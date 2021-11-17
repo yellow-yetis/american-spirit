@@ -36,16 +36,19 @@ export class Cart extends Component {
       },
     };
     await this.props.updateCart(this.props.userId, itemUpdatedInCart);
+    // JOE_CR: Why refetch here?
     await this.props.fetchCartProducts(this.props.userId);
   }
 
   async removeItem(userId, productId) {
     await this.props.removeProductFromCart(userId, productId);
+    // JOE_CR: Why refetch here?
     await this.props.fetchCartProducts(userId);
   }
 
   sumFinder(itemToSum) {
     return this.props.productsInCart.reduce(function (prev, curr) {
+      // JOE_CR: You probably are looking to multiply this by quantity.
       return prev + curr.cartLiquor[itemToSum];
     }, 0);
   }
