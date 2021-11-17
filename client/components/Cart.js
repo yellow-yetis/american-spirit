@@ -40,6 +40,7 @@ export class Cart extends Component {
         error: ''
       })
       await this.props.updateCart(this.props.userId, itemUpdatedInCart);
+      await this.props.fetchCartProducts(this.props.userId);
     } else if (e.target.value <= 0){
       this.setState({
         error: 'Only quantities 1 or greater are allowed'
@@ -53,6 +54,7 @@ export class Cart extends Component {
 
   async removeItem(userId, productId) {
     await this.props.removeProductFromCart(userId, productId);
+    await this.props.fetchCartProducts(this.props.userId);
   }
 
   sumFinder(itemToSum) {
