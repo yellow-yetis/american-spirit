@@ -16,27 +16,21 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const userCart = await Cart.findOne({
-      where: {
-        userId: req.body.userId,
-      },
-    });
-    const userCartId = userCart.dataValues.id;
-    const newOrder = await Order.create({ ...req.body, cartId: userCartId });
-    await userCart.removeLiquors({
-      where: {
-        cartId: userCartId,
-      },
-    });
-    await Cart.destroy({
-      where: {
-        cartId: userCartId,
-      },
-    });
-    await Cart.create({
-      userId: req.body.userId,
-    });
-    res.json(newOrder);
+    //If user is logged in
+    if(req.body.userId){
+      const userCart = await Cart.findOne({
+        where: {
+          userId: req.body.userId,
+        },
+      });
+      const userCartId = userCart.dataValues.id;
+      const newOrder = await Order.create({ ...req.body, cartId: userCartId });
+      res.json(newOrder);
+      //User checkout as guest
+    } else {
+      const newOrder = await Order.create({...req.body});
+      res.json(newOrder);
+    }
   } catch (error) {
     next(error);
   }
