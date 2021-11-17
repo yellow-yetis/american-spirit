@@ -213,3 +213,22 @@ form button {
 form button:hover {
   background-color: #65878f;
 }
+
+/* admin components */
+#admin-dash {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.admin-tile {
+  align-items: center;
+  justify-content: center;
+}
+.admin-tile h1,
+h2 {
+  text-align: center;
+}
+.admin-tile img {
+  width: 200px;
+}

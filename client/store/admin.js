@@ -44,17 +44,16 @@ const setSingleProduct = (product) => {
 };
 
 // Thunks
-export const fetchSingleProduct = (id) => {
-  return async (dispatch) => {
-    try {
-      const { data } = await axios.get(`/api/admin/products/${id}`);
-      dispatch(setSingleProduct(data));
-    } catch (error) {
-      console.log(error);
-    }
-  };
+export const fetchSingleProduct = (id) => async (dispatch) => {
+  try {
+    const { data } = await axios.get(`/api/admin/products/${id}`);
+    dispatch(setSingleProduct(data));
+  } catch (error) {
+    console.error(error);
+  }
 };
-export const updateProduct = (product) => async (dispatch) => {
+
+export const updateProduct = (product, history) => async (dispatch) => {
   try {
     const token = window.localStorage.getItem(TOKEN);
     if (token) {
@@ -67,14 +66,15 @@ export const updateProduct = (product) => async (dispatch) => {
           },
         }
       );
-      dispatch(_createProduct(updatedProduct));
+      dispatch(_updateProduct(updatedProduct));
+      history.push('/admin');
     }
   } catch (error) {
     console.error(error);
   }
 };
 
-export const createProduct = (product) => async (dispatch) => {
+export const createProduct = (product, history) => async (dispatch) => {
   try {
     const token = window.localStorage.getItem(TOKEN);
     if (token) {
@@ -88,13 +88,14 @@ export const createProduct = (product) => async (dispatch) => {
         }
       );
       dispatch(_createProduct(createdProduct));
+      history.push(`/admin/products/${createdProduct.id}`);
     }
   } catch (error) {
     console.error(error);
   }
 };
 
-export const deleteProduct = (id) => async (dispatch) => {
+export const deleteProduct = (id, history) => async (dispatch) => {
   try {
     const token = window.localStorage.getItem(TOKEN);
     if (token) {
@@ -107,6 +108,7 @@ export const deleteProduct = (id) => async (dispatch) => {
         }
       );
       dispatch(_deleteProduct(deletedProduct));
+      history.push('/admin/products');
     }
   } catch (error) {
     console.error(error);
@@ -142,7 +144,6 @@ let initialState = {
   product: {},
 };
 
-// I may be able to remove product from state. look at ToDo solution to work it out.
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_USERS:
@@ -165,7 +166,7 @@ export default (state = initialState, action) => {
     case UPDATE_PRODUCT:
       return {
         ...state,
-        product: state.products.map((product) =>
+        products: state.products.map((product) =>
           product.id === action.product.id ? action.product : product
         ),
       };
