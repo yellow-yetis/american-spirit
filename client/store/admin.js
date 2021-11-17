@@ -46,7 +46,7 @@ const setSingleProduct = (product) => {
 // Thunks
 export const fetchSingleProduct = (id) => async (dispatch) => {
   try {
-    const { data } = await axios.get(`/api/admin/products/${id}`);
+    const { data } = await axios.get(`/api/products/${id}`);
     dispatch(setSingleProduct(data));
   } catch (error) {
     console.error(error);
@@ -132,7 +132,7 @@ export const fetchUsers = () => {
 
 export const fetchProducts = () => {
   return async (dispatch) => {
-    const { data: products } = await axios.get('/api/admin/products');
+    const { data: products } = await axios.get('/api/products');
     dispatch(setProducts(products));
   };
 };
