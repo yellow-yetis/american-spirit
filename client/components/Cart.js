@@ -83,9 +83,9 @@ export class Cart extends Component {
         </ul>
         <div className="right">
           Total Items{' '}
-          {this.props.totals.totalQuantity ? this.sumFinder('liquorQuantity') : <div>0 Items</div>}{' '}
-          Total Cost {'$'}
-          {this.props.totals.totalPrice ? this.sumFinder('liquorTotalPrice') : <div>'$0'</div>}
+          {this.props.productsInCart ? this.sumFinder('liquorQuantity') : <div>0 Items</div>} Total
+          Cost {'$'}
+          {this.props.productsInCart ? this.sumFinder('liquorTotalPrice') : <div>'$0'</div>}
         </div>
         <Checkout />
       </div>
@@ -104,7 +104,6 @@ const mapState = state => {
 const mapDispatch = dispatch => {
   return {
     fetchCartProducts: id => dispatch(fetchCartProducts(id)),
-    fetchCartTotals: id => dispatch(fetchCartTotals(id)),
     updateCart: (userId, product) => dispatch(updateCart(userId, product)),
     removeProductFromCart: (userId, productId) =>
       dispatch(removeProductFromCart(userId, productId)),
