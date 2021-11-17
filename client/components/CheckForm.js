@@ -22,7 +22,7 @@ export class CheckForm extends Component {
   }
   handleSubmit(event, userId) {
     event.preventDefault();
-    console.log("PROPS: ", this.props);
+
     this.props.createNewOrder({ ...this.state, userId });
     this.setState({
       number: '',
