@@ -72,7 +72,12 @@ export class Cart extends Component {
             return (
               <li key={product.id}>
                 <h4>{product.name}</h4>
-                <img className="cartImage" src={product.imageUrl} />
+                <Link to={`/products/${product.id}`}>
+                  <img className="cartImage" src={product.imageUrl} />
+                </Link>
+                <div>
+                  Price Per Bottle: {'$'}{product.price}
+                </div>
                 <div>
                   Total Price: {'$'}
                   {product.cartLiquor.liquorTotalPrice}
@@ -95,9 +100,9 @@ export class Cart extends Component {
           })}
         </ul>
         <div className="right">
-          Total Items{' '}
+          Total Items In Cart {' '}
           {this.props.productsInCart ? this.sumFinder('liquorQuantity') : <div>0 Items</div>} Total
-          Cost {'$'}
+          Cost of Goods {'$'}
           {this.props.productsInCart ? this.sumFinder('liquorTotalPrice') : <div>'$0'</div>}
         </div>
         <Checkout />
