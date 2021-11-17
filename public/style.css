@@ -140,6 +140,7 @@ form div {
 /*Checkout JS File */
 body.active-modal {
   overflow-y: hidden;
+  padding-right: 15px;
 }
 
 .btn-modal {

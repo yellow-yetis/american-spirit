@@ -6,14 +6,18 @@ const Liquor = require('./models/Liquor');
 const Cart = require('./models/Cart');
 const Sequelize = require('sequelize');
 const cartLiquor = require('./models/cartLiquors');
+const Order = require('./models/Order');
 //associations could go here!
-
 
 Cart.belongsTo(User);
 User.hasOne(Cart);
 
 Cart.belongsToMany(Liquor, { through: cartLiquor });
 Liquor.belongsToMany(Cart, { through: cartLiquor });
+
+User.hasMany(Order); // FK of OrderID in user Table
+Order.belongsTo(User); // FK of userId in order Table
+Order.belongsTo(Cart); //CartID in order Table
 
 module.exports = {
   db,
@@ -22,5 +26,6 @@ module.exports = {
     Cart,
     Liquor,
     cartLiquor,
+    Order,
   },
 };
