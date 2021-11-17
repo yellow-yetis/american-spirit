@@ -138,9 +138,15 @@ router.put('/', async (req, res, next) => {
 
 //Remove product route
 router.delete('/', requireToken, async (req, res, next) => {
-
   try {
-    console.log("REQUEST: ", req.user)
+    const cartToDestroy = await Cart.findOne({
+      where: {
+        userId: req.user.id
+      }
+    });
+    await cartToDestroy.destroy();
+    await Cart.create({ userId: req.user.id});
+    res.send(cartToDestroy);
   } catch (error) {
     next(error);
   }

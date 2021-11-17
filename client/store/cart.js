@@ -1,5 +1,13 @@
 import axios from 'axios';
 
+const TOKEN = 'token';
+const token = window.localStorage.getItem(TOKEN);
+const tokenHeader = {
+  headers: {
+    authorization: token,
+  },
+};
+
 const SET_CART_PRODUCTS = 'SET_CART_PRODUCTS';
 const ADD_TO_CART = 'ADD_TO_CART';
 const UPDATE_CART = 'UPDATE_CART';
@@ -91,7 +99,7 @@ export const removeProductFromCart = (userId, productId) => {
 
 export const clearCart = () => {
   return async (dispatch) => {
-    const { data: cleared } = await axios.delete('/api/cart');
+    const { data: cleared } = await axios.delete('/api/cart', tokenHeader);
     dispatch(_clearCart(cleared));
   }
 }
