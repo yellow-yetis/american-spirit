@@ -66,7 +66,7 @@ export const updateProduct = (product, history) => async (dispatch) => {
           },
         }
       );
-      dispatch(_createProduct(updatedProduct));
+      dispatch(_updateProduct(updatedProduct));
       history.push('/admin');
     }
   } catch (error) {
@@ -166,7 +166,7 @@ export default (state = initialState, action) => {
     case UPDATE_PRODUCT:
       return {
         ...state,
-        product: state.products.map((product) =>
+        products: state.products.map((product) =>
           product.id === action.product.id ? action.product : product
         ),
       };

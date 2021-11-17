@@ -25,10 +25,9 @@ export class Cart extends Component {
 
   componentDidMount() {
     this.props.fetchCartProducts(this.props.userId);
-    this.props.fetchCartTotals(this.props.userId);
   }
 
-  handleChange(e, product) {
+  async handleChange(e, product) {
     let itemUpdatedInCart = {
       ...product,
       cartLiquor: {
@@ -36,14 +35,13 @@ export class Cart extends Component {
         liquorTotalPrice: e.target.value * product.price,
       },
     };
-    this.props.updateCart(this.props.userId, itemUpdatedInCart);
-    this.props.fetchCartTotals(this.props.userId);
+    await this.props.updateCart(this.props.userId, itemUpdatedInCart);
+    await this.props.fetchCartProducts(this.props.userId);
   }
 
-  removeItem(userId, productId) {
-    this.props.removeProductFromCart(userId, productId);
-    this.props.fetchCartProducts(userId);
-    this.props.fetchCartTotals(userId);
+  async removeItem(userId, productId) {
+    await this.props.removeProductFromCart(userId, productId);
+    await this.props.fetchCartProducts(userId);
   }
 
   sumFinder(itemToSum) {
@@ -100,7 +98,6 @@ const mapState = state => {
     productsInCart: state.cartProducts,
     isLoggedIn: !!state.auth.id,
     userId: state.auth.id,
-    totals: state.cartTotals,
   };
 };
 
