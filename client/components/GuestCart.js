@@ -96,9 +96,9 @@ export class GuestCart extends Component {
           })}
         </ul>
         <div className="right">
-          Total Items{' '}
+          Total Items In Cart {' '}
           {this.state.productArr !== [] ? this.sumFinder('liquorQuantity') : <h1>0 Items</h1>} Total
-          Cost {'$'}
+          Cost of Goods {'$'}
           {this.state.productArr !== [] ? this.sumFinder('liquorTotalPrice') : <h1>'$0'</h1>}
         </div>
         <Checkout />
