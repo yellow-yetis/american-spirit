@@ -47,7 +47,7 @@ class SingleProduct extends Component {
       error: '',
     };
 
-    if (this.state.error === '') {
+    if (!this.props.isLoggedIn && this.state.error === '') {
       localStorage.setItem(key, JSON.stringify(itemAddedToCart));
     }
 
@@ -57,6 +57,7 @@ class SingleProduct extends Component {
   }
 
   render() {
+    const image = this.props.product.imageUrl || '';
     const name = this.props.product.name || '';
     const type = this.props.product.category || '';
     const description = this.props.product.description || '';
@@ -67,13 +68,14 @@ class SingleProduct extends Component {
 
     return (
       <div>
+        <img src={image} align="left" />
         <h1>{name}</h1>
         <h2>{type}</h2>
         <p>{description}</p>
         <h2>Made in {region}</h2>
         <h2>Price: ${price}</h2>
-        <h2>ABV: {ABV}%</h2>
-        <h2>{Size}ml</h2>
+        <h3>ABV: {ABV}%</h3>
+        <h3>{Size}ml</h3>
         <div>
           <label>Select Quantity:</label>
           <input

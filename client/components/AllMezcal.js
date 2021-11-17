@@ -18,17 +18,17 @@ export class Mezcal extends React.Component {
       <div>
         <h1>Mezcal</h1>
         <div>
-          <ul style={{ listStyle: 'none' }}>
+          <ul className='products'>
             {filteredMezcalArray.map(mezcal => {
               return (
                 <li key={mezcal.id}>
-                  <div>
-                    <h2>
+                  <div className='product'>
                       <Link to={`/products/${mezcal.id}`}>
-                        {mezcal.name} <img className="cartImage" src={mezcal.imageUrl} />
+                      <img src={mezcal.imageUrl} height='350px' />
+                      <h2>{mezcal.name}</h2>
+                      <h3>{mezcal.category}</h3>
+                      <h3>${mezcal.price}</h3>
                       </Link>{' '}
-                      - {mezcal.category} - $ {mezcal.price}
-                    </h2>
                   </div>
                 </li>
               );

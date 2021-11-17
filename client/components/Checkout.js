@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CheckForm from './CheckForm';
 
-export class Checkout extends Component {
+class Checkout extends Component {
   constructor(props) {
     super(props);
 
@@ -9,20 +9,22 @@ export class Checkout extends Component {
       showModal: false,
     };
     this.toggleModal = this.toggleModal.bind(this);
-    this.scrollBar = this.scrollBar.bind(this);
   }
+
   toggleModal() {
     this.setState({
       showModal: !this.state.showModal,
     });
   }
 
-  scrollBar() {
+  componentDidMount() {
     if (this.state.showModal) {
-      document.body.classList.add('active-modal');
-    } else {
-      document.body.classList.remove('active-modal');
+      document.body.style.overflow = 'hidden';
     }
+  }
+
+  componentWillUnmount() {
+    document.body.style.overflow = 'unset';
   }
 
   render() {
@@ -33,10 +35,9 @@ export class Checkout extends Component {
         </button>
         {this.state.showModal ? (
           <div className="modal">
-            <div>{this.scrollBar()}</div>
             <div className="overlay" onClick={this.toggleModal}></div>
             <div className="modal-content">
-              <CheckForm />
+              <CheckForm toggleModal={this.toggleModal} />
               <button className="close-modal" onClick={this.toggleModal}>
                 Close
               </button>

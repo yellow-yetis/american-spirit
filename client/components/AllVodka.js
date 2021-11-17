@@ -15,21 +15,20 @@ export class Vodka extends React.Component {
 
     return (
       <div>
-        <h1 className='center'>Vodka</h1>
+        <h1>Vodka</h1>
         <div>
-          <ul style={{ listStyle: 'none' }}>
+          <ul className='products'>
             {filteredVodkaArray.map((vodka) => {
               return (
                 <li key={vodka.id}>
-                  <div>
-                    <h2>
+                  <div className='product'>
                       <Link to={`/products/${vodka.id}`}>
-                        {vodka.name}{' '}
-                        <img className='cartImage' src={vodka.imageUrl} />
+                      <img src={vodka.imageUrl} height='350px' />
+                      <h2>{vodka.name}</h2>
+                      <h3>{vodka.category}</h3>
+                      <h3>${vodka.price}</h3>
                       </Link>{' '}
-                      - {vodka.category} - $ {vodka.price}
-                    </h2>
-                  </div>
+                    </div>
                 </li>
               );
             })}

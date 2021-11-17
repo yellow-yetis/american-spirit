@@ -5,38 +5,80 @@ import { logout } from '../store';
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
-    <h1>The Tipsy New Yorker</h1>
-    <nav>
+    <nav className="navbar">
       {isLoggedIn ? (
-        <div>
+        <div className="navbar-container">
           {/* The navbar will show these links after you log in */}
-          <Link to='/home'>Home</Link>
-          <Link to='/products'>All Products</Link>
-          <Link to='/categories/Vodka'>Vodka</Link>
-          <Link to='/categories/Gin'>Gin</Link>
-          <Link to='/categories/Tequila'>Tequila</Link>
-          <Link to='/categories/Mezcal'>Mezcal</Link>
-          <Link to='/categories/Rum'>Rum</Link>
-          <Link to='/categories/Whiskey'>Whiskey</Link>
-          <a href='#' onClick={handleClick}>
+          <Link to="/home" className="navbar-logo">
+            Tipsy New Yorker <i className="fab fa-typo3" />
+          </Link>
+          <Link to="/products" className="nav-links">
+            Shop All
+          </Link>
+          <Link to="/categories/Vodka" className="nav-links">
+            Vodka
+          </Link>
+          <Link to="/categories/Gin" className="nav-links">
+            Gin
+          </Link>
+          <Link to="/categories/Tequila" className="nav-links">
+            Tequila
+          </Link>
+          <Link to="/categories/Mezcal" className="nav-links">
+            Mezcal
+          </Link>
+          <Link to="/categories/Rum" className="nav-links">
+            Rum
+          </Link>
+          <Link to="/categories/Whiskey" className="nav-links">
+            Whiskey
+          </Link>
+          <a href="#" onClick={handleClick} className="nav-links">
             Logout
           </a>
-          <Link to='/cart'>Cart</Link>
-          <Link to='/admin'>Admin</Link>
+          <Link to="/cart" className="nav-links">
+            Cart
+          </Link>
+          <Link to="/admin" className="nav-links">
+            Admin
+          </Link>
         </div>
       ) : (
-        <div>
+        <div className="navbar-container">
           {/* The navbar will show these links before you log in */}
-          <Link to='/products'>All Products</Link>
-          <Link to='/categories/Vodka'>Vodka</Link>
-          <Link to='/categories/Gin'>Gin</Link>
-          <Link to='/categories/Tequila'>Tequila</Link>
-          <Link to='/categories/Mezcal'>Mezcal</Link>
-          <Link to='/categories/Rum'>Rum</Link>
-          <Link to='/categories/Whiskey'>Whiskey</Link>
-          <Link to='/login'>Login</Link>
-          <Link to='/signup'>Sign Up</Link>
-          <Link to='/cart'>Cart</Link>
+          <Link to="/" className="navbar-logo">
+            Tipsy New Yorker <i className="fab fa-typo3" />
+          </Link>
+          <Link to="/products" className="nav-links">
+            Shop All
+          </Link>
+          <Link to="/categories/Vodka" className="nav-links">
+            Vodka
+          </Link>
+          <Link to="/categories/Gin" className="nav-links">
+            Gin
+          </Link>
+          <Link to="/categories/Tequila" className="nav-links">
+            Tequila
+          </Link>
+          <Link to="/categories/Mezcal" className="nav-links">
+            Mezcal
+          </Link>
+          <Link to="/categories/Rum" className="nav-links">
+            Rum
+          </Link>
+          <Link to="/categories/Whiskey" className="nav-links">
+            Whiskey
+          </Link>
+          <Link to="/login" className="nav-links">
+            Login
+          </Link>
+          <Link to="/signup" className="nav-links">
+            Sign Up
+          </Link>
+          <Link to="/cart" className="nav-links">
+            Cart
+          </Link>
         </div>
       )}
     </nav>
@@ -47,13 +89,13 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
 /**
  * CONTAINER
  */
-const mapState = (state) => {
+const mapState = state => {
   return {
     isLoggedIn: !!state.auth.id,
   };
 };
 
-const mapDispatch = (dispatch) => {
+const mapDispatch = dispatch => {
   return {
     handleClick() {
       dispatch(logout());
