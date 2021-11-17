@@ -4,6 +4,7 @@ const SET_CART_PRODUCTS = 'SET_CART_PRODUCTS';
 const ADD_TO_CART = 'ADD_TO_CART';
 const UPDATE_CART = 'UPDATE_CART';
 const REMOVE_PRODUCT_FROM_CART = 'REMOVE_PRODUCT_FROM_CART';
+const CLEAR_CART = 'CLEAR_CART';
 
 export const setCartProducts = (productsInCart) => {
   return {
@@ -48,6 +49,12 @@ export const _removeProductFromCart = (product) => {
   };
 };
 
+export const _clearCart = () => {
+  return {
+    type: CLEAR_CART
+  }
+}
+
 export const addToCart = (productId, userId, itemAddedToCart) => {
   return async (dispatch) => {
     try {
@@ -82,6 +89,13 @@ export const removeProductFromCart = (userId, productId) => {
   };
 };
 
+export const clearCart = () => {
+  return async (dispatch) => {
+    const { data: cleared } = await axios.delete('/api/cart');
+    dispatch(_clearCart(cleared));
+  }
+}
+
 export default (state = [], action) => {
   switch (action.type) {
     case SET_CART_PRODUCTS:
@@ -97,6 +111,9 @@ export default (state = [], action) => {
     case REMOVE_PRODUCT_FROM_CART: {
       const newState = state.filter((x) => x.id !== action.product.id);
       return newState;
+    }
+    case CLEAR_CART: {
+      return [];
     }
     default:
       return state;

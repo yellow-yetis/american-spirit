@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {
   models: { Liquor, cartLiquor, Cart },
 } = require('../db');
+const { requireToken } = require('./gatekeepingmiddleware')
 
 router.get('/', async (req, res, next) => {
   try {
@@ -136,8 +137,13 @@ router.put('/', async (req, res, next) => {
 });
 
 //Remove product route
-/* router.put('/:productId', async (req, res, next) => {
+router.delete('/', requireToken, async (req, res, next) => {
 
-}) */
+  try {
+    console.log("REQUEST: ", req.user)
+  } catch (error) {
+    next(error);
+  }
+})
 
 module.exports = router;
