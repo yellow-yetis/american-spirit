@@ -10,7 +10,7 @@ function HeroSection() {
 			{/* <video src={Video} autoPlay loop muted /> */}
 			<h1>New Arrival!</h1>
 			<p>Blanton's Single Barrel Bourbon Whiskey</p>
-      <Link to={`/products/27`}>
+      <Link to={`/products/25`}>
       <button className='cta'>Order Now!</button>
       </Link>
 		</div>
