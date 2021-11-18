@@ -13,7 +13,7 @@ export const setCartTotals = (totals) => {
 export const fetchCartTotals = () => {
   return async dispatch => {
     try {
-      if(tokenHeader){
+      if(tokenHeader.headers.authorization){
         const { data } = await axios.get('/api/cart/totals', tokenHeader);
         dispatch(setCartTotals(data));
       }

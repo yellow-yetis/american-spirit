@@ -4,7 +4,9 @@ import { clearCart } from '../store/cart';
 
 export class OrderConfirmation extends Component {
   componentDidMount(){
-    this.props.clearCart();
+    if(this.props.isLoggedIn){
+      this.props.clearCart();
+    }
   }
 
 
@@ -17,10 +19,16 @@ export class OrderConfirmation extends Component {
   }
 }
 
+const mapState = state => {
+  return {
+    isLoggedIn: !!state.auth.id,
+  };
+};
+
 const mapDispatch = dispatch => {
   return {
     clearCart: () => dispatch(clearCart())
   }
 }
 
-export default connect(null, mapDispatch)(OrderConfirmation);
+export default connect(mapState, mapDispatch)(OrderConfirmation);

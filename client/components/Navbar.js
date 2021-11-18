@@ -33,15 +33,15 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           <Link to="/categories/Whiskey" className="nav-links">
             Whiskey
           </Link>
-          <a href="#" onClick={handleClick} className="nav-links">
-            Logout
-          </a>
           <Link to="/cart" className="nav-links">
             Cart
           </Link>
           <Link to="/admin" className="nav-links">
             Admin
           </Link>
+          <a href="#" onClick={handleClick} className="nav-links">
+            Logout
+          </a>
         </div>
       ) : (
         <div className="navbar-container">
@@ -70,15 +70,16 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           <Link to="/categories/Whiskey" className="nav-links">
             Whiskey
           </Link>
+          <Link to="/cart" className="nav-links">
+            Cart
+          </Link>
           <Link to="/login" className="nav-links">
             Login
           </Link>
           <Link to="/signup" className="nav-links">
             Sign Up
           </Link>
-          <Link to="/cart" className="nav-links">
-            Cart
-          </Link>
+
         </div>
       )}
     </nav>

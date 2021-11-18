@@ -21,6 +21,9 @@ class Checkout extends Component {
     if (this.state.showModal) {
       document.body.style.overflow = 'hidden';
     }
+    if(this.props.isLoggedIn){
+      this.props.fetchCartTotals();
+    }
   }
 
   componentWillUnmount() {
@@ -37,7 +40,7 @@ class Checkout extends Component {
           <div className="modal">
             <div className="overlay" onClick={this.toggleModal}></div>
             <div className="modal-content">
-              <CheckForm toggleModal={this.toggleModal} />
+              <CheckForm toggleModal={this.toggleModal} totalPrice={this.props.totalPrice} totalQuantity={this.props.totalQuantity} />
               <button className="close-modal" onClick={this.toggleModal}>
                 Close
               </button>
