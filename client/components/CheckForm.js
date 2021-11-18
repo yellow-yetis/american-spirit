@@ -12,6 +12,10 @@ export class CheckForm extends Component {
       CVV: '',
       validThru: '',
       nameOnCard: '',
+      shippingAddress: '',
+      zipCode: '',
+      city: '',
+      state: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -49,12 +53,16 @@ export class CheckForm extends Component {
       CVV: '',
       nameOnCard: '',
       validThru: '',
+      shippingAddress: '',
+      zipCode: '',
+      city: '',
+      state: ''
     });
     this.props.history.push('/orderConfirmation')
     this.props.toggleModal();
   }
   render() {
-    const { number, CVV, nameOnCard, validThru } = this.state;
+    const { number, CVV, nameOnCard, validThru, shippingAddress, zipCode, city, state } = this.state;
     return (
       <div>
         <h4 className="center">Payment Details</h4>
@@ -90,6 +98,38 @@ export class CheckForm extends Component {
               name="nameOnCard"
               value={nameOnCard}
               placeholder="Name On Card"
+              onChange={this.handleChange}
+            />
+            <label htmlFor="shippingAddress">Shipping Address</label>
+            <input
+              type="text"
+              name="shippingAddress"
+              value={shippingAddress}
+              placeholder="Shipping Address"
+              onChange={this.handleChange}
+            />
+            <label htmlFor="city">City</label>
+            <input
+              type="text"
+              name="city"
+              value={city}
+              placeholder="City"
+              onChange={this.handleChange}
+            />
+            <label htmlFor="state">State</label>
+            <input
+              type="text"
+              name="state"
+              value={state}
+              placeholder="State"
+              onChange={this.handleChange}
+            />
+            <label htmlFor="zipCode">Zip Code</label>
+            <input
+              type="text"
+              name="zipCode"
+              value={zipCode}
+              placeholder="Zip Code"
               onChange={this.handleChange}
             />
             <button type="submit">Pay</button>
