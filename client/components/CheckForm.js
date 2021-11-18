@@ -13,7 +13,6 @@ export class CheckForm extends Component {
       validThru: '',
       nameOnCard: '',
       shippingAddress: '',
-      zipCode: '',
       city: '',
       state: ''
     };
@@ -54,7 +53,6 @@ export class CheckForm extends Component {
       nameOnCard: '',
       validThru: '',
       shippingAddress: '',
-      zipCode: '',
       city: '',
       state: ''
     });
@@ -122,14 +120,6 @@ export class CheckForm extends Component {
               name="state"
               value={state}
               placeholder="State"
-              onChange={this.handleChange}
-            />
-            <label htmlFor="zipCode">Zip Code</label>
-            <input
-              type="text"
-              name="zipCode"
-              value={zipCode}
-              placeholder="Zip Code"
               onChange={this.handleChange}
             />
             <button type="submit">Pay</button>
