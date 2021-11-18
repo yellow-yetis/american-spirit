@@ -9,49 +9,38 @@ export class AllUsers extends React.Component {
   }
 
   render() {
-    const userData = this.props.users.map((user) => {
-      return (
-        <div key={user.id}>
-          {/* <button
-            className='delete'
-            type='button'
-            onClick={() => this.props.deleteProject(project.id)}
-          >
-            X
-          </button> */}
-          {/* <Link to={`/projects/${project.id}`} key={project.id}>
-            <h2>{project.title}</h2>
-          </Link> */}
+    return (
+      <div>
+        <h1>All Users</h1>
+        <div>
           <table>
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Access</th>
+                <th>Username</th>
+                <th>Access Type</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>{user.id}</td>
-                <td>{user.username}</td>
-                <td>{user.isAdmin ? 'Admin' : 'Customer'}</td>
-              </tr>
+              {this.props.users.map((user) => (
+                <tr key={user.id}>
+                  <td>{user.id}</td>
+                  <td>{user.username}</td>
+                  <td>{user.isAdmin ? 'Admin' : 'Customer'}</td>
+                  <td>
+                    <button>Update Access</button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
-      );
-    });
-    return (
-      <div>
-        <h1>All Users</h1>
-        <div>{userData}</div>
       </div>
     );
   }
 }
 
 const mapState = (state) => {
-  console.log(state);
   return {
     users: state.admin.users,
   };

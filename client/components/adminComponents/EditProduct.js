@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import {
   fetchSingleProduct,
   updateProduct,
@@ -58,6 +57,16 @@ class EditProduct extends Component {
   render() {
     return (
       <div>
+        <div>
+          <img src={this.props.product.imageUrl} align='left' />
+          <h1>{this.props.product.name}</h1>
+          <h2>{this.props.product.type}</h2>
+          <p>{this.props.product.description}</p>
+          <h2>Made in {this.props.product.region}</h2>
+          <h2>Price: ${this.props.product.price}</h2>
+          <h2>ABV: {this.props.product.ABV}%</h2>
+          <h2>{this.props.product.size}ml</h2>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <label>Brand Name: </label>
           <input

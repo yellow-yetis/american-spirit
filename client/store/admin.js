@@ -1,8 +1,9 @@
 import axios from 'axios';
-import { tokenHeader } from './headers';
+import { tokenHeader, token } from './headers';
 
 // action types
 const SET_USERS = 'SET_USERS';
+const UPDATE_USER = 'UPDATE_USER';
 const SET_PRODUCTS = 'SET_PRODUCTS';
 const CREATE_PRODUCT = 'CREATE_PRODUCT';
 const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
@@ -13,6 +14,11 @@ const SET_SINGLE_PRODUCT = 'SET_SINGLE_PRODUCT';
 export const setUsers = (users) => ({
   type: SET_USERS,
   users,
+});
+
+export const _updateUsers = (user) => ({
+  type: UPDATE_USER,
+  user,
 });
 
 export const _createProduct = (product) => ({
@@ -43,6 +49,13 @@ const setSingleProduct = (product) => {
 };
 
 // Thunks
+export const fetchProducts = () => {
+  return async (dispatch) => {
+    const { data: products } = await axios.get('/api/products');
+    dispatch(setProducts(products));
+  };
+};
+
 export const fetchSingleProduct = (id) => async (dispatch) => {
   try {
     const { data } = await axios.get(`/api/products/${id}`);
@@ -54,7 +67,7 @@ export const fetchSingleProduct = (id) => async (dispatch) => {
 
 export const updateProduct = (product, history) => async (dispatch) => {
   try {
-    if (tokenHeader) {
+    if (token) {
       const { data: updatedProduct } = await axios.put(
         `/api/admin/products/${product.id}`,
         product,
@@ -70,7 +83,7 @@ export const updateProduct = (product, history) => async (dispatch) => {
 
 export const createProduct = (product, history) => async (dispatch) => {
   try {
-    if (tokenHeader) {
+    if (token) {
       const { data: createdProduct } = await axios.post(
         '/api/admin/products',
         product,
@@ -86,7 +99,7 @@ export const createProduct = (product, history) => async (dispatch) => {
 
 export const deleteProduct = (id, history) => async (dispatch) => {
   try {
-    if (tokenHeader) {
+    if (token) {
       const { data: deletedProduct } = await axios.delete(
         `/api/admin/products/${id}`,
         tokenHeader
@@ -101,17 +114,10 @@ export const deleteProduct = (id, history) => async (dispatch) => {
 
 export const fetchUsers = () => {
   return async (dispatch) => {
-    if (tokenHeader) {
+    if (token) {
       const { data: allUsers } = await axios.get('/api/users', tokenHeader);
       return dispatch(setUsers(allUsers));
     }
-  };
-};
-
-export const fetchProducts = () => {
-  return async (dispatch) => {
-    const { data: products } = await axios.get('/api/products');
-    dispatch(setProducts(products));
   };
 };
 
