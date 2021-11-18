@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { tokenHeader } from './headers';
 
 const SET_ORDER = 'SET_ORDER';
 const CREATE_ORDER = 'CREATE_ORDER';
@@ -31,10 +32,13 @@ export const fetchOrders = () => {
 export const createNewOrder = (order) => {
   return async dispatch => {
     try {
-      console.log('this is my order', order);
-      const { data: created } = await axios.post('/api/orders/', order);
-      console.log('this is my data', created);
-      dispatch(createOrder(created));
+      if(order.userId){
+        const { data: created } = await axios.post('/api/orders/', order);
+        dispatch(createOrder(created));
+      } else {
+        await axios.post('/api/orders/', order);
+        localStorage.clear();
+      }
     } catch (error) {
       console.log(error);
     }

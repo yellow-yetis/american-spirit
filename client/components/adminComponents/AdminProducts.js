@@ -11,19 +11,19 @@ export class AdminProducts extends React.Component {
   render() {
     return (
       <div>
-        <h1>All Products</h1>
+        <h1>Select Product to Edit</h1>
         <div>
-          <ul style={{ listStyle: 'none' }}>
+          <ul className='products'>
             {this.props.products.map((product) => {
               return (
                 <li key={product.id}>
-                  <div>
-                    <h2>
-                      <Link to={`/admin/products/${product.id}`}>
-                        {product.name}
-                      </Link>{' '}
-                      - {product.category} - $ {product.price}
-                    </h2>
+                  <div className='product'>
+                    <Link to={`/admin/products/${product.id}`}>
+                      <img src={product.imageUrl} height='275px' />
+                      <h2>{product.name}</h2>
+                      <h3>{product.category}</h3>
+                      <h3>${product.price}</h3>
+                    </Link>{' '}
                   </div>
                 </li>
               );

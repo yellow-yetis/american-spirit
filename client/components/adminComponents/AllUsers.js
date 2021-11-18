@@ -13,19 +13,27 @@ export class AllUsers extends React.Component {
       <div>
         <h1>All Users</h1>
         <div>
-          <ul style={{ listStyle: 'none' }}>
-            {this.props.users.map((user) => {
-              return (
-                <li key={user.id}>
-                  <div>
-                    <h2>
-                      {user.id}. {user.username}
-                    </h2>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Access Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.props.users.map((user) => (
+                <tr key={user.id}>
+                  <td>{user.id}</td>
+                  <td>{user.username}</td>
+                  <td>{user.isAdmin ? 'Admin' : 'Customer'}</td>
+                  <td>
+                    <button>Update Access</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     );
@@ -33,7 +41,6 @@ export class AllUsers extends React.Component {
 }
 
 const mapState = (state) => {
-  console.log(state);
   return {
     users: state.admin.users,
   };

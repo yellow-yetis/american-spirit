@@ -3,6 +3,7 @@ const {
   models: { Order },
 } = require('../db');
 const Cart = require('../db/models/Cart');
+const { requireToken } = require('./gatekeepingmiddleware')
 
 // /api/orders/
 router.get('/', async (req, res, next) => {
@@ -20,11 +21,10 @@ router.post('/', async (req, res, next) => {
     if(req.body.userId){
       const userCart = await Cart.findOne({
         where: {
-          userId: req.body.userId,
+          userId: req.body.userId
         },
       });
-      const userCartId = userCart.dataValues.id;
-      const newOrder = await Order.create({ ...req.body, cartId: userCartId });
+      const newOrder = await Order.create({ ...req.body, cartId: userCart.id });
       res.json(newOrder);
       //User checkout as guest
     } else {

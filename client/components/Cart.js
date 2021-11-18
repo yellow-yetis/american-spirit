@@ -114,7 +114,6 @@ export class Cart extends Component {
 const mapState = state => {
   return {
     productsInCart: state.cartProducts,
-    isLoggedIn: !!state.auth.id,
     userId: state.auth.id,
   };
 };

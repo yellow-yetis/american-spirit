@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createNewOrder } from '../store/order';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { fetchCartTotals } from '../store/cartTotals';
 export class CheckForm extends Component {
   constructor(props) {
     super(props);
@@ -11,38 +12,61 @@ export class CheckForm extends Component {
       CVV: '',
       validThru: '',
       nameOnCard: '',
-      redirect: false
+      shippingAddress: '',
+      zipCode: '',
+      city: '',
+      state: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+
+  componentDidMount(){
+    if(this.props.isLoggedIn){
+      this.props.fetchCartTotals();
+    }
+  }
+
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
-  handleSubmit(event, userId) {
+  handleSubmit(event) {
     event.preventDefault();
-    this.props.createNewOrder({ ...this.state, userId });
-    this.props.toggleModal();
+    if(this.props.isLoggedIn){
+      this.props.createNewOrder({
+        nameOnCard: this.state.nameOnCard,
+        productsInOrder: this.props.totals.totalQuantity,
+        priceOfCart: this.props.totals.totalPrice,
+        userId: this.props.userId
+      });
+    } else {
+      this.props.createNewOrder({
+        nameOnCard: this.state.nameOnCard,
+        productsInOrder: this.props.totalQuantity,
+        priceOfCart: this.props.totalPrice
+      })
+    }
     this.setState({
       number: '',
       CVV: '',
       nameOnCard: '',
       validThru: '',
-      redirect: true
+      shippingAddress: '',
+      zipCode: '',
+      city: '',
+      state: ''
     });
+    this.props.history.push('/orderConfirmation')
+    this.props.toggleModal();
   }
   render() {
-    const { number, CVV, nameOnCard, validThru } = this.state;
-    if(this.state.redirect === true){
-      <Redirect to='/orderConfirmation' />
-    }
-
+    const { number, CVV, nameOnCard, validThru, shippingAddress, zipCode, city, state } = this.state;
     return (
       <div>
         <h4 className="center">Payment Details</h4>
-        <form onSubmit={event => this.handleSubmit(event, this.props.userId)}>
+        <form onSubmit={event => this.handleSubmit(event)}>
           <div>
             <label htmlFor="number">Card Number</label>
             <input
@@ -76,6 +100,38 @@ export class CheckForm extends Component {
               placeholder="Name On Card"
               onChange={this.handleChange}
             />
+            <label htmlFor="shippingAddress">Shipping Address</label>
+            <input
+              type="text"
+              name="shippingAddress"
+              value={shippingAddress}
+              placeholder="Shipping Address"
+              onChange={this.handleChange}
+            />
+            <label htmlFor="city">City</label>
+            <input
+              type="text"
+              name="city"
+              value={city}
+              placeholder="City"
+              onChange={this.handleChange}
+            />
+            <label htmlFor="state">State</label>
+            <input
+              type="text"
+              name="state"
+              value={state}
+              placeholder="State"
+              onChange={this.handleChange}
+            />
+            <label htmlFor="zipCode">Zip Code</label>
+            <input
+              type="text"
+              name="zipCode"
+              value={zipCode}
+              placeholder="Zip Code"
+              onChange={this.handleChange}
+            />
             <button type="submit">Pay</button>
           </div>
         </form>
@@ -86,12 +142,16 @@ export class CheckForm extends Component {
 
 const mapState = state => {
   return {
-    userId: state.auth.id,
+    totals: state.cartTotals,
+    isLoggedIn: !!state.auth.id,
+    userId: state.auth.id
   };
 };
-const mapDispatch = (dispatch, { history }) => {
+const mapDispatch = (dispatch) => {
   return {
-    createNewOrder: order => dispatch(createNewOrder(order, history)),
+    createNewOrder: order => dispatch(createNewOrder(order)),
+    fetchCartTotals: () => dispatch(fetchCartTotals())
   };
 };
-export default connect(mapState, mapDispatch)(CheckForm);
+
+export default withRouter(connect(mapState, mapDispatch)(CheckForm));
