@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import HeroSection from './HeroSection';
 import Cards from './Cards';
+import Footer from './Footer';
+
 
 /**
  * COMPONENT
@@ -14,7 +16,8 @@ export const Home = props => {
       {/* <h3>Welcome, {username}</h3> */}
       <HeroSection />
       <Cards />
-    </div>
+      <Footer />
+      </div>
   )
 }
 

@@ -66,7 +66,7 @@ export class Cart extends Component {
   render() {
     return (
       <div>
-        <h1 className="center">Shopping Cart</h1>
+        <h1>Shopping Cart</h1>
         <ul style={{ listStyle: 'none' }}>
           {this.props.productsInCart.map(product => {
             return (
@@ -106,7 +106,7 @@ export class Cart extends Component {
           {this.props.productsInCart ? this.sumFinder('liquorTotalPrice') : <div>'$0'</div>}
         </div>
         <Checkout />
-      </div>
+     </div>
     );
   }
 }

@@ -1,9 +1,4 @@
 import React from 'react';
-import AllVodka from './AllVodka';
-import AllGin from './AllGin';
-import AllTequila from './AllTequila';
-import AllWhiskey from './AllWhiskey';
-import AllRum from './AllRum';
 import CardItem from './CardItem';
 
 
@@ -21,7 +16,6 @@ function Cards() {
 						label='Vodka'
 						path='/categories/Vodka'
 						/>
-            {/* https://cdn.shopify.com/s/files/1/0397/0079/1341/files/vodka-shop-online_900x.jpg?v=1618535987 */}
             <CardItem
 						src='https://www.thespruceeats.com/thmb/krxJBOwZoRNDliTyyl2SC-25wOE=/735x0/gin-tonic-5a8f334b8e1b6e0036a9631d.jpg'
 						text='Its perfect time for some Gin & Tonic'
