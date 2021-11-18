@@ -15,16 +15,16 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-router.post('/', requireToken, async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
     //If user is logged in
-    if(req.user.id){
+    if(req.body.userId){
       const userCart = await Cart.findOne({
         where: {
-          userId: req.user.id
+          userId: req.body.userId
         },
       });
-      const newOrder = await Order.create({ ...req.body, userId: req.user.id, cartId: userCart.id });
+      const newOrder = await Order.create({ ...req.body, cartId: userCart.id });
       res.json(newOrder);
       //User checkout as guest
     } else {

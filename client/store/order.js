@@ -32,10 +32,12 @@ export const fetchOrders = () => {
 export const createNewOrder = (order) => {
   return async dispatch => {
     try {
-      if(tokenHeader){
-        const { data: created } = await axios.post('/api/orders/', order, tokenHeader);
-        console.log('this is my data', created);
+      if(order.userId){
+        const { data: created } = await axios.post('/api/orders/', order);
         dispatch(createOrder(created));
+      } else {
+        await axios.post('/api/orders/', order);
+        localStorage.clear();
       }
     } catch (error) {
       console.log(error);

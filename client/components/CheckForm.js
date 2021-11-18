@@ -18,7 +18,9 @@ export class CheckForm extends Component {
   }
 
   componentDidMount(){
-    this.props.fetchCartTotals();
+    if(this.props.isLoggedIn){
+      this.props.fetchCartTotals();
+    }
   }
 
   handleChange(event) {
@@ -28,12 +30,20 @@ export class CheckForm extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    console.log("TOTALS APPEND TO ORDER: ", this.props.totals);
-    this.props.createNewOrder({
-      nameOnCard: this.state.nameOnCard,
-      productsInOrder: this.props.totals.totalQuantity,
-      priceOfCart: this.props.totals.totalPrice
-    });
+    if(this.props.isLoggedIn){
+      this.props.createNewOrder({
+        nameOnCard: this.state.nameOnCard,
+        productsInOrder: this.props.totals.totalQuantity,
+        priceOfCart: this.props.totals.totalPrice,
+        userId: this.props.userId
+      });
+    } else {
+      this.props.createNewOrder({
+        nameOnCard: this.state.nameOnCard,
+        productsInOrder: this.props.totalQuantity,
+        priceOfCart: this.props.totalPrice
+      })
+    }
     this.setState({
       number: '',
       CVV: '',
@@ -45,7 +55,6 @@ export class CheckForm extends Component {
   }
   render() {
     const { number, CVV, nameOnCard, validThru } = this.state;
-
     return (
       <div>
         <h4 className="center">Payment Details</h4>
@@ -94,6 +103,8 @@ export class CheckForm extends Component {
 const mapState = state => {
   return {
     totals: state.cartTotals,
+    isLoggedIn: !!state.auth.id,
+    userId: state.auth.id
   };
 };
 const mapDispatch = (dispatch) => {
