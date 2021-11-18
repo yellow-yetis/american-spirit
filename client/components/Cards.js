@@ -32,7 +32,7 @@ function Cards() {
 					<ul className='cards__items'>
           <CardItem
 						src='https://cdn.shopify.com/s/files/1/0397/0079/1341/files/tequila_600x.jpg?v=1618535745'
-						text='Feel like you are in Tulum!'
+						text='Cinco de Mayo Vibes!'
 						label='Tequila'
 						path='/categories/Tequila'
 						/>
@@ -52,7 +52,7 @@ function Cards() {
             <ul className='cards__items'>
 						<CardItem
 						src='https://cdn.shopify.com/s/files/1/0397/0079/1341/files/rare-liquor-shop-pnline_900x.jpg?v=1618535987'
-						text='Our recomendations for your OldFashioneds and Manhattans'
+						text='Whether you like it neat or on-the-rocks, for Old Fashioneds or Manhattans we have some whiskey for you'
 						label='Whiskey'
 						path='/categories/Whiskey'
 						/>

@@ -14,10 +14,6 @@ body {
   overflow-x: hidden;
 }
 
-/* new-arrival:hover {
-  border-bottom: 4px solid #fff;
-  transition: all 0.3s ease-out;
-} */
 
 h1 {
   text-align: center;
@@ -35,7 +31,9 @@ a {
 
 label {
   display: block;
+  font-size: x-large;
 }
+
 
 nav a {
   display: inline-block;
@@ -50,7 +48,7 @@ nav a {
 	font-size: 2rem;
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
-	margin-top: 30px;
+	margin-top: 70px;
 	transition: 0.3s ease;
 	transition-property: background-color, color;
 }
@@ -165,7 +163,67 @@ form div {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
+/* Single Product */
+.single-product {
+	flex-direction: column-reverse;
+	text-align: center;
+	margin: 0 auto;
+	padding: 20px 20px;
+}
+.col-right h2 {
+  font-size: 1.7rem;
+	font-weight: 500;
+	letter-spacing: 0.2rem;
+	margin-bottom: 10px;
+}
+.col-right h3 {
+  text-align: center;
+  font-size: 1.3rem;
+	font-weight: 500;
+	letter-spacing: 0.1rem;
+	margin-bottom: 10px;
+}
+.col-right {
+	width: 90%;
+}
+.col-right p {
+	margin-bottom: 20px;
+  font-size: x-large;
+}
+.add-to-cart {
+  display: inline-block;
+	padding: 10px 10px;
+	color: rgb(238, 43, 43);
+	background-color: transparent;
+	border: 2px solid crimson;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 10px;
+	transition: 0.3s ease;
+	transition-property: background-color, color;
+}
 
+.add-to-cart:hover {
+	color: white;
+	background-color: rgb(171, 8, 8);
+}
+
+.quantity {
+  text-align: center;
+  font-size: 1.25rem;
+	font-weight: 500;
+	letter-spacing: 0.1rem;
+	margin-bottom: 10px;
+}
+
+.quantity input {
+  font-size: large;
+  height: 30px;
+  width: 50px;
+  margin-top: 20px;
+  border: 3px solid black;
+}
 
 /*Checkout JS File */
 body.active-modal {
@@ -252,7 +310,7 @@ form button:hover {
   justify-content: space-around;
 }
 
-.admin-tile {
+.admin-title {
   align-items: center;
   justify-content: center;
 }
@@ -413,7 +471,7 @@ h1 {
 
 .cards__item__text {
   color: #252e48;
-  font-size: 18px;
+  font-size: 30px;
   line-height: 24px;
 }
 

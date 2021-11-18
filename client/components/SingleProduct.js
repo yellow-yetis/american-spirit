@@ -67,7 +67,8 @@ class SingleProduct extends Component {
     const Size = this.props.product.size || '';
 
     return (
-      <div>
+      <div className='single-product'>
+      <div className='col-right'>
         <img src={image} align="left" />
         <h1>{name}</h1>
         <h2>{type}</h2>
@@ -76,7 +77,7 @@ class SingleProduct extends Component {
         <h2>Price: ${price}</h2>
         <h3>ABV: {ABV}%</h3>
         <h3>{Size}ml</h3>
-        <div>
+        <div className='quantity'>
           <label>Select Quantity:</label>
           <input
             type='number'
@@ -93,7 +94,7 @@ class SingleProduct extends Component {
           )}
         </div>
         <div>
-          <button
+          <button className='add-to-cart'
             onClick={(e) =>
               this.handleAddToCart(
                 e,
@@ -105,6 +106,7 @@ class SingleProduct extends Component {
             Add To Cart
           </button>
         </div>
+      </div>
       </div>
     );
   }

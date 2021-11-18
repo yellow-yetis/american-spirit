@@ -383,7 +383,7 @@ async function seed() {
       category: 'Whiskey',
       region: 'United States',
       description:
-        'A deep, satisfying nose of nutmeg and spices. Powerful dry vanilla notes in harmony with hints of honey amid strong caramel and corn. A medium finish composed of returning corn and nutmeg flavors',
+      'A deep, satisfying nose of nutmeg and spices. Powerful dry vanilla notes in harmony with hints of honey amid strong caramel and corn. A medium finish composed of returning corn and nutmeg flavors. Blanton`s Original Single Barrel was once designated for ambassadors, dignitaries, and Colonel Blanton`s family and friends. Today, everyone has access to the world`s first single barrel bourbon.',
       imageUrl:
         'https://products1.imgix.drizly.com/ci-blantons-single-barrel-bourbon-f27c3cae7eeaa8b9.png?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
       size: '750',
