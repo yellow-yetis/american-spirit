@@ -225,6 +225,29 @@ form div {
   border: 3px solid black;
 }
 
+
+/*Shopping Cart*/
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+	margin: 0 auto;
+	padding: 20px 20px;
+}
+
+.cart-image {
+  height: 150px;
+  width: 100px;
+}
+
+.cart-total {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /*Checkout JS File */
 body.active-modal {
   overflow-y: hidden;
@@ -320,6 +343,7 @@ h2 {
 }
 .admin-tile img {
   width: 200px;
+  height: 200px;
 }
 
 

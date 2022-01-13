@@ -8,32 +8,6 @@ import {authenticate} from '../store'
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
-
-  ///// Old Verion of Tipsy Bartender //////
-//   return (
-//     <div>
-//       <form onSubmit={handleSubmit} name={name}>
-//         <div>
-//           <label htmlFor="username">
-//             <small>Username</small>
-//           </label>
-//           <input name="username" type="text" />
-//         </div>
-//         <div>
-//           <label htmlFor="password">
-//             <small>Password</small>
-//           </label>
-//           <input name="password" type="password" />
-//         </div>
-//         <div>
-//           <button type="submit">{displayName}</button>
-//         </div>
-//         {error && error.response && <div> {error.response.data} </div>}
-//       </form>
-//     </div>
-//   )
-// }
-
 return (
   <div className='login-main-container'>
     <div className='login-main'>
@@ -65,40 +39,7 @@ return (
 )
 }
 
-// TenRen Version //////////////////////////////////////////////////////
 
-// return (
-//   <div className='login-main-container'>
-//   <div className='login-main'>
-//   <div className='login'>
-//   <h1>Welcome to Robin Noob</h1>
-//   {this.state.msgBool ? this.message() : null}
-//   <form onSubmit={handleSubmit} name={name}>
-//     <label><h4>Username</h4>
-//       <input
-//         name="username"
-//         type="text"
-//         placeholder="Username"
-//         value={this.state.username}
-//         onChange={this.handleChange}
-//       />
-//     </label>
-//     <label><h4>Password</h4>
-//       <input
-//         name="password"
-//         type="password"
-//         placeholder="Password"
-//         value={this.state.password}
-//         onChange={this.handleChange}
-//       />
-//     </label>
-//     <input className='button-login' type="submit" value="Login" />
-//   </form>
-// </div>
-// </div>
-// </div>
-// );
-//////// TenRen Version //////////////////////////////////////////
 /**
  * CONTAINER
  *   Note that we have two different sets of 'mapStateToProps' functions -

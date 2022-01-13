@@ -70,11 +70,13 @@ export class Cart extends Component {
         <ul style={{ listStyle: 'none' }}>
           {this.props.productsInCart.map(product => {
             return (
+              <div className='cart-container'>
+                <div className='single-cart'>
               <li key={product.id}>
-                <h4>{product.name}</h4>
                 <Link to={`/products/${product.id}`}>
-                  <img className="cartImage" src={product.imageUrl} />
+                  <img className="cart-image" src={product.imageUrl} align="left" />
                 </Link>
+                <h4>{product.name}</h4>
                 <div>
                   Price Per Bottle: {'$'}{product.price}
                 </div>
@@ -96,16 +98,19 @@ export class Cart extends Component {
                 </button>
                 <h4 style={{ color: 'red' }}>{product.error}</h4>
               </li>
+              </div>
+              </div>
             );
           })}
         </ul>
-        <div className="right">
-          Total Items In Cart {' '}
-          {this.props.productsInCart ? this.sumFinder('liquorQuantity') : <div>0 Items</div>} Total
-          Cost of Goods {'$'}
+        <div className="cart-total">
+          Total Items In Cart: {' '}
+          {this.props.productsInCart ? this.sumFinder('liquorQuantity') : <div>0 Items</div>}.
+           Total
+          Cost of Goods: {'$'}
           {this.props.productsInCart ? this.sumFinder('liquorTotalPrice') : <div>'$0'</div>}
+          <Checkout />
         </div>
-        <Checkout />
      </div>
     );
   }
