@@ -1,4 +1,5 @@
 ## A fully functioning mock e-commerce application revolving around selling liquor products using the PERN stack
+
 ### `Deployment`
 Open: [https://tipsy-newyorker.herokuapp.com/]
 
