@@ -12,7 +12,7 @@ export class AllUsers extends React.Component {
     return (
       <div>
         <h1>All Users</h1>
-        <div>
+        <div className='all_users'>
           <table>
             <thead>
               <tr>

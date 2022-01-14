@@ -42,9 +42,9 @@ class CreateProduct extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='add_new_product'>
         <h2>Add New Product</h2>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className='add_form'>
           <label>Brand Name: </label>
           <input
             placeholder='Product Name'
@@ -117,7 +117,7 @@ class CreateProduct extends React.Component {
             <option value=''>--Select a Size--</option>
             <option value='750'>750ml</option>
           </select>
-          <button type='submit'>Add New Product</button>
+          <button type='submit' className='add-product'>Add New</button>
         </form>
       </div>
     );

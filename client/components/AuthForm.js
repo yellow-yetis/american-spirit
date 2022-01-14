@@ -8,29 +8,37 @@ import {authenticate} from '../store'
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
-  return (
-    <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="username">
-            <small>Username</small>
-          </label>
-          <input name="username" type="text" />
-        </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          <button type="submit">{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
+return (
+  <div className='login-main-container'>
+    <div className='login-main'>
+    <div className='login'>
+     <h2>Welcome to Tipsy New Yorker!</h2>
+    <form onSubmit={handleSubmit} name={name}>
+        <label htmlFor="username">
+          <p>Username</p>
+        <input
+          name="username"
+          type="text"
+          placeholder="Username"
+           />
+        </label>
+        <label htmlFor="password">
+          <p>Password</p>
+        </label>
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          />
+        <button className="button-login" type="submit" value="Login">{displayName}</button>
+      {error && error.response && <div> {error.response.data} </div>}
+    </form>
+     </div>
     </div>
-  )
+  </div>
+)
 }
+
 
 /**
  * CONTAINER
