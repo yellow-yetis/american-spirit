@@ -255,9 +255,11 @@ body.active-modal {
 }
 
 .btn-modal {
-  background-color: #59a9c2;
+  /* background-color: #59a9c2; */
+  background-color: crimson;
   margin-left: 30px;
-  margin-bottom: 40px;
+  margin-top: 10px;
+  margin-bottom: 30px;
   white-space: nowrap;
   display: inline-block;
   border-radius: 5px;
@@ -327,25 +329,34 @@ form button:hover {
 }
 
 /* admin components */
-#admin-dash {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+
+.admin_cards {
+  padding: 4rem;
+  background: #fff;
 }
 
-.admin-tile {
-  align-items: center;
-  justify-content: center;
-}
-.admin-tile h1,
-h2 {
+h1 {
   text-align: center;
 }
-.admin-tile img {
-  width: 200px;
-  height: 200px;
+
+.admin_cards__container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  max-width: 1120px;
+  width: 90%;
+  margin: 0 auto;
 }
 
+
+.admin_cards__wrapper {
+  position: relative;
+  margin: 50px 0 45px;
+}
+
+.admin_cards__items {
+  margin-bottom: 24px;
+}
 
 /* hero section */
 video {
@@ -415,6 +426,7 @@ h1 {
   width: 90%;
   margin: 0 auto;
 }
+
 
 .cards__wrapper {
   position: relative;
@@ -509,11 +521,30 @@ h1 {
   .cards__items {
     display: flex;
   }
+
+  .admin_cards_items {
+    display: flex;
+  }
+  .navbar-logo {
+    font-size: 1.5rem;
+  }
+
+  .fa-typo3 {
+    font-size: 1rem;
+  }
+
 }
 
 @media only screen and (max-width: 1024px) {
   .cards__item {
     margin-bottom: 2rem;
+  }
+  .navbar-logo {
+    font-size: 1.5rem;
+  }
+
+  .fa-typo3 {
+    font-size: 1rem;
   }
 }
 

@@ -105,7 +105,7 @@ export class Cart extends Component {
         </ul>
         <div className="cart-total">
           Total Items In Cart: {' '}
-          {this.props.productsInCart ? this.sumFinder('liquorQuantity') : <div>0 Items</div>}.
+          {this.props.productsInCart ? this.sumFinder('liquorQuantity') : <div>0 Items</div>} ||
            Total
           Cost of Goods: {'$'}
           {this.props.productsInCart ? this.sumFinder('liquorTotalPrice') : <div>'$0'</div>}
