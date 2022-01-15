@@ -57,7 +57,7 @@ class EditProduct extends Component {
   render() {
     return (
       <div>
-        <div>
+        <div className='col-right'>
           <img src={this.props.product.imageUrl} align='left' />
           <h1>{this.props.product.name}</h1>
           <h2>{this.props.product.type}</h2>
@@ -67,7 +67,7 @@ class EditProduct extends Component {
           <h2>ABV: {this.props.product.ABV}%</h2>
           <h2>{this.props.product.size}ml</h2>
         </div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className='edit-form'>
           <label>Brand Name: </label>
           <input
             placeholder='Brand'
@@ -140,17 +140,20 @@ class EditProduct extends Component {
             <option value=''>--Select a Size--</option>
             <option value='750'>750ml</option>
           </select>
-          <button type='submit'>Edit Product</button>
-        </form>
+          <button type='submit' className='button-edit'>Edit Product</button>
+          <div>
         <form onSubmit={(event) => event.preventDefault()}>
           <button
             onClick={() =>
               this.props.deleteProduct(this.props.match.params.productId)
             }
-          >
+            className='delete-product'>
             Delete Product
           </button>
         </form>
+      </div>
+        </form>
+
       </div>
     );
   }

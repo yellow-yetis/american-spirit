@@ -399,6 +399,55 @@ h1 {
 .add_form {
   margin-top: 20px;
 }
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  width: 250px;
+}
+
+
+.button-edit {
+  border: 2px solid #f9f9f9;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: red;
+  color: white;
+  width: 100%;
+  cursor: pointer;
+  padding: 14px 20px;
+  margin: 8px 0;
+  font-size: 10px;
+  }
+
+
+.button-edit:hover {
+  opacity: 0.8;
+  background-color: #015a96; }
+
+  .delete-product {
+    /* display: inline-block; */
+    /* position: absolute; */
+    display: flex;
+    justify-content: center;
+    padding: 10px 10px;
+    color: rgb(238, 43, 43);
+    background-color: transparent;
+    border: 2px solid crimson;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-bottom: 50px;
+    transition: 0.3s ease;
+    transition-property: background-color, color;
+  }
+
+  .delete-product:hover {
+    color: white;
+    background-color: rgb(171, 8, 8);
+  }
 /* hero section */
 video {
 	object-fit: cover;
