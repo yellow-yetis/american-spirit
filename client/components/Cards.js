@@ -31,7 +31,7 @@ function Cards() {
 						path='/categories/Tequila'
 						/>
             <CardItem
-						src='https://www.chowhound.com/a/img/resize/05dc2f2acb02d6dbebbb5dc0eb53cb5e6c1a2a97/2019/04/sal-de-gusado-worm-salt-mezcal-chowhound.jpg?fit=bounds&width=800'
+						src='https://media.istockphoto.com/photos/mexican-mezcal-or-mescal-shot-with-chili-pepper-and-orange-picture-id1313412873?b=1&k=20&m=1313412873&s=170667a&w=0&h=l5I9jBVYPzcPbje0r9RPybhLQhDu3Ljnqgt0OT41zzU='
 						text='For those who doesnt drink Tequila, but love Mezcal'
 						label='Mezcal'
 						path='/categories/Mezcal'

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import Video from './video/Blantons.mp4'
+// import Video from './components/video/Blantons.mp4'
 
 
 
@@ -14,7 +14,6 @@ function HeroSection() {
       <button className='cta'>Order Now!</button>
       </Link>
 		</div>
-	)
-}
+	)}
 
 export default HeroSection;

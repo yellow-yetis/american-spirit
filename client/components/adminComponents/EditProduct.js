@@ -152,9 +152,8 @@ class EditProduct extends Component {
           </button>
         </form>
       </div>
-        </form>
-
-      </div>
+    </form>
+  </div>
     );
   }
 }
