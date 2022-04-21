@@ -3,7 +3,7 @@
 ### `Deployment`
 Open: [https://tipsy-newyorker.herokuapp.com/]
 
-### admin username: murphy password: 123
+### username: cody password: 123
 
 ### Technologies Used
 HTML5, CSS3, JavaScript, React, Redux, Sequelize, Express, Node.js, PostgreSQL
