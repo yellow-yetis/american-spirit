@@ -74,24 +74,24 @@ export class GuestCart extends Component {
               <div className='cart-container'>
                 <div className='single-cart'>
               <li key={product.id}>
-                <h4>{product.name}</h4>
                 <Link to={`/products/${product.id}`}>
                   <img className="cart-image" src={product.imageUrl} align="left" />
                 </Link>
+                <h4>{product.name}</h4>
                 <div>
                     Price Per Bottle: {'$'}{product.price}
                   </div>
                 <div>Total Price: {'$'}{product.liquorTotalPrice}</div>
                 <div>
                   Total Quantity:{' '}
-                  <input style={{width: '50px'}}
+                  <input style={{width: "30px"}}
                     type="number"
                     min="1"
                     defaultValue={product.liquorQuantity}
                     onChange={e => this.handleChange(e, product.id)}
                   />
                 </div>
-                <button style={{background: 'red'}} onClick={() => this.removeItem(product.id)}>Remove From Cart</button>
+                <button className="btn-modal" onClick={() => this.removeItem(product.id)}>Remove From Cart</button>
                 <h4 style={{ color: 'red' }}>{product.error}</h4>
               </li>
               </div>

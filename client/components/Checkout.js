@@ -33,7 +33,7 @@ class Checkout extends Component {
   render() {
     return (
       <div>
-        <button className="btn-modal" onClick={this.toggleModal}>
+        <button className="add-to-cart" onClick={this.toggleModal}>
           Proceed To Checkout
         </button>
         {this.state.showModal ? (

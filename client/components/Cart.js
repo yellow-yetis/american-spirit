@@ -86,14 +86,14 @@ export class Cart extends Component {
                 </div>
                 <div>
                   Total Quantity:{' '}
-                  <input
+                  <input style={{width: "30px"}}
                     type="number"
                     min="1"
                     defaultValue={product.cartLiquor.liquorQuantity}
                     onChange={e => this.handleChange(e, product)}
                   />
                 </div>
-                <button onClick={() => this.removeItem(this.props.userId, product.id)}>
+                <button className='btn-modal' onClick={() => this.removeItem(this.props.userId, product.id)}>
                   Remove From Cart
                 </button>
                 <h4 style={{ color: 'red' }}>{product.error}</h4>
