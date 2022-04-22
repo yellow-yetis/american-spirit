@@ -453,9 +453,9 @@ h1 {
 
 .add-product {
   /* display: inline-block; */
-  position: absolute;
+  /* position: absolute; */
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 	padding: 10px 10px;
 	color: rgb(238, 43, 43);
 	background-color: transparent;
