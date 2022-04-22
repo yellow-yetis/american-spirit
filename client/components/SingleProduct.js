@@ -79,7 +79,7 @@ class SingleProduct extends Component {
         <h3>{Size}ml</h3>
         <div className='quantity'>
           <label>Select Quantity:</label>
-          <input
+          <input style={{width: "45px"}}
             type='number'
             min='1'
             defaultValue='1'

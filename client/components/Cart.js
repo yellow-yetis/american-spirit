@@ -67,15 +67,16 @@ export class Cart extends Component {
     return (
       <div>
         <h1>Shopping Cart</h1>
-        <ul style={{ listStyle: 'none' }}>
+        <div>
+        <ul className='cart-container'>
           {this.props.productsInCart.map(product => {
             return (
-              <div className='cart-container'>
-                <div className='single-cart'>
               <li key={product.id}>
+              <div className='single-cart'>
                 <Link to={`/products/${product.id}`}>
-                  <img className="cart-image" src={product.imageUrl} align="left" />
+                  <img className="cart-image" src={product.imageUrl} />
                 </Link>
+                <div className='cart-text'>
                 <h4>{product.name}</h4>
                 <div>
                   Price Per Bottle: {'$'}{product.price}
@@ -86,7 +87,7 @@ export class Cart extends Component {
                 </div>
                 <div>
                   Total Quantity:{' '}
-                  <input style={{width: "30px"}}
+                  <input style={{width: "35px"}}
                     type="number"
                     min="1"
                     defaultValue={product.cartLiquor.liquorQuantity}
@@ -97,20 +98,21 @@ export class Cart extends Component {
                   Remove From Cart
                 </button>
                 <h4 style={{ color: 'red' }}>{product.error}</h4>
+                </div>
+                </div>
               </li>
-              </div>
-              </div>
             );
           })}
         </ul>
         <div className="cart-total">
           Total Items In Cart: {' '}
-          {this.props.productsInCart ? this.sumFinder('liquorQuantity') : <div>0 Items</div>} ||
+          {this.props.productsInCart ? this.sumFinder('liquorQuantity') : <h1>0 Items</h1>} ||
            Total
           Cost of Goods: {'$'}
-          {this.props.productsInCart ? this.sumFinder('liquorTotalPrice') : <div>'$0'</div>}
+          {this.props.productsInCart ? this.sumFinder('liquorTotalPrice') : <h1>'$0'</h1>}
           <Checkout />
         </div>
+     </div>
      </div>
     );
   }

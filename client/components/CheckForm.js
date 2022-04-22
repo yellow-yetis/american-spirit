@@ -63,7 +63,7 @@ export class CheckForm extends Component {
     const { number, CVV, nameOnCard, validThru, shippingAddress, zipCode, city, state } = this.state;
     return (
       <div className='checkout-form'>
-        <h2 className="center">Payment Details</h2>
+        <h3 className="center">Payment Details</h3>
         <form onSubmit={event => this.handleSubmit(event)}>
           <div>
             <label htmlFor="number">Card Number</label>

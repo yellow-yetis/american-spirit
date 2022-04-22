@@ -68,15 +68,16 @@ export class GuestCart extends Component {
     return (
       <div>
         <h1>Shopping Cart</h1>
-        <ul style={{ listStyle: 'none' }}>
+        <div>
+        <ul className='cart-container'>
           {this.state.productArr.map(product => {
             return (
-              <div className='cart-container'>
-                <div className='single-cart'>
               <li key={product.id}>
+                <div className='single-cart'>
                 <Link to={`/products/${product.id}`}>
-                  <img className="cart-image" src={product.imageUrl} align="left" />
+                  <img className="cart-image" src={product.imageUrl} />
                 </Link>
+                <div className='cart-text'>
                 <h4>{product.name}</h4>
                 <div>
                     Price Per Bottle: {'$'}{product.price}
@@ -84,7 +85,7 @@ export class GuestCart extends Component {
                 <div>Total Price: {'$'}{product.liquorTotalPrice}</div>
                 <div>
                   Total Quantity:{' '}
-                  <input style={{width: "30px"}}
+                  <input style={{width: "35px"}}
                     type="number"
                     min="1"
                     defaultValue={product.liquorQuantity}
@@ -93,9 +94,9 @@ export class GuestCart extends Component {
                 </div>
                 <button className="btn-modal" onClick={() => this.removeItem(product.id)}>Remove From Cart</button>
                 <h4 style={{ color: 'red' }}>{product.error}</h4>
+                </div>
+              </div>
               </li>
-              </div>
-              </div>
             );
           })}
         </ul>
@@ -106,6 +107,7 @@ export class GuestCart extends Component {
           {this.state.productArr !== [] ? this.sumFinder('liquorTotalPrice') : <h1>'$0'</h1>}
         <Checkout totalPrice={this.sumFinder('liquorTotalPrice')} totalQuantity={this.sumFinder('liquorQuantity')} />
         </div>
+      </div>
       </div>
     );
   }

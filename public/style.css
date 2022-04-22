@@ -34,6 +34,9 @@ label {
   font-size: x-large;
 }
 
+.hr hr {
+  display: none
+}
 
 nav a {
   display: inline-block;
@@ -83,7 +86,7 @@ form div {
   font-size: 1.2rem;
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: auto;
 }
 
 .navbar-container {
@@ -228,13 +231,28 @@ form div {
 
 
 /*Shopping Cart*/
+
 .cart-container {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;;
   align-items: center;
   justify-content: center;
 	margin: 0 auto;
 	padding: 20px 20px;
+  list-style-type: none;
+}
+.cart-container li {
+  flex: 1 1 1;
+  height: 30rem;
+  padding: 1rem;
+}
+
+.cart-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
 }
 
 .cart-image {
@@ -247,20 +265,44 @@ form div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 1.4rem;
 }
 
 /*Checkout JS File */
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: crimson;
+  padding: 10px;
+  /* margin-top: 24px; */
+
+}
+
+.checkout-form label {
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+.checkout-form h3 {
+  color: white;
+}
+
 body.active-modal {
   overflow-y: hidden;
   padding-right: 15px;
 }
 
 .btn-modal {
-  /* background-color: #59a9c2; */
   background-color: crimson;
   margin-left: 5px;
   margin-top: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   white-space: nowrap;
   display: inline-block;
   border-radius: 5px;
@@ -288,7 +330,7 @@ body.active-modal {
 }
 .modal-content {
   position: absolute;
-  top: 53%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   line-height: 1.4;
@@ -353,7 +395,7 @@ form button {
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
 	margin-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
 	transition: 0.3s ease;
 	transition-property: background-color, color;
 }
@@ -493,7 +535,7 @@ video {
 }
 
 .hero-container {
-	background: url('https://cdn.shopify.com/s/files/1/0397/0079/1341/files/Blanton_s_Bourbon_Home_Page-V1-01_1800x.jpg?v=1618465920') center center/cover no-repeat;
+	/* background: url('https://cdn.shopify.com/s/files/1/0397/0079/1341/files/Blanton_s_Bourbon_Home_Page-V1-01_1800x.jpg?v=1618465920') center center/cover no-repeat; */
 	height: 100vh;
 	width: 100%;
 	display: flex;
@@ -502,6 +544,18 @@ video {
 	align-items: center;
 	box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
 	object-fit: contain;
+}
+
+.background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
 }
 
 
@@ -807,21 +861,36 @@ h1 {
   height: 100vh;
   display: flex; }
 
-.login-main {
+/* .login-main {
   width: 100%;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230), url("https://i.ebayimg.com/images/g/37kAAOSwCMRcYtQ2/s-l1600.jpg") center;
   display: flex;
   flex-direction: column;
-  justify-content: center; }
+  justify-content: center; } */
+
+  .login-main {
+    width: 100%;
+    height: 100vh;
+    background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230),
+    url("https://pyxis.nymag.com/v1/imgs/960/d75/fd9ec4c50cbc3fc1681695450df4d98ec2-18-liquor-shop.rsquare.w700.jpg")
+
+    center center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    object-fit: fill;
+   }
+
 
 .login {
-  border: 5px solid #f9f9f9;
+  border: 8px solid #f9f9f9;
   margin: 0 auto;
   display: flex;
   width: 20vw;
   flex-wrap: wrap;
   justify-content: center;
-  background: rgb(171, 8, 8);
+  background: crimson;
   padding: 20px; }
 
 .login h2 {
@@ -834,10 +903,10 @@ h1 {
 }
 
 .button-login {
-  border: 2px solid #f9f9f9;
+  border: 3px solid #f9f9f9;
   border-radius: 10px;
   margin-bottom: 10px;
-  background-color: #0071bd;
+  background-color: crimson;
   color: white;
   width: 100%;
   cursor: pointer;
@@ -849,7 +918,7 @@ h1 {
 
 .button-login:hover {
   opacity: 0.8;
-  background-color: #015a96; }
+  background-color: rgb(171, 8, 8); }
 
 input[type=text], input[type=password] {
   width: 100%;
@@ -861,25 +930,3 @@ input[type=text], input[type=password] {
 
 /*------------------------------------------------------*/
 
-.checkout-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: crimson;
-  padding: 10px;
-  margin-top: 24px;
-
-}
-
-.checkout-form label {
-  color: white;
-  font-size: 1rem;
-  margin-bottom: 3px;
-  margin-top: 3px;
-}
-
-.checkout-form h2 {
-  color: white;
-}
