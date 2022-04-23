@@ -9,15 +9,16 @@ Open: [https://tipsy-newyorker.herokuapp.com/]
 HTML5, CSS3, JavaScript, React, Redux, Sequelize, Express, Node.js, PostgreSQL
 
 
-Install packages: npm install
+To install packages: npm install
 
 ### `npm run start:dev`
 Runs the app in the development mode.
 
 ### `npm run seed`
-seed the database
+To seed the database
 
 Open http://localhost:8080 to view it in your browser.
+
 
 ## Authors:
 

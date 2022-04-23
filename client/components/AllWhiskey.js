@@ -25,8 +25,8 @@ export class Whiskey extends React.Component {
                       <Link to={`/products/${whiskey.id}`}>
                       <img src={whiskey.imageUrl} height='350px' />
                       <h2>{whiskey.name}</h2>
-                      <h2>{whiskey.category}</h2>
-                      <h2>${whiskey.price}</h2>
+                      <h3>{whiskey.category}</h3>
+                      <h3>${whiskey.price}</h3>
                       </Link>{' '}
                    </div>
                 </li>

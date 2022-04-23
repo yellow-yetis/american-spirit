@@ -12,7 +12,7 @@ return (
   <div className='login-main-container'>
     <div className='login-main'>
     <div className='login'>
-     <h2>Welcome to Tipsy New Yorker!</h2>
+     <h2>Tipsy New Yorker<i className="fab fa-typo3" /></h2>
     <form onSubmit={handleSubmit} name={name}>
         <label htmlFor="username">
           <p>Username</p>
