@@ -9,11 +9,9 @@ import Footer from './Footer';
  * COMPONENT
  */
 export const Home = props => {
-  // const {username} = props
 
   return (
     <div className='home'>
-      {/* <h3>Welcome, {username}</h3> */}
       <HeroSection />
       <Cards />
       <Footer />
