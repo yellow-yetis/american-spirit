@@ -1,3 +1,4 @@
+![alt text](http://https://live.staticflickr.com/65535/52035385485_743276f02b_z.jpg)
 ## A fully functioning mock e-commerce application revolving around selling liquor products using the PERN stack
 
 ### `Deployment`
