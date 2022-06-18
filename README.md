@@ -1,18 +1,26 @@
 
-![alt text](https://live.staticflickr.com/65535/52035385485_743276f02b_z.jpg)
-
+# Tipsy New Yorker
 ## A fully functioning mock e-commerce application revolving around selling liquor products using the PERN stack
+[Click here for the live site](https://tipsy-newyorker.herokuapp.com/)
+![](https://user-images.githubusercontent.com/32605566/174420731-4a95874b-df53-4637-a496-df4d41e63b3e.gif)
 
-### `Deployment`
-Open: [https://tipsy-newyorker.herokuapp.com/]
+
 
 ### username: cody password: 123
 
-### Technologies Used
-HTML5, CSS3, JavaScript, React, Redux, Sequelize, Express, Node.js, PostgreSQL
+## Technologies
+- HTML5
+- CSS3
+- JavaScript
+- React
+- Redux
+- Sequelize
+- Express
+- Node.js
+- PostgreSQL
 
 
-To install packages: npm install
+### To install packages: npm install
 
 ### `npm run start:dev`
 Runs the app in the development mode.
