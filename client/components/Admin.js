@@ -1,5 +1,4 @@
 import React from 'react';
-// import { fetchUsers } from '../../store/admin';
 import { connect } from 'react-redux';
 import CardItem from './CardItem';
 

@@ -170,7 +170,7 @@ async function seed() {
       description:
         'Using the finest blue agave plant and a time-honored distillation process, Don Julio Blanco Tequila is tequila in its truest form. Commonly referred to as “silver” tequila, the crisp agave flavor and hints of citrus make our blanco tequila an essential component to a variety of innovative drinks. This luxury tequila is double-distilled and made from pure unaged agave, making it perfect for any celebration.',
       imageUrl:
-        'https://products3.imgix.drizly.com/ci-don-julio-blanco-f63b8c936d2eea08.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://products0.imgix.drizly.com/ci-don-julio-blanco-890a35ac6957107d.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
       size: '750',
       price: '52',
       ABV: '40',
