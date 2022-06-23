@@ -1,7 +1,8 @@
+
 # American Spirit
 ## A fully functioning mock e-commerce application revolving around selling liquor products using the PERN stack
 [Click here for the live site](https://tipsy-newyorker.herokuapp.com/)
-<!-- ![alt text](https://live.staticflickr.com/65535/52035385485_743276f02b_z.jpg) -->
+
 ![](https://user-images.githubusercontent.com/32605566/174420731-4a95874b-df53-4637-a496-df4d41e63b3e.gif)
 
 
@@ -37,6 +38,8 @@ Open http://localhost:8080 to view it in your browser.
 - Sean Hagstrom - [https://github.com/seanhagstrom](https://github.com/seanhagstrom)
 - Devarat Patel - [https://github.com/devaratpatel](https://github.com/devaratpatel)
 - Ilfir Yakupov - [https://github.com/philsmirnoff](https://github.com/philsmirnoff)
+
+
 
 
 
