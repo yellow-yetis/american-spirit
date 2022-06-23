@@ -1,7 +1,7 @@
-# Tipsy New Yorker
+
+# American Spirit
 ## A fully functioning mock e-commerce application revolving around selling liquor products using the PERN stack
 [Click here for the live site](https://tipsy-newyorker.herokuapp.com/)
-
 
 ![](https://user-images.githubusercontent.com/32605566/174420731-4a95874b-df53-4637-a496-df4d41e63b3e.gif)
 
