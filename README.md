@@ -1,7 +1,7 @@
 
 # American Spirit
 ## A fully functioning mock e-commerce application revolving around selling liquor products using the PERN stack
-[Click here for the live version](https://tipsy-newyorker.herokuapp.com/)
+[Click here for the live version](https://american-spirit.herokuapp.com/)
 
 ![](https://user-images.githubusercontent.com/32605566/175239095-bf600de5-6bbf-4e37-bc7a-76f932629afe.gif)
 
