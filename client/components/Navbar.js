@@ -47,7 +47,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
         <div className="navbar-container">
           {/* The navbar will show these links before you log in */}
           <Link to="/" className="navbar-logo">
-            Tipsy New Yorker <i className="fab fa-typo3" />
+            American Spirit <i className="fab fa-typo3" />
           </Link>
           <Link to="/products" className="nav-links">
             Shop All
