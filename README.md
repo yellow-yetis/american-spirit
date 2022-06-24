@@ -21,13 +21,13 @@
 
 ## User Authentication
 ![](https://user-images.githubusercontent.com/32605566/175450270-bbda8351-f355-45cb-9ebc-7907ce0afa29.gif)
-### User is able to navigate on the website and purchase the products after being logged in as well as a guest. Authenticated users has access to the Homepage with categorized list of products, current specials and additional informational links at the Footer. Admin user is able to add, edit, delete the products in the database.
+### User is able to navigate on the website and purchase the products after being logged in as well as a guest. Authenticated users has access to the Homepage with categorized list of products, current specials and additional informational links. Admin user is able to add, edit, delete the products in the database.
 
 #### username: cody password: 123
 
 ## Product description
 ![](https://user-images.githubusercontent.com/32605566/175450395-d4d04cfa-27ee-4e18-a2cc-9fd36915ab6f.gif)
-### After selecting the product, user has its detailed description and has ability to choose the quantity of the liquor to be added to the shopping card. Whether the user chooses the quantity of the product <= 0 or more than it is on database, user will get an error message
+### After selecting the product, user has its detailed description and has ability to choose the quantity of the liquor to be added to the shopping card. Whether the user chooses the quantity of the product <= 0 or more than it is in the database, user will get an error message
 
 ## Shopping Card
 ![](https://user-images.githubusercontent.com/32605566/175450863-861586a7-0f1d-4711-8d96-612156a77a05.gif)
