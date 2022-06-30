@@ -69,7 +69,7 @@ class SingleProduct extends Component {
     return (
       <div className='single-product'>
       <div className='col-right'>
-        <img src={image} align="left" />
+        <img src={image} align="left"/>
         <h1>{name}</h1>
         <h2>{type}</h2>
         <p>{description}</p>
