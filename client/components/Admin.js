@@ -6,7 +6,7 @@ export class Admin extends React.Component {
   render() {
     return (
       <div className='admin_cards'>
-      <h1>Admin Tools for Tipsy New Yorker</h1>
+      <h1>Admin Tools for American Spirit</h1>
       <div className='admin_cards_container'>
         <div className='admin_cards_wrapper'>
          <ul className='admin_cards_items'>

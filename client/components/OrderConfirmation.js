@@ -12,7 +12,7 @@ export class OrderConfirmation extends Component {
 
   render() {
     return (
-      <div style={{textAlign: 'center'}}>
+      <div className="thank-you" style={{textAlign: 'center'}}>
         <img src='https://m.media-amazon.com/images/I/61qopmmsQSL._SX679_.jpg'  />
       </div>
     );
