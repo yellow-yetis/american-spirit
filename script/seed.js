@@ -115,7 +115,7 @@ async function seed() {
       description:
         'Tanqueray London Dry Gin is made with an expertly crafted recipe that blends the four distinct botanicals of juniper, coriander, angelica and licorice. The result is a perfectly balanced spirit that has a unique herbal quality and dry finish.',
       imageUrl:
-        'https://products1.imgix.drizly.com/ci-tanqueray-london-dry-gin-148bea7a3b10c3e4.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://products2.imgix.drizly.com/ci-tanqueray-london-dry-gin-e2ee842638459d4c.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
       size: '750',
       price: '30',
       ABV: '47',
@@ -141,7 +141,7 @@ async function seed() {
       description:
         'Created to change the way people think about gin, Aviation American Gin is made in the traditional dry style with anything but a traditional flavor profile. Aviation explores the rich, floral and savory notes of lavender, cardamom, and sarsaparilla to capture the lushness, spice, creativity, and freshness of the Pacific Northwest.',
       imageUrl:
-        'https://products2.imgix.drizly.com/ci-aviation-gin-0b57a28d3f593230.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://products1.imgix.drizly.com/ci-aviation-gin-16e1743e59cda8af.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
       size: '750',
       price: '29',
       ABV: '42',
@@ -154,7 +154,7 @@ async function seed() {
       description:
         'A versatile dry gin that is crafted using a unique combination of 22 botanicals that are hand-foraged locally and sustainably on the Scottish island of Islay. These botanicals are picked at varying times of the year, and can only be picked when it’s dry—a frequent challenge on Islay! Our dedicated forager then carefully and meticulously dry all of the botanicals in order to be infused during our slow, simmer distillation process.',
       imageUrl:
-        'https://products1.imgix.drizly.com/ci-the-botantist-islay-dry-gin-5bc35f5f6eceb428.png?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://products0.imgix.drizly.com/ci-the-botantist-islay-dry-gin-f4ff0b542eb11cea.png?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
       size: '750',
       price: '41',
       ABV: '46',
@@ -411,7 +411,7 @@ async function seed() {
       description:
         'Inspired by that interplay, Suntory Whisky Toki™ brings together old and new -the House of Suntory`s proud heritage and its innovative spirit- to create blended Japanese whisky that is both groundbreaking and timeless. Suntory Whisky was winner of Gold Medal at the 2017 Denver International Spirits Competition.',
       imageUrl:
-        'https://products0.imgix.drizly.com/ci-suntory-toki-japanese-whisky-bf3e3eaf2a516b86.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://products3.imgix.drizly.com/ci-suntory-toki-japanese-whisky-b43942fe7d4eb80b.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
       size: '750',
       price: '39',
       ABV: '43',
