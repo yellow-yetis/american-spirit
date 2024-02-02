@@ -73,7 +73,7 @@ async function seed() {
       description:
         'Stolichnaya® 100 proof Premium vodka captures all of the essence of Stoli® vodka, but is especially perfect for those who enjoy their Stoli extra smooth yet with a distinctive bite. It is a classically-styled, exceptionally smooth vodka—crystal clear in color with marshmallow, mineral and mild fruit peel aromas.',
       imageUrl:
-        'https://products3.imgix.drizly.com/ci-stolichnaya-100-proof-premium-vodka-f1f3fe7018880d25.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://consliquor.com/wp-content/uploads/2020/03/Stolichnaya_Vodka.jpe',
       size: '750',
       price: '25',
       ABV: '50',
@@ -115,7 +115,7 @@ async function seed() {
       description:
         'Tanqueray London Dry Gin is made with an expertly crafted recipe that blends the four distinct botanicals of juniper, coriander, angelica and licorice. The result is a perfectly balanced spirit that has a unique herbal quality and dry finish.',
       imageUrl:
-        'https://products2.imgix.drizly.com/ci-tanqueray-london-dry-gin-e2ee842638459d4c.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://lh3.googleusercontent.com/spp/AE_ITi2UQFbvGgbSym8M1K-rd5FIgh7ViArnB9StM6RXRMrejFpVN0-8mAMKMN-Ndmv6OWhzUChmKhntEoqJ6NlEvnvOXo27rqzsJqtU-vKtfeXCdZw7j2fyP4Z90vCnYi-v5K4_ht0uPCEyiiqNJrZuNxXjzIp9mBpU0YQ4QUPcL4UTNrOrf6kAytE_A6aqjwWgZWgo0HDmLg8=s512-rw-pd-pc0x00ffffff',
       size: '750',
       price: '30',
       ABV: '47',
@@ -140,8 +140,7 @@ async function seed() {
       region: 'United States',
       description:
         'Created to change the way people think about gin, Aviation American Gin is made in the traditional dry style with anything but a traditional flavor profile. Aviation explores the rich, floral and savory notes of lavender, cardamom, and sarsaparilla to capture the lushness, spice, creativity, and freshness of the Pacific Northwest.',
-      imageUrl:
-        'https://products1.imgix.drizly.com/ci-aviation-gin-16e1743e59cda8af.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+      imageUrl:'https://i0.wp.com/mashrobi.com/wp-content/uploads/2022/07/Aviation.jpg?fit=400%2C600&ssl=1',
       size: '750',
       price: '29',
       ABV: '42',
@@ -154,7 +153,7 @@ async function seed() {
       description:
         'A versatile dry gin that is crafted using a unique combination of 22 botanicals that are hand-foraged locally and sustainably on the Scottish island of Islay. These botanicals are picked at varying times of the year, and can only be picked when it’s dry—a frequent challenge on Islay! Our dedicated forager then carefully and meticulously dry all of the botanicals in order to be infused during our slow, simmer distillation process.',
       imageUrl:
-        'https://products0.imgix.drizly.com/ci-the-botantist-islay-dry-gin-f4ff0b542eb11cea.png?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://drizly-products.imgix.net/mi-botanist-dry-gin-2bc605af6a90491f.png',
       size: '750',
       price: '41',
       ABV: '46',
@@ -317,8 +316,7 @@ async function seed() {
       region: 'US Virgin Islands',
       description:
         'Captain Morgan is the original party spirit, a spiced rum that was born and blended to have a good time. So grab a bottle of Captain Morgan Spiced Rum, raise a leg, and toast to the adventure to be had. Captain’s orders!',
-      imageUrl:
-        'https://products3.imgix.drizly.com/ci-captain-morgan-original-spiced-rum-50b42d45bcd74a31.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+      imageUrl: 'https://chugget.com/wp-content/uploads/2019/06/IMG_1490.png',
       size: '750',
       price: '28',
       ABV: '35',
@@ -411,7 +409,7 @@ async function seed() {
       description:
         'Inspired by that interplay, Suntory Whisky Toki™ brings together old and new -the House of Suntory`s proud heritage and its innovative spirit- to create blended Japanese whisky that is both groundbreaking and timeless. Suntory Whisky was winner of Gold Medal at the 2017 Denver International Spirits Competition.',
       imageUrl:
-        'https://products3.imgix.drizly.com/ci-suntory-toki-japanese-whisky-b43942fe7d4eb80b.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://apollowine.com/public/products/file_5d64e9c94795c.jpg',
       size: '750',
       price: '39',
       ABV: '43',
