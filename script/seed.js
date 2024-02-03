@@ -115,7 +115,7 @@ async function seed() {
       description:
         'Tanqueray London Dry Gin is made with an expertly crafted recipe that blends the four distinct botanicals of juniper, coriander, angelica and licorice. The result is a perfectly balanced spirit that has a unique herbal quality and dry finish.',
       imageUrl:
-        'https://lh3.googleusercontent.com/spp/AE_ITi2UQFbvGgbSym8M1K-rd5FIgh7ViArnB9StM6RXRMrejFpVN0-8mAMKMN-Ndmv6OWhzUChmKhntEoqJ6NlEvnvOXo27rqzsJqtU-vKtfeXCdZw7j2fyP4Z90vCnYi-v5K4_ht0uPCEyiiqNJrZuNxXjzIp9mBpU0YQ4QUPcL4UTNrOrf6kAytE_A6aqjwWgZWgo0HDmLg8=s512-rw-pd-pc0x00ffffff',
+        'https://www.homeofmalts.com/media/image/e9/cb/50/DSC_1023YKKg0u5JeEm0G_600x600.jpg',
       size: '750',
       price: '30',
       ABV: '47',
