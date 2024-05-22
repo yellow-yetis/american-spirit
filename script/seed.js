@@ -34,7 +34,7 @@ async function seed() {
       description:
         'Nosing the aroma of Ketel One, you’ll immediately detect freshness with hints of citrus and honey. Savor the crisp, lively tingle. Let the signature silky softness coat your tongue. A long finish with subtle flavors reminds you of its quality.',
       imageUrl:
-        'https://products3.imgix.drizly.com/ci-ketel-one-vodka-1a0b248966757601.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://www.continentalws.com/images/sites/continentalws/labels/ketel-one-vodka_1.jpg',
       size: '750',
       price: '30',
       ABV: '40',
@@ -47,7 +47,7 @@ async function seed() {
       description:
         'Russian Standard Platinum is filtered additionally through charcoal-impregnated with silver. Silver attracts volatile impurities like sulphur, making vodka taste fresher and smoother. The aroma is light with hints of citrus zest. What you taste is dry and citrusy.',
       imageUrl:
-        'https://products1.imgix.drizly.com/ci-russian-standard-platinum-vodka-6c917b4ab695e98e.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://cdn.shopify.com/s/files/1/0564/6303/2480/products/russian-standard-original-vodka-326365_400x.jpg?v=1629265276',
       size: '750',
       price: '33',
       ABV: '40',
@@ -60,7 +60,7 @@ async function seed() {
       description:
         'Grey Goose® Vodka has an exquisite clear, fresh and elegantly aromatic taste. This is a premium vodka of unparalleled smoothness and exceptional taste, with subtle hints of almond and a long, satisfying finish.',
       imageUrl:
-        'https://products0.imgix.drizly.com/ci-grey-goose-vodka-5beb834a0488bbbb.png?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://waterstreetwinesandspirits.com/wp-content/uploads/2020/04/mi_6541.jpg',
       size: '750',
       price: '35',
       ABV: '40',
@@ -73,7 +73,7 @@ async function seed() {
       description:
         'Stolichnaya® 100 proof Premium vodka captures all of the essence of Stoli® vodka, but is especially perfect for those who enjoy their Stoli extra smooth yet with a distinctive bite. It is a classically-styled, exceptionally smooth vodka—crystal clear in color with marshmallow, mineral and mild fruit peel aromas.',
       imageUrl:
-        'https://consliquor.com/wp-content/uploads/2020/03/Stolichnaya_Vodka.jpe',
+        'https://wayne.bottleking.com/images/sites/wayne/labels/stolichnaya-vodka_1.jpg',
       size: '750',
       price: '25',
       ABV: '50',
@@ -86,7 +86,7 @@ async function seed() {
       description:
         'Belvedere Vodka is the original and true expression of luxury vodka, created from 600 years of Polish vodka-making tradition. The vodka itself is always authentic, and never artificial. Created exclusively from Polish Dankowskie Rye and quadruple-distilled to create the perfect balance of character and purity; it is completely free of additives, including sugar or glycerin.',
       imageUrl:
-        'https://products0.imgix.drizly.com/ci-belvedere-vodka-7797bb58730b93f4.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://waterstreetwinesandspirits.com/wp-content/uploads/2020/04/belvedere-vodka.jpeg',
       size: '750',
       price: '25',
       ABV: '50',
@@ -102,7 +102,7 @@ async function seed() {
       description:
         'BOMBAY SAPPHIRE Gin is made with a unique combination of 10 hand-selected exotic botanicals from around the world. BOMBAY SAPPHIRE has an extraordinary smoothness and perfectly balanced taste. Inspiring the imagination of bartenders the world over, the aromatic flavors and crisp yet delicate finish create versatility unmatched by other gins. It can be savored in inventive long drinks or perfectly balanced martinis; in classic or contemporary cocktails.',
       imageUrl:
-        'https://products0.imgix.drizly.com/ci-bombay-sapphire-4967085f606d9efa.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://franklinwineandspirits.com/wp-content/uploads/2022/02/BombaySaph750Gin_080480301026.jpeg',
       size: '750',
       price: '42',
       ABV: '47',
@@ -128,7 +128,7 @@ async function seed() {
       description:
         'Empress 1908 Gin delights the senses with its balanced citrus-and-spice palette, brilliant colour, light floral fragrance and soft texture. Handcrafted in small batch copper-pot stills, Empress 1908 is a collaboration between Victoria Distillers and the legendary Fairmont Empress Hotel in Victoria, British Columbia. It uses eight signature botanicals, including juniper, grapefruit peel, rose petal, coriander, ginger, cinnamon, and a bespoke blend of tea made especially for the Empress Hotel. ',
       imageUrl:
-        'https://products1.imgix.drizly.com/ci-empress-1908-gin-b7d1374c7dd8c87a.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://dylanswinecellar.com/wp-content/uploads/2020/05/ci-empress-1908-gin-b7d1374c7dd8c87a.jpg',
       size: '750',
       price: '39',
       ABV: '42',
@@ -153,7 +153,7 @@ async function seed() {
       description:
         'A versatile dry gin that is crafted using a unique combination of 22 botanicals that are hand-foraged locally and sustainably on the Scottish island of Islay. These botanicals are picked at varying times of the year, and can only be picked when it’s dry—a frequent challenge on Islay! Our dedicated forager then carefully and meticulously dry all of the botanicals in order to be infused during our slow, simmer distillation process.',
       imageUrl:
-        'https://drizly-products.imgix.net/mi-botanist-dry-gin-2bc605af6a90491f.png',
+        'https://a1aliquor.com/cdn/shop/products/mi-botanist-dry-gin-2bc605af6a90491f_400x.png?v=1654102684',
       size: '750',
       price: '41',
       ABV: '46',
@@ -169,7 +169,7 @@ async function seed() {
       description:
         'Using the finest blue agave plant and a time-honored distillation process, Don Julio Blanco Tequila is tequila in its truest form. Commonly referred to as “silver” tequila, the crisp agave flavor and hints of citrus make our blanco tequila an essential component to a variety of innovative drinks. This luxury tequila is double-distilled and made from pure unaged agave, making it perfect for any celebration.',
       imageUrl:
-        'https://products0.imgix.drizly.com/ci-don-julio-blanco-890a35ac6957107d.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://grandplazaliquors.com/wp-content/uploads/2019/11/DON-JULIO.jpeg',
       size: '750',
       price: '52',
       ABV: '40',
@@ -182,7 +182,7 @@ async function seed() {
       description:
         'The world’s first ultra-premium tequila, Patrón Silver should be savored starting with the very first sip - from the delicate aroma of fruits and citrus to the sweet and smooth taste with a light pepper finish. It’s made using a handcrafted process unique to Patrón, which gives it the perfect balance of fresh agave flavor with baked agave undertones – core influencer notes you’ll find in all Patrón Tequilas.',
       imageUrl:
-        'https://products3.imgix.drizly.com/ci-patron-silver-25fa130a809ea038.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://www.socalws.com/cdn/shop/products/patronsilver_grande.jpg?v=1613007845',
       price: '51',
       size: '750',
       ABV: '40',
@@ -195,7 +195,7 @@ async function seed() {
       description:
         'Casamigos, a small batch, ultra-premium tequila made from the finest, hand-selected 100% Blue Weber agaves, grown in the rich red clay and cool climate of the Highlands of Jalisco, Mexico for a minimum of seven years. After harvest, the agave piñas are roasted in traditional brick ovens for 72 hours, before undergoing an extra-slow fermentation process over an additional eighty hours, nearly double the industry standard.',
       imageUrl:
-        'https://products3.imgix.drizly.com/ci-casamigos-blanco-7fa61a657f6f783c.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://vintagemattituck.com/cdn/shop/products/img_432_1_96c00e52-9619-41f7-827e-f07d1fd8f6e7_grande.jpg?v=1507681862',
       size: '750',
       price: '49',
       ABV: '40',
@@ -208,7 +208,7 @@ async function seed() {
       description:
         'The original tequila created over 200 years ago! Jose Cuervo® Tradicional® Silver is a multiple award winning, 100% blue agave tequila. GOLD MEDAL winner at San Francisco World Spirit Competition 2019. Herbaceous blue agave in aroma with subtle citrus notes. Spice and sweet balance, firmness and fruit overtones within its flavor profile, with a sweet and refreshing finish. When bottled, a special process is used to conserve its flavor and finish at freezing temperatures. ',
       imageUrl:
-        'https://products0.imgix.drizly.com/ci-jose-cuervo-tradicional-silver-tequila-8cb83e21c68a6863.png?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://www.horsemanliquorstore.com/cdn/shop/products/ci-jose-cuervo-especial-silver-tequila-b4511db8b8f76297_580x.png?v=1585597206',
       size: '750',
       price: '35',
       ABV: '40',
@@ -221,7 +221,7 @@ async function seed() {
       description:
         'A Silver that’s second to none. Herradura Silver is matured in American white oak barrels for 45 days, imparting a light straw color and woody aroma. Vanilla and citrus characters complement the flavor of sweet agave. The smooth, clean profile of Herradura Silver has maintained its reputation as one of the finest tequilas in the world and a staple in our collection.',
       imageUrl:
-        'https://products1.imgix.drizly.com/ci-herradura-silver-7b367ce658e78368.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://lpwinesandliquors.com/cdn/shop/products/l-p-wines-liquors-tequila-herradura-silver-tequila-l-29539969630291_grande.jpg?v=1640273926',
       size: '750',
       price: '43',
       ABV: '40',
@@ -237,7 +237,7 @@ async function seed() {
       description:
         'Full bodied agave flavor. Eucalyptus and mineral aromas compliment hints of green apple, fresh citrus, and red chiltepe. Hint of smoke.',
       imageUrl:
-        'https://products3.imgix.drizly.com/ci-ilegal-mezcal-joven-19b5a27b4e8f1608.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://bkwinedepot.com/cdn/shop/files/ilegaLJOVEN.webp?v=1705263949',
       size: '750',
       price: '42',
       ABV: '40',
@@ -276,7 +276,7 @@ async function seed() {
       description:
         'Casamigos Mezcal is balanced and elegant, offering harmonious hints of tamarind, pomegranate, banana and mango. Fresh herbal mint aromas, dried oregano and thyme lend character to the mezcal. The delicate tones of smoke, hints of licorice and mineral nuances lead to a long silky finish.',
       imageUrl:
-        'https://products2.imgix.drizly.com/ci-casamigos-mezcal-f9b498b49b75f576.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://www.checkersliquors.com/wp-content/uploads/2022/06/casamigos-mezcal.jpg',
         size: '750',
         price: '65',
       ABV: '43',
@@ -304,7 +304,7 @@ async function seed() {
       description:
         'With its unique balance and light taste, Bacardi Superior pairs beautifully with mint and lime without being overly dominant in the cocktail. This means that its perfect for a mojito or a Cuba Libre, but without the overwhelming taste of alcohol.',
       imageUrl:
-        'https://products2.imgix.drizly.com/ci-bacardi-superior-rum-dfd1809889854320.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://alexandrialiquor.com/plaza-liquor/wp-content/uploads/sites/4/2021/06/00008048001530.jpg',
       size: '750',
       price: '19',
       ABV: '40',
@@ -316,7 +316,7 @@ async function seed() {
       region: 'US Virgin Islands',
       description:
         'Captain Morgan is the original party spirit, a spiced rum that was born and blended to have a good time. So grab a bottle of Captain Morgan Spiced Rum, raise a leg, and toast to the adventure to be had. Captain’s orders!',
-      imageUrl: 'https://chugget.com/wp-content/uploads/2019/06/IMG_1490.png',
+      imageUrl: 'https://www.shutterstock.com/image-photo/guilin-china-june-29-2021-600nw-2091240241.jpg',
       size: '750',
       price: '28',
       ABV: '35',
@@ -328,7 +328,7 @@ async function seed() {
       region: 'Barbados',
       description:
         'Brilliant golden amber in color, Eclipse bears a complex aroma whose rich, harmonious floral and fruity notes of apricot and banana, with hints of vanilla and a subtle smokiness imparted by the barrels used for aging.',
-      imageUrl: 'https://products3.imgix.drizly.com/ci-mount-gay-eclipse-rum-aad173712d536e3e.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+      imageUrl: 'https://waterstreetwinesandspirits.com/wp-content/uploads/2020/04/ci-mount-gay-eclipse-rum-108b1e2197c2dc68.jpg',
       size: '750',
       price: '24',
       ABV: '35',
@@ -341,7 +341,7 @@ async function seed() {
       description:
         'The balance of delicate and unique flavors of Zacapa No. 23 is derived from a blend of aged rums between 6 and 23 years old, originating from our take on the “Sistema Solera” aging process. Zacapa No. 23 is aged in selected barrels that previously aged robust American whiskey, delicate sherries and fine Pedro Ximénez wines, creating a smooth & balanced rum.',
       imageUrl:
-        'https://products2.imgix.drizly.com/ci-ron-zacapa-centenario-23-year-ed03ac34ff638d41.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://www.socalws.com/cdn/shop/products/ronzacapa23_400x.jpg?v=1613007794',
       size: '750',
       price: '50',
       ABV: '40',
@@ -354,7 +354,7 @@ async function seed() {
       description:
         'Crafted from Caribbean sugarcane and pure water then aged for two years in oak barrels, Malibu Original is perfect for celebrating beach-side with friends or throwing a pool-party for one. This rich, flavorful blend of sweet coconut and island rum is Summer’s favorite sidekick and the star of any tropical cocktail.',
       imageUrl:
-        'https://products3.imgix.drizly.com/ci-malibu-original-coconut-rum-23fadbc50ccf3df9.png?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://waterstreetwinesandspirits.com/wp-content/uploads/2020/04/ci-malibu-original-coconut-rum-f7ea08140136b7f7.jpeg',
       size: '750',
       price: '18',
       ABV: '21',
@@ -370,7 +370,7 @@ async function seed() {
       description:
         'Indulge all of your senses with a smooth glass of Johnnie Walker Green Label Blended Malt Scotch Whisky. Crafted from a palette of Speyside, Highland, Lowland and Island malts and matured for at least 15 years, it delivers all the character of a single malt whisky, but with a greater depth of flavor. This award-winning spirit is a truly unique blend to savor while you sit back and unwind.',
       imageUrl:
-        'https://products2.imgix.drizly.com/ci-johnnie-walker-green-label-5baaadf9ba4fd973.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://nobullspirits.com/cdn/shop/products/johnnie-walker-green-label-blended-malt-scotch-whisky-421486.jpg?v=1629265110',
       size: '750',
       price: '78',
       ABV: '43',
@@ -383,7 +383,7 @@ async function seed() {
       description:
       'A deep, satisfying nose of nutmeg and spices. Powerful dry vanilla notes in harmony with hints of honey amid strong caramel and corn. A medium finish composed of returning corn and nutmeg flavors. Blanton`s Original Single Barrel was once designated for ambassadors, dignitaries, and Colonel Blanton`s family and friends. Today, everyone has access to the world`s first single barrel bourbon.',
       imageUrl:
-        'https://products1.imgix.drizly.com/ci-blantons-single-barrel-bourbon-f27c3cae7eeaa8b9.png?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://nobullspirits.com/cdn/shop/products/blantons-single-barrel-bourbon-951017.jpg?v=1629264912',
       size: '750',
       price: '115',
       ABV: '46',
@@ -396,7 +396,7 @@ async function seed() {
       description:
         'Angel’s Envy is an exceptional Kentucky straight bourbon finished in port wine barrels. Given the Highest Recommendation by Spirit Journal, celebrated by Whisky Advocate, The Bourbon Review, and awarded Wine Enthusiast’s highest bourbon rating, Angel’s Envy is unlike any other whiskey you’ve ever tasted.',
       imageUrl:
-        'https://products3.imgix.drizly.com/ci-angels-envy-bourbon-d8f18f75ccca3845.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://pointwineandspirits.com/cdn/shop/products/7bbc19659d51b73223386f8737a9b1e4.jpg?v=1611346324',
       size: '750',
       price: '54',
       ABV: '43',
@@ -422,7 +422,7 @@ async function seed() {
       description:
         'Oban 14 Year Single Malt is crafted with 100-percent barley to the distillery`s exact specifications, which includes fermenting the malted barley in small-batch, lantern-shaped copper stills before aging the scotch in oak casks. During its rest, the whisky is shaped by the surrounding environment, which consists of warm, salty Gulf Stream air and a temperate climate. The result is a full-bodied, extremely dry scotch with notes of honey and dried figs, which lead to a soft, oaky finish.',
       imageUrl:
-        'https://products3.imgix.drizly.com/ci-oban-14-year-single-malt-c62c8b26a59a4698.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://pointwineandspirits.com/cdn/shop/products/d7b4db980ac7730c022eefbb1a232a8c.jpg?v=1611345733',
       size: '750',
       price: '94',
       ABV: '43',
