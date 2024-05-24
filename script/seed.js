@@ -244,13 +244,13 @@ async function seed() {
       stock: '11',
     }),
     Liquor.create({
-      name: 'Doña Vega',
+      name: 'Vida',
       category: 'Mezcal',
       region: 'Mexico',
       description:
         'A sweet nose, an intoxicating range of flavors that include vanilla, coco, nougat and toasted oak, extending through a long, smooth finish. This is a true connoisseur’s spirit.',
       imageUrl:
-        'https://products3.imgix.drizly.com/ci-dona-vega-espadin-capon-872d36f6b35fc23f.png?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://www.blackwellswines.com/cdn/shop/files/14D04EAC-236E-4492-83BB-97C79114C93A_1_201_a_grande.heic?v=1682545429',
       size: '750',
       price: '34',
       ABV: '40',
@@ -288,7 +288,7 @@ async function seed() {
       region: 'Mexico',
       description:
         'This brand has had an impressive and growing following for its mezcal from day one and for this much flavor at this price it is very easy to see why. You will find textbook notes of lime zest, carmelized agave, winter melon, avocado leaf and smoke that is perfectly suited for all of your sipping and cocktail mixing needs.',
-      imageUrl: 'https://products2.imgix.drizly.com/ci-el-silencio-espadin-black-mezcal-48bd7d8058280edc.jpeg?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+      imageUrl: 'https://cdn10.bigcommerce.com/s-2wqvsgr8/products/1846/images/2809/Screen_Shot_2019-11-12_at_2.29.39_PM__64969.1573597838.1280.1280.png?c=2',
       size: '750',
       price: '65',
       ABV: '43',
