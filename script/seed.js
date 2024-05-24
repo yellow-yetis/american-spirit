@@ -263,7 +263,7 @@ async function seed() {
       description:
         'Following the artisanal method with firewood heating copper stills, the mezcal is small batch twice distilled to achieve a perfect balance of sweetness and subtle smoke. This artisinally produced joven mezcal is strikingly balanced and complex, with a bold integration between all the notes that mezcal has to offer. Montelobos Espadin is an experience unto itself.',
       imageUrl:
-        'https://products0.imgix.drizly.com/ci-montelobos-mezcal-joven-ac0f31132f55752a.png?auto=format%2Ccompress&ch=Width%2CDPR&fm=jpg&q=20',
+        'https://sunsetliquorstore.com/cdn/shop/products/mi-montelobos-mezcal-joven-ad0b955e09b28d59_1.png?v=1636665695',
       size: '750',
       price: '42',
       ABV: '43',
